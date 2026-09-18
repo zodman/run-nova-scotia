@@ -134,7 +134,7 @@ export default function Footer({ onJoinClick }) {
               <span>👟 Made by</span>{' '}
               <a 
                 id="footer-attribution-andres"
-                href="https://www.strava.com/athletes/70572951" 
+                href="https://www.strava.com/athletes/zodman" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-slate-300 hover:text-volt font-medium inline-flex items-center gap-1 transition-colors underline decoration-slate-600 hover:decoration-volt underline-offset-2 cursor-pointer"
