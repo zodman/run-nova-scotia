@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, ArrowRight, ShieldCheck, Heart, Send } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, ShieldCheck, Heart, Send, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onJoinClick }) {
   const [email, setEmail] = useState('');
@@ -127,8 +127,23 @@ export default function Footer({ onJoinClick }) {
 
         {/* Bottom Bar */}
         <div id="footer-bottom-bar" className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <div id="footer-copyright">
-            © {new Date().getFullYear()} Run Nova Scotia. All rights reserved.
+          <div id="footer-copyright" className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1">
+            <span>© {new Date().getFullYear()} Run Nova Scotia. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-600">•</span>
+            <span>
+              Made by{' '}
+              <a 
+                id="footer-attribution-andres"
+                href="https://www.strava.com/athletes/70572951" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-volt font-medium inline-flex items-center gap-1 transition-colors underline decoration-slate-600 hover:decoration-volt underline-offset-2 cursor-pointer"
+                title="Andres Vargas on Strava"
+              >
+                <span>Andres Vargas</span>
+                <ExternalLink className="w-3 h-3 opacity-70" />
+              </a>
+            </span>
           </div>
           <div id="footer-bottom-links" className="flex items-center space-x-6">
             <a id="footer-link-constitution" href="#about" className="hover:text-slate-300 transition-colors">Constitution & By-Laws</a>
