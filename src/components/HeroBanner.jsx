@@ -54,38 +54,33 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
             <div id="hero-headline-wrapper" className="space-y-2">
               <h1 id="hero-headline" className="text-4xl sm:text-6xl xl:text-7xl font-athletic font-extrabold tracking-tight uppercase leading-[0.95] text-slate-900 dark:text-white">
                 Promoting Road <br className="hidden sm:inline" />
-                Running in{' '}
-                <span className="inline-flex items-center flex-wrap gap-x-3 gap-y-2 align-baseline">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean via-ocean-600 to-ocean-800 dark:from-volt dark:via-amber-300 dark:to-ice">
-                    Nova Scotia
-                  </span>
-                  <span className="inline-flex items-center gap-2 sm:gap-2.5 align-middle self-center">
-                    <img 
-                      src="./images/flags/flag-nova-scotia.svg" 
-                      alt="Flag of Nova Scotia" 
-                      title="Nova Scotia"
-                      className="h-6 sm:h-8 xl:h-10 w-auto aspect-[2/1] object-cover rounded-sm shadow-sm border border-slate-300/80 dark:border-white/20 transition-all duration-300 hover:scale-110"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Nova_Scotia.svg";
-                      }}
-                    />
-                    <img 
-                      src="./images/flags/flag-canada.svg" 
-                      alt="Flag of Canada" 
-                      title="Canada"
-                      className="h-6 sm:h-8 xl:h-10 w-auto aspect-[2/1] object-cover rounded-sm shadow-sm border border-slate-300/80 dark:border-white/20 transition-all duration-300 hover:scale-110"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg";
-                      }}
-                    />
-                  </span>
-                </span>
+                Running in <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean via-ocean-600 to-ocean-800 dark:from-volt dark:via-amber-300 dark:to-ice">Nova Scotia</span>
               </h1>
               <p id="hero-subtitle" className="text-slate-700 dark:text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed pt-2">
                 Health, fitness, and camaraderie for runners of <strong className="text-slate-900 dark:text-white font-semibold">all ages and abilities</strong>. 
-                Supporting everyone from first-time 5K finishers to Boston Marathon qualifiers across our beautiful ocean province.
+                Supporting everyone from first-time 5K finishers to Boston Marathon qualifiers across our beautiful ocean province
+                <span className="inline-flex items-center gap-1.5 ml-2 align-middle -translate-y-0.5">
+                  <img 
+                    src="./images/flags/flag-nova-scotia.svg" 
+                    alt="Flag of Nova Scotia" 
+                    title="Nova Scotia" 
+                    className="inline-block h-4 sm:h-5 w-auto aspect-[2/1] object-cover rounded-xs shadow-xs border border-slate-300/80 dark:border-white/20 transition-all duration-200 hover:scale-115 cursor-help"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Nova_Scotia.svg";
+                    }}
+                  />
+                  <img 
+                    src="./images/flags/flag-canada.svg" 
+                    alt="Flag of Canada" 
+                    title="Canada" 
+                    className="inline-block h-4 sm:h-5 w-auto aspect-[2/1] object-cover rounded-xs shadow-xs border border-slate-300/80 dark:border-white/20 transition-all duration-200 hover:scale-115 cursor-help"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg";
+                    }}
+                  />
+                </span>.
               </p>
             </div>
 
