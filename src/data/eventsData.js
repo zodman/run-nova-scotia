@@ -139,6 +139,34 @@ export const eventsData = [
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Scotiabank+Centre+Halifax+NS"
   },
   {
+    "id": "dartmouth-terry-fox-run-2026",
+    "name": "Dartmouth Terry Fox Run",
+    "year": 2026,
+    "date": "Sunday, September 20, 2026",
+    "isoDate": "2026-09-20",
+    "location": "Sullivan's Pond, Dartmouth, NS",
+    "region": "Halifax Metro",
+    "distances": [
+      "5K",
+      "10K",
+      "Walk / Run / Roll"
+    ],
+    "category": "EXTRA",
+    "type": "Community & Charity Run",
+    "organizer": "The Terry Fox Foundation",
+    "description": "Join the annual Dartmouth Terry Fox Run around scenic Sullivan's Pond in support of cancer research. Walk, run, wheel, or cycle in honour of Canadian hero Terry Fox's Marathon of Hope. Open to all ages and abilities with no entry fee and no minimum pledge required.",
+    "courseType": "Paved Park Trails & Lakeside Greenway Loop",
+    "price": "Free / Donation-Based",
+    "registrationUrl": "https://run.terryfox.ca/130033",
+    "websiteUrl": "https://run.terryfox.ca/130033",
+    "badge": "Next Up • This Sunday",
+    "elevation": "Gentle rolling (+15m)",
+    "resultsUrl": "https://run.terryfox.ca/130033",
+    "image": "https://img.crowdchange.ca/files/78fc4360-df94-410b-bbbf-193420d91b9f.webp?tr=w-800",
+    "driveTimeFromHalifax": "~10-15 min (across Macdonald Bridge)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sullivan%27s+Pond+Dartmouth+NS"
+  },
+  {
     "id": "kicking-pancreas-5k-2026",
     "name": "Kicking PancreAS 5K",
     "year": 2026,

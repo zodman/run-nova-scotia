@@ -268,6 +268,8 @@ export default function EventModal({ event, onClose, onJoinClick }) {
                   ? 'Register on Route541'
                   : event.registrationUrl?.includes('webscorer.com')
                   ? 'Register on Webscorer'
+                  : event.registrationUrl?.includes('terryfox.ca')
+                  ? 'Join / Donate on Terry Fox'
                   : 'Register for Race'}
               </span>
               <ExternalLink className="w-3.5 h-3.5" />
