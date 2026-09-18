@@ -15,21 +15,24 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
   return (
     <section id="hero-section" className="relative min-h-[90vh] flex items-center bg-slate-100 dark:bg-[#040b17] overflow-hidden transition-colors duration-300">
       
-      {/* Background with runner action image, gradient mask, and subtle grid */}
+      {/* Background with runner action image with vivid clarity and subtle readability mask */}
       <div id="hero-background" className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=85" 
+          src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=90" 
           alt="Road runners in Nova Scotia" 
-          className="w-full h-full object-cover object-center opacity-30 dark:opacity-55 filter brightness-105 dark:brightness-90 contrast-105 dark:contrast-115"
+          className="w-full h-full object-cover object-center sm:object-[center_35%] opacity-80 sm:opacity-90 dark:opacity-75 sm:dark:opacity-85 filter brightness-100 contrast-105 saturate-105 transition-opacity duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/95 via-slate-100/70 to-transparent dark:from-[#040b17]/85 dark:via-[#040b17]/45 dark:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-100/80 via-transparent to-slate-100/40 dark:from-[#040b17]/70 dark:via-transparent dark:to-[#040b17]/35" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-15 dark:opacity-25 pointer-events-none" />
+        {/* Soft horizontal gradient prioritizing text legibility on left while keeping runners clear on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/60 to-slate-100/20 lg:to-transparent dark:from-[#040b17]/90 dark:via-[#040b17]/55 dark:to-[#040b17]/15 dark:lg:to-transparent" />
+        
+        {/* Subtle vertical edge blends for seamless section transitions */}
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-100 dark:from-[#040b17] to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-slate-100/60 dark:from-[#040b17]/60 to-transparent pointer-events-none" />
       </div>
 
-      {/* Decorative Gold and Ocean Glowing Orbs */}
-      <div className="absolute -top-32 right-10 w-96 h-96 bg-volt/20 dark:bg-volt/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-ocean/20 dark:bg-ocean/25 rounded-full blur-2xl pointer-events-none" />
+      {/* Decorative Subtle Glowing Accents */}
+      <div className="absolute -top-32 right-10 w-96 h-96 bg-volt/10 dark:bg-volt/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-ocean/10 dark:bg-ocean/15 rounded-full blur-2xl pointer-events-none" />
 
       {/* Main Hero Content */}
       <div id="hero-content-wrapper" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-20 lg:py-28 w-full">
