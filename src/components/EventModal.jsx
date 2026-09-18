@@ -49,8 +49,13 @@ export default function EventModal({ event, onClose, onJoinClick }) {
                 {pending ? (daysDelta === 0 ? 'Today' : `Pending • ${getEventRelativeTime(event.isoDate)}`) : 'Completed / Past Event'}
               </span>
             </div>
-            <h2 id="event-modal-title" className="text-2xl sm:text-3xl font-athletic font-bold uppercase text-white tracking-wide">
-              {event.name}
+            <h2 id="event-modal-title" className="text-2xl sm:text-3xl font-athletic font-bold uppercase text-white tracking-wide flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+              <span>{event.name}</span>
+              {event.organizer && (
+                <span id="event-modal-organizer" className="text-xs sm:text-sm font-sans font-normal text-slate-300 normal-case tracking-normal">
+                  by {event.organizer}
+                </span>
+              )}
             </h2>
           </div>
         </div>
