@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    # Set DEPLOYPATH to your cPanel document root
+    # Replace 'YOUR_CPANEL_USER' with your actual cPanel username
+    - export DEPLOYPATH=/home/YOUR_CPANEL_USER/public_html/
+    - /bin/cp -R dist/* $DEPLOYPATH
