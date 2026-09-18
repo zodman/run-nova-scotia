@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { ChevronRight, Calendar, Award, ShieldCheck, Flame, ArrowUpRight, MapPin, ExternalLink, Car } from 'lucide-react';
-import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime } from '../data/eventsData';
+import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, addUtmParams } from '../data/eventsData';
 
 export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent }) {
   // Dynamically select the NEXT upcoming event from today
@@ -227,7 +227,7 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
 
                 <a 
                   id="hero-featured-card-register-btn"
-                  href={nextEvent.registrationUrl}
+                  href={addUtmParams(nextEvent.registrationUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-2.5 px-3 bg-volt hover:bg-[#e5d800] text-black font-athletic font-bold text-xs uppercase tracking-wider rounded transition-colors duration-200 flex items-center justify-center space-x-1 cursor-pointer shadow-[0_0_15px_rgba(254,240,0,0.3)]"

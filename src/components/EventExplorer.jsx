@@ -15,7 +15,7 @@ import {
   Car,
   Link
 } from 'lucide-react';
-import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, getEventRelativeTimeCompact } from '../data/eventsData';
+import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, getEventRelativeTimeCompact, addUtmParams } from '../data/eventsData';
 
 export default function EventExplorer({ 
   onSelectEvent, 
@@ -632,7 +632,7 @@ export default function EventExplorer({
                       {pending ? (
                         <a
                           id={`event-card-register-btn-${race.id}`}
-                          href={race.registrationUrl}
+                          href={addUtmParams(race.registrationUrl)}
                           target="_blank"
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}

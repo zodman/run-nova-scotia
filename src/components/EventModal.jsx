@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, MapPin, Calendar, ExternalLink, ShieldCheck, Award, Flag, ArrowRight, CheckCircle, Trophy, Clock, Globe, Car } from 'lucide-react';
-import { isEventPending, getEventDaysDelta, getEventRelativeTime } from '../data/eventsData';
+import { isEventPending, getEventDaysDelta, getEventRelativeTime, addUtmParams } from '../data/eventsData';
 
 export default function EventModal({ event, onClose, onJoinClick }) {
   if (!event) return null;
@@ -256,7 +256,7 @@ export default function EventModal({ event, onClose, onJoinClick }) {
           {pending ? (
             <a
               id="event-modal-register-btn"
-              href={event.registrationUrl}
+              href={addUtmParams(event.registrationUrl)}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-2.5 bg-volt hover:bg-[#e5d800] text-black font-athletic font-bold text-xs uppercase tracking-wider rounded transition-colors flex items-center space-x-2 shadow cursor-pointer"
