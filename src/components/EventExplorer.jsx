@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Search, 
   MapPin, 
   Calendar, 
-  ChevronRight, 
+  ChevronRight,
+  ChevronLeft,
   ExternalLink, 
   SlidersHorizontal,
   Clock,
@@ -133,6 +134,30 @@ export default function EventExplorer({
       countExtra: extCount
     };
   }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory]);
+
+  // Pagination for Events: 12 elements per page (rows of 3 on desktop)
+  const EVENTS_PER_PAGE = 12;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Automatically reset to Page 1 when any filter or search changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory]);
+
+  const totalPages = Math.ceil(filteredEvents.length / EVENTS_PER_PAGE) || 1;
+  const clampedPage = Math.min(Math.max(1, currentPage), totalPages);
+  const startIndex = (clampedPage - 1) * EVENTS_PER_PAGE;
+  const endIndex = Math.min(startIndex + EVENTS_PER_PAGE, filteredEvents.length);
+  const paginatedEvents = filteredEvents.slice(startIndex, startIndex + EVENTS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    const target = Math.min(Math.max(1, newPage), totalPages);
+    setCurrentPage(target);
+    const container = document.getElementById('events');
+    if (container) {
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <section id="events" className="py-24 bg-white dark:bg-[#040b17] relative transition-colors duration-300">
@@ -383,8 +408,9 @@ export default function EventExplorer({
             </button>
           </div>
         ) : (
-          <div id="events-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredEvents.map((race) => {
+          <div className="space-y-8">
+            <div id="events-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedEvents.map((race) => {
               const pending = isEventPending(race.isoDate);
               const daysDelta = getEventDaysDelta(race.isoDate);
 
@@ -636,7 +662,71 @@ export default function EventExplorer({
               );
             })}
           </div>
-        )}
+
+          {/* Pagination Controls (12 elements in rows of 3) */}
+          {totalPages > 1 && (
+            <div id="events-pagination" className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-dark-750">
+              <div className="text-xs font-athletic font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 text-center sm:text-left">
+                Showing <span className="text-slate-900 dark:text-white font-bold">{startIndex + 1}–{endIndex}</span> of <span className="text-slate-900 dark:text-white font-bold">{filteredEvents.length}</span> events &bull; Page <span className="text-ocean dark:text-volt font-bold">{clampedPage}</span> of {totalPages}
+              </div>
+
+              <div className="flex items-center space-x-2">
+                {/* Prev Button */}
+                <button
+                  id="events-pagination-prev"
+                  onClick={() => handlePageChange(clampedPage - 1)}
+                  disabled={clampedPage === 1}
+                  className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                    clampedPage === 1
+                      ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                      : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                  }`}
+                  aria-label="Previous Events Page"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-1" />
+                  Prev
+                </button>
+
+                {/* Page Numbers */}
+                <div className="flex items-center space-x-1.5">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                    <button
+                      key={pageNum}
+                      id={`events-page-${pageNum}`}
+                      onClick={() => handlePageChange(pageNum)}
+                      className={`w-9 h-9 rounded-xl text-xs font-athletic font-bold transition-all flex items-center justify-center cursor-pointer ${
+                        pageNum === clampedPage
+                          ? 'bg-volt text-black shadow-md font-extrabold scale-105'
+                          : 'bg-white dark:bg-dark-850 hover:bg-slate-100 dark:hover:bg-dark-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-750'
+                      }`}
+                      aria-label={`Go to page ${pageNum}`}
+                      aria-current={pageNum === clampedPage ? 'page' : undefined}
+                    >
+                      {pageNum}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  id="events-pagination-next"
+                  onClick={() => handlePageChange(clampedPage + 1)}
+                  disabled={clampedPage === totalPages}
+                  className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                    clampedPage === totalPages
+                      ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                      : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                  }`}
+                  aria-label="Next Events Page"
+                >
+                  Next
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
 
       </div>
     </section>
