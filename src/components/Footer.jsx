@@ -130,8 +130,8 @@ export default function Footer({ onJoinClick }) {
           <div id="footer-copyright" className="flex flex-wrap items-center justify-center sm:justify-start gap-x-2 gap-y-1">
             <span>© {new Date().getFullYear()} Run Nova Scotia. All rights reserved.</span>
             <span className="hidden sm:inline text-slate-600">•</span>
-            <span>
-              Made by{' '}
+            <span className="inline-flex items-center gap-1">
+              <span>👟 Made by</span>{' '}
               <a 
                 id="footer-attribution-andres"
                 href="https://www.strava.com/athletes/70572951" 
