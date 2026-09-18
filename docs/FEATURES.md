@@ -36,7 +36,7 @@ The calendar is the central hub for road racing across Nova Scotia, covering the
   - Runners immediately see the next actionable events open for registration.
 - **Multi-Criteria Filtering**:
   - **Season Filter**: `2026 Season`, `2027 Season`, or `All Seasons`.
-  - **Status Tabs**: `All Races`, `Upcoming Races` (with animated flame badge), and `Completed Races` (with checkmark badge).
+  - **Status Tabs**: Default selection is `Upcoming Races` (with animated flame badge) for instant access to open events, with quick tabs for `All Races` and `Completed Races`.
   - **Series Filter**: `All Series`, `Normal Series`, `Performance Series`, and `Extra Events`.
   - **Distance Pills**: `All`, `5K`, `10K`, `Half Marathon`, `Full Marathon`.
   - **Regional Filter**: `All Nova Scotia`, `Halifax Metro`, `South Shore`, `Annapolis Valley`, `Cape Breton`, `Northern NS`.

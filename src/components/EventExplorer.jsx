@@ -36,7 +36,7 @@ export default function EventExplorer({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistance, setSelectedDistance] = useState('ALL');
   const [selectedRegion, setSelectedRegion] = useState('ALL');
-  const [statusFilter, setStatusFilter] = useState('ALL'); // 'ALL', 'PENDING', 'PAST'
+  const [statusFilter, setStatusFilter] = useState('PENDING'); // 'ALL', 'PENDING', 'PAST'
   const [selectedYear, setSelectedYear] = useState(defaultYear); // Default to actual year
   
   // Controlled or uncontrolled category state ('ALL', 'PERFORMANCE', 'NORMAL', 'EXTRA')
@@ -398,7 +398,7 @@ export default function EventExplorer({
                 setSearchTerm('');
                 setSelectedDistance('ALL');
                 setSelectedRegion('ALL');
-                setStatusFilter('ALL');
+                setStatusFilter('PENDING');
                 setSelectedCategory('ALL');
                 setSelectedYear(defaultYear);
               }}
