@@ -146,5 +146,18 @@ The calendar is the central hub for road racing across Nova Scotia, covering the
   - High-resolution hero imagery with date, season, and BQ certification tags.
   - Distances, course description, and elevation profile.
   - Drive time from Halifax/Dartmouth with Google Maps route deep link.
-  - Registration status, entry fee schedule, and direct registration links.
+  - Registration status, entry fee schedule, and dynamic direct registration links.
   - Atlantic Chip timing standards and course record details.
+
+---
+
+## 11. Official Sponsors & Corporate Partners Directory
+
+- **13 Official Corporate & Community Partners** sourced directly from [Run Nova Scotia Sponsors](https://runnovascotia.ca/our-sponsors/):
+  - Aerobics First, ASICS Runkeeper, Atlantic Chip Sport Timing, Bauld Insurance, CBI Health, Dr. Jeff Ratushny, Fredericton Marathon, O’Regan’s Green Light Used Cars, Old Orchard Inn, QEII Foundation, Quiet Earth Moss, Seaside Chiropractic & Health Centre, Whalesong Studios.
+- **Company Logos**: High-resolution brand logos stored locally in `public/images/sponsors/` with automatic fallback to live remote CDN URLs.
+- **Interactive Cards**:
+  - Direct outbound links (`target="_blank" rel="noopener noreferrer"`) to each sponsor's official website.
+  - Partner tiers, categories, and locations.
+  - Exclusive member perks (e.g. Old Orchard Inn 15% room discount, Bauld Insurance exclusive programs).
+
