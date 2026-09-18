@@ -14,7 +14,7 @@ export default function Footer({ onJoinClick }) {
   };
 
   return (
-    <footer id="footer-section" className="bg-[#040b16] text-slate-400 border-t border-dark-800 pt-16 pb-10 relative">
+    <footer id="footer-section" className="bg-slate-950 dark:bg-[#040b16] text-slate-400 border-t border-slate-800 dark:border-dark-800 pt-16 pb-10 relative transition-colors duration-300">
       <div id="contact" className="absolute -top-12" />
       <div id="footer-container" className="max-w-7xl mx-auto px-4 sm:px-8">
         

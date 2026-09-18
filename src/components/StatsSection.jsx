@@ -30,7 +30,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section id="stats-section" className="bg-[#081426] border-b border-dark-750 py-16 px-4 sm:px-8 relative">
+    <section id="stats-section" className="bg-slate-50 dark:bg-[#081426] border-b border-slate-200 dark:border-dark-750 py-16 px-4 sm:px-8 relative transition-colors duration-300">
       <div id="stats-container" className="max-w-7xl mx-auto">
         <div id="stats-grid" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, idx) => {
@@ -39,26 +39,26 @@ export default function StatsSection() {
               <div 
                 key={idx}
                 id={`stat-card-${idx}`}
-                className="group relative bg-dark-850/70 hover:bg-dark-800 border border-dark-700/80 hover:border-volt/50 rounded-xl p-6 transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+                className="group relative bg-white dark:bg-dark-850/70 hover:bg-slate-50 dark:hover:bg-dark-800 border border-slate-200 dark:border-dark-700/80 hover:border-ocean/40 dark:hover:border-volt/50 rounded-xl p-6 transition-all duration-300 transform hover:-translate-y-1 shadow-sm dark:shadow-lg"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-4xl sm:text-5xl font-athletic font-bold text-volt tracking-tight">
+                  <span className="text-4xl sm:text-5xl font-athletic font-bold text-ocean dark:text-volt tracking-tight">
                     {stat.value}
                   </span>
-                  <div className="w-10 h-10 rounded-lg bg-dark-750 group-hover:bg-volt/15 group-hover:text-volt text-slate-400 flex items-center justify-center transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 dark:bg-dark-750 group-hover:bg-ocean/15 dark:group-hover:bg-volt/15 group-hover:text-ocean dark:group-hover:text-volt text-slate-600 dark:text-slate-400 flex items-center justify-center transition-colors">
                     <Icon className="w-5 h-5" />
                   </div>
                 </div>
 
-                <h4 className="text-base font-athletic font-bold text-white uppercase tracking-wider mb-1">
+                <h4 className="text-base font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-1">
                   {stat.label}
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-400 font-normal">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-normal">
                   {stat.subtext}
                 </p>
 
                 {/* Micro accent dot */}
-                <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-dark-700 group-hover:bg-volt transition-colors" />
+                <div className="absolute bottom-3 right-3 w-1.5 h-1.5 rounded-full bg-slate-200 dark:bg-dark-700 group-hover:bg-ocean dark:group-hover:bg-volt transition-colors" />
               </div>
             );
           })}

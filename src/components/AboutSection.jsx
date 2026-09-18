@@ -22,10 +22,10 @@ export default function AboutSection({ onJoinClick }) {
   ];
 
   return (
-    <section id="about" className="py-24 bg-[#040b17] relative overflow-hidden">
+    <section id="about" className="py-24 bg-white dark:bg-[#040b17] relative overflow-hidden transition-colors duration-300">
       
       {/* Background radial glow */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-ocean/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-ocean/15 dark:bg-ocean/20 rounded-full blur-3xl pointer-events-none" />
 
       <div id="about-container" className="max-w-7xl mx-auto px-4 sm:px-8">
         <div id="about-main-grid" className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -34,16 +34,16 @@ export default function AboutSection({ onJoinClick }) {
           <div id="about-visual-column" className="lg:col-span-6 relative">
             
             {/* Primary Image Container */}
-            <div id="about-image-card" className="relative z-10 rounded-2xl overflow-hidden border border-dark-700 shadow-2xl">
+            <div id="about-image-card" className="relative z-10 rounded-2xl overflow-hidden border border-slate-200 dark:border-dark-700 shadow-xl dark:shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1000&q=80" 
-                alt="Nova Scotia marathon runners crossing finish line" 
+                src="https://images.unsplash.com/photo-1594882645126-14020914d58d?auto=format&fit=crop&w=1000&q=80" 
+                alt="Nova Scotia woman athlete running on coastal road" 
                 className="w-full h-[450px] object-cover object-center filter contrast-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#040b17] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-[#040b17] via-transparent to-transparent opacity-80" />
 
               {/* Floating Quote Badge on Image */}
-              <div id="about-quote-badge" className="absolute bottom-6 left-6 right-6 bg-dark-900/95 backdrop-blur-md border border-volt/40 p-4 rounded-xl shadow-xl">
+              <div id="about-quote-badge" className="absolute bottom-6 left-6 right-6 bg-slate-900/90 dark:bg-dark-900/95 backdrop-blur-md border border-volt/40 p-4 rounded-xl shadow-xl">
                 <p className="text-sm italic text-slate-200">
                   "For 40 years, we’ve supported anyone from Yarmouth to Sydney who has decided to lace up a pair of running shoes and join the thousands of other Nova Scotians running the roads."
                 </p>
@@ -61,7 +61,7 @@ export default function AboutSection({ onJoinClick }) {
             </div>
 
             {/* Subtle background border decorative element */}
-            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-dark-700/80 rounded-2xl -z-0 pointer-events-none" />
+            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-slate-200 dark:border-dark-700/80 rounded-2xl -z-0 pointer-events-none" />
 
           </div>
 
@@ -69,18 +69,18 @@ export default function AboutSection({ onJoinClick }) {
           <div id="about-content-column" className="lg:col-span-6 space-y-6">
             
             {/* Subtitle tag */}
-            <div id="about-subtitle-tag" className="inline-flex items-center space-x-2 text-volt text-sm font-athletic font-bold uppercase tracking-widest">
-              <span className="w-8 h-0.5 bg-volt" />
+            <div id="about-subtitle-tag" className="inline-flex items-center space-x-2 text-ocean dark:text-volt text-sm font-athletic font-bold uppercase tracking-widest">
+              <span className="w-8 h-0.5 bg-ocean dark:bg-volt" />
               <span>Welcome to Run Nova Scotia</span>
             </div>
 
             {/* Heading */}
-            <h2 id="about-heading" className="text-3xl sm:text-5xl font-athletic font-bold uppercase leading-tight text-white">
+            <h2 id="about-heading" className="text-3xl sm:text-5xl font-athletic font-bold uppercase leading-tight text-slate-900 dark:text-white">
               Nova Scotia's Ultimate <br />
-              <span className="text-volt">Road Running Community</span>
+              <span className="text-ocean dark:text-volt">Road Running Community</span>
             </h2>
 
-            <p id="about-lead-text" className="text-slate-300 text-base sm:text-lg leading-relaxed">
+            <p id="about-lead-text" className="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
               Run Nova Scotia is the non-profit provincial organization dedicated to road racing in Nova Scotia. 
               We support road races around the province, track age-class performance standings, support youth athletics, 
               and champion runners of every background.
@@ -89,14 +89,14 @@ export default function AboutSection({ onJoinClick }) {
             {/* 4 Pillars Grid */}
             <div id="about-pillars-grid" className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {pillars.map((pillar, idx) => (
-                <div key={idx} id={`about-pillar-${idx}`} className="bg-dark-850/80 border border-dark-750 p-4 rounded-lg">
+                <div key={idx} id={`about-pillar-${idx}`} className="bg-slate-50 dark:bg-dark-850/80 border border-slate-200 dark:border-dark-750 p-4 rounded-lg shadow-sm">
                   <div className="flex items-start space-x-3">
-                    <CheckCircle2 className="w-5 h-5 text-volt flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-ocean dark:text-volt flex-shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="text-sm font-athletic font-bold text-white uppercase tracking-wide">
+                      <h4 className="text-sm font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide">
                         {pillar.title}
                       </h4>
-                      <p className="text-xs text-slate-400 mt-1 leading-normal">
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-normal">
                         {pillar.desc}
                       </p>
                     </div>
@@ -118,7 +118,7 @@ export default function AboutSection({ onJoinClick }) {
               <a 
                 id="about-points-link"
                 href="#series-info"
-                className="text-slate-300 hover:text-volt font-athletic text-base uppercase tracking-wider px-4 py-3.5 transition-colors flex items-center space-x-1.5"
+                className="text-slate-700 hover:text-ocean dark:text-slate-300 dark:hover:text-volt font-athletic text-base uppercase tracking-wider px-4 py-3.5 transition-colors flex items-center space-x-1.5"
               >
                 <span>How Points & Awards Work</span>
                 <span>→</span>

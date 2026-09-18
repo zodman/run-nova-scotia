@@ -18,16 +18,38 @@ export default function App() {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
-
-  // Ensure dark mode is active and clear any saved theme override
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
+  
+  // Theme state: default to 'dark', or retrieve saved choice
+  const [theme, setTheme] = useState(() => {
     try {
-      localStorage.removeItem('rns_theme');
+      const saved = localStorage.getItem('rns_theme');
+      return saved === 'light' ? 'light' : 'dark';
+    } catch (e) {
+      return 'dark';
+    }
+  });
+
+  // Sync theme with <html> class and localStorage
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    }
+    try {
+      localStorage.setItem('rns_theme', theme);
     } catch (e) {
       // ignore
     }
-  }, []);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState('ALL');
 
   const handleOpenJoinModal = (plan = null) => {
     setSelectedPlan(plan);
@@ -39,12 +61,20 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleExplorePerformance = () => {
+    setSelectedCategory('PERFORMANCE');
+    handleScrollToEvents();
+  };
+
   return (
-    <div id="app-root" className="min-h-screen bg-[#000000] text-slate-100 flex flex-col selection:bg-volt selection:text-black">
+    <div id="app-root" className="min-h-screen bg-slate-50 dark:bg-[#000000] text-slate-900 dark:text-slate-100 flex flex-col selection:bg-volt selection:text-black transition-colors duration-300">
       
       {/* Navigation Header */}
       <Navbar 
+        theme={theme}
+        onToggleTheme={toggleTheme}
         onOpenJoinModal={() => handleOpenJoinModal()}
+        onExplorePerformance={handleExplorePerformance}
       />
 
       {/* Main Content Area */}
@@ -70,11 +100,14 @@ export default function App() {
         {/* Provincial Series Tabs (Road Race vs Performance vs Youth vs Points) */}
         <SeriesTabs 
           onExploreRaces={handleScrollToEvents}
+          onExplorePerformance={handleExplorePerformance}
           onJoinClick={() => handleOpenJoinModal()}
         />
 
-        {/* 2026 Interactive Race Calendar & Filter */}
+        {/* 2026/2027 Interactive Race Calendar & Filter */}
         <EventExplorer 
+          selectedCategory={selectedCategory}
+          onSelectCategory={setSelectedCategory}
           onSelectEvent={(event) => setSelectedEvent(event)}
           onJoinClick={() => handleOpenJoinModal()}
         />

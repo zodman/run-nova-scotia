@@ -13,23 +13,23 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
 
   const daysDelta = nextEvent ? getEventDaysDelta(nextEvent.isoDate) : 0;
   return (
-    <section id="hero-section" className="relative min-h-[90vh] flex items-center bg-[#040b17] overflow-hidden">
+    <section id="hero-section" className="relative min-h-[90vh] flex items-center bg-slate-100 dark:bg-[#040b17] overflow-hidden transition-colors duration-300">
       
       {/* Background with runner action image, gradient mask, and subtle grid */}
       <div id="hero-background" className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=85" 
           alt="Road runners in Nova Scotia" 
-          className="w-full h-full object-cover object-center opacity-55 filter brightness-90 contrast-115"
+          className="w-full h-full object-cover object-center opacity-30 dark:opacity-55 filter brightness-105 dark:brightness-90 contrast-105 dark:contrast-115"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#040b17]/85 via-[#040b17]/45 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#040b17] via-transparent to-[#040b17]/35" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/95 via-slate-100/70 to-transparent dark:from-[#040b17]/85 dark:via-[#040b17]/45 dark:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-100/80 via-transparent to-slate-100/40 dark:from-[#040b17]/70 dark:via-transparent dark:to-[#040b17]/35" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-15 dark:opacity-25 pointer-events-none" />
       </div>
 
       {/* Decorative Gold and Ocean Glowing Orbs */}
-      <div className="absolute -top-32 right-10 w-96 h-96 bg-volt/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-ocean/25 rounded-full blur-2xl pointer-events-none" />
+      <div className="absolute -top-32 right-10 w-96 h-96 bg-volt/20 dark:bg-volt/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-80 h-80 bg-ocean/20 dark:bg-ocean/25 rounded-full blur-2xl pointer-events-none" />
 
       {/* Main Hero Content */}
       <div id="hero-content-wrapper" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 py-20 lg:py-28 w-full">
@@ -39,22 +39,22 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
           <div id="hero-intro-column" className="lg:col-span-8 space-y-6">
             
             {/* Athletic Badge Pill */}
-            <div id="hero-badge-pill" className="inline-flex items-center space-x-2.5 bg-dark-900/60 backdrop-blur-md border border-volt/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase text-slate-200 shadow-[0_0_15px_rgba(254,240,0,0.2)]">
+            <div id="hero-badge-pill" className="inline-flex items-center space-x-2.5 bg-white/80 dark:bg-dark-900/60 backdrop-blur-md border border-volt/60 dark:border-volt/40 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider uppercase text-slate-800 dark:text-slate-200 shadow-sm dark:shadow-[0_0_15px_rgba(254,240,0,0.2)]">
               <span className="w-2.5 h-2.5 rounded-full bg-volt animate-ping" />
               <span className="w-2.5 h-2.5 rounded-full bg-volt -ml-4" />
-              <span className="text-volt font-bold">40+ Years of Running</span>
-              <span className="text-dark-500">|</span>
-              <span className="text-ice font-medium">Yarmouth to Sydney</span>
+              <span className="text-volt-800 dark:text-volt font-bold">40+ Years of Running</span>
+              <span className="text-slate-300 dark:text-dark-500">|</span>
+              <span className="text-ocean dark:text-ice font-medium">Yarmouth to Sydney</span>
             </div>
 
             {/* Main Headline */}
             <div id="hero-headline-wrapper" className="space-y-2">
-              <h1 id="hero-headline" className="text-4xl sm:text-6xl xl:text-7xl font-athletic font-extrabold tracking-tight uppercase leading-[0.95] text-white">
+              <h1 id="hero-headline" className="text-4xl sm:text-6xl xl:text-7xl font-athletic font-extrabold tracking-tight uppercase leading-[0.95] text-slate-900 dark:text-white">
                 Promoting Road <br className="hidden sm:inline" />
-                Running in <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt via-amber-300 to-ice">Nova Scotia</span>
+                Running in <span className="text-transparent bg-clip-text bg-gradient-to-r from-ocean via-ocean-600 to-ocean-800 dark:from-volt dark:via-amber-300 dark:to-ice">Nova Scotia</span>
               </h1>
-              <p id="hero-subtitle" className="text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed pt-2">
-                Health, fitness, and camaraderie for runners of <strong className="text-white font-semibold">all ages and abilities</strong>. 
+              <p id="hero-subtitle" className="text-slate-700 dark:text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed pt-2">
+                Health, fitness, and camaraderie for runners of <strong className="text-slate-900 dark:text-white font-semibold">all ages and abilities</strong>. 
                 Supporting everyone from first-time 5K finishers to Boston Marathon qualifiers across our beautiful ocean province.
               </p>
             </div>
@@ -73,25 +73,25 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
               <button 
                 id="hero-join-rns-btn"
                 onClick={onJoinClick}
-                className="group inline-flex items-center space-x-3 bg-dark-900/60 backdrop-blur-md hover:bg-dark-800/80 text-white hover:text-volt font-athletic text-lg font-semibold uppercase tracking-wider px-8 py-4 rounded border border-dark-600/70 hover:border-volt/60 transition-all duration-300 shadow-sm cursor-pointer"
+                className="group inline-flex items-center space-x-3 bg-white/80 hover:bg-white text-slate-900 hover:text-ocean dark:bg-dark-900/60 dark:hover:bg-dark-800/80 dark:text-white dark:hover:text-volt font-athletic text-lg font-semibold uppercase tracking-wider px-8 py-4 rounded border border-slate-300 dark:border-dark-600/70 hover:border-ocean dark:hover:border-volt/60 transition-all duration-300 shadow-sm cursor-pointer"
               >
                 <span>Join Run NS ($35/yr)</span>
-                <ArrowUpRight className="w-5 h-5 text-volt group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-5 h-5 text-ocean dark:text-volt group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
 
             {/* Quick Feature Tickers */}
-            <div id="hero-feature-tickers" className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-dark-750 text-xs sm:text-sm text-slate-400">
+            <div id="hero-feature-tickers" className="pt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-t border-slate-200 dark:border-dark-750 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
               <div id="ticker-sanctioned" className="flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-volt flex-shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-ocean dark:text-volt flex-shrink-0" />
                 <span>Sanctioned Race Timing</span>
               </div>
               <div id="ticker-banquet" className="flex items-center space-x-2">
-                <Award className="w-4 h-4 text-volt flex-shrink-0" />
+                <Award className="w-4 h-4 text-ocean dark:text-volt flex-shrink-0" />
                 <span>Annual Awards Banquet</span>
               </div>
               <div id="ticker-points" className="flex items-center space-x-2">
-                <Flame className="w-4 h-4 text-volt flex-shrink-0" />
+                <Flame className="w-4 h-4 text-ocean dark:text-volt flex-shrink-0" />
                 <span>Provincial Age-Class Points</span>
               </div>
             </div>
@@ -100,57 +100,57 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
 
           {/* Right Column: Next Upcoming Event Card */}
           <div id="hero-signature-column" className="lg:col-span-4 relative">
-            <div id="hero-featured-card" className="relative bg-dark-900/60 backdrop-blur-md border border-dark-700/70 rounded-2xl p-6 shadow-2xl overflow-hidden group hover:border-volt/50 transition-all">
+            <div id="hero-featured-card" className="relative bg-white/85 dark:bg-dark-900/60 backdrop-blur-md border border-slate-200/90 dark:border-dark-700/70 rounded-2xl p-6 shadow-xl dark:shadow-2xl overflow-hidden group hover:border-ocean/40 dark:hover:border-volt/50 transition-all">
               
               {/* Top Accent Stripe with Gold and Ocean Blue */}
               <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-volt via-ice to-ocean" />
 
-              <div id="hero-featured-card-header" className="flex items-center justify-between pb-4 border-b border-dark-750/70">
+              <div id="hero-featured-card-header" className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-dark-750/70">
                 <div>
                   <div className="flex items-center space-x-2">
                     <span className="w-2 h-2 rounded-full bg-volt animate-ping" />
-                    <span id="hero-featured-eyebrow" className="text-xs font-semibold tracking-wider uppercase text-volt">
+                    <span id="hero-featured-eyebrow" className="text-xs font-semibold tracking-wider uppercase text-ocean dark:text-volt">
                       Next Event From Today
                     </span>
                   </div>
-                  <h3 id="hero-featured-card-title" className="text-xl font-athletic font-bold text-white uppercase mt-1 line-clamp-2">
+                  <h3 id="hero-featured-card-title" className="text-xl font-athletic font-bold text-slate-900 dark:text-white uppercase mt-1 line-clamp-2">
                     {nextEvent.name}
                   </h3>
                 </div>
-                <div id="hero-featured-badge" className="w-12 h-12 rounded-xl bg-volt/10 border border-volt/40 flex flex-col items-center justify-center text-volt font-bold text-xs flex-shrink-0 ml-2">
-                  <span className="text-[10px] uppercase font-mono font-normal text-slate-300">Days</span>
-                  <span className="font-athletic text-base font-extrabold text-volt leading-none">{daysDelta}d</span>
+                <div id="hero-featured-badge" className="w-12 h-12 rounded-xl bg-volt/20 dark:bg-volt/10 border border-volt/50 dark:border-volt/40 flex flex-col items-center justify-center text-slate-900 dark:text-volt font-bold text-xs flex-shrink-0 ml-2">
+                  <span className="text-[10px] uppercase font-mono font-normal text-slate-500 dark:text-slate-300">Days</span>
+                  <span className="font-athletic text-base font-extrabold text-black dark:text-volt leading-none">{daysDelta}d</span>
                 </div>
               </div>
 
-              <div id="hero-featured-card-details" className="py-4 space-y-3 text-sm text-slate-300">
+              <div id="hero-featured-card-details" className="py-4 space-y-3 text-sm text-slate-700 dark:text-slate-300">
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400 flex items-center space-x-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-volt" />
+                  <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-ocean dark:text-volt" />
                     <span>Date:</span>
                   </span>
-                  <span id="hero-featured-date" className="font-medium text-white text-right">{nextEvent.date}</span>
+                  <span id="hero-featured-date" className="font-medium text-slate-900 dark:text-white text-right">{nextEvent.date}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400 flex items-center space-x-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-volt" />
+                  <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-ocean dark:text-volt" />
                     <span>Location:</span>
                   </span>
-                  <span id="hero-featured-location" className="font-medium text-white text-right">{nextEvent.location}</span>
+                  <span id="hero-featured-location" className="font-medium text-slate-900 dark:text-white text-right">{nextEvent.location}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">Distances:</span>
+                  <span className="text-slate-500 dark:text-slate-400">Distances:</span>
                   <div id="hero-featured-distances" className="flex flex-wrap gap-1 justify-end">
                     {nextEvent.distances.slice(0, 4).map((dist, i) => (
-                      <span key={i} className="px-2 py-0.5 text-xs bg-dark-800/80 text-volt rounded font-mono border border-dark-700/50">
+                      <span key={i} className="px-2 py-0.5 text-xs bg-slate-100 dark:bg-dark-800/80 text-slate-800 dark:text-volt rounded font-mono border border-slate-200 dark:border-dark-700/50">
                         {dist}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-slate-400">RNS Discount:</span>
-                  <span className="text-volt font-semibold">Members save 5%+</span>
+                  <span className="text-slate-500 dark:text-slate-400">RNS Discount:</span>
+                  <span className="text-ocean-700 dark:text-volt font-semibold">Members save 5%+</span>
                 </div>
               </div>
 
@@ -158,7 +158,7 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
                 <button 
                   id="hero-featured-card-details-btn"
                   onClick={() => onSelectEvent ? onSelectEvent(nextEvent) : onExploreRaces()}
-                  className="py-2.5 px-3 bg-dark-800/80 hover:bg-dark-700/90 text-slate-200 hover:text-volt text-center font-athletic text-xs uppercase tracking-wider rounded transition-colors duration-200 flex items-center justify-center space-x-1 cursor-pointer border border-dark-700/70 backdrop-blur-sm"
+                  className="py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 dark:bg-dark-800/80 dark:hover:bg-dark-700/90 dark:text-slate-200 dark:hover:text-volt text-center font-athletic text-xs uppercase tracking-wider rounded transition-colors duration-200 flex items-center justify-center space-x-1 cursor-pointer border border-slate-300 dark:border-dark-700/70 backdrop-blur-sm"
                 >
                   <span>Race Details</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -177,13 +177,13 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
               </div>
 
               {/* Floating Mini-badge */}
-              <div id="hero-anniversary-badge" className="mt-4 p-3 bg-dark-950/60 backdrop-blur-sm rounded-lg border border-dark-700/60 flex items-center space-x-3">
+              <div id="hero-anniversary-badge" className="mt-4 p-3 bg-slate-100/90 dark:bg-dark-950/60 backdrop-blur-sm rounded-lg border border-slate-200 dark:border-dark-700/60 flex items-center space-x-3">
                 <div className="w-8 h-8 rounded-full bg-volt text-black flex items-center justify-center font-bold text-xs">
                   40
                 </div>
-                <div className="text-xs text-slate-300">
-                  <p className="font-medium text-white">1984 – 2026 & Beyond</p>
-                  <p className="text-slate-400">Celebrating four decades on the road</p>
+                <div className="text-xs text-slate-600 dark:text-slate-300">
+                  <p className="font-medium text-slate-900 dark:text-white">1984 – 2026 & Beyond</p>
+                  <p className="text-slate-500 dark:text-slate-400">Celebrating four decades on the road</p>
                 </div>
               </div>
 
