@@ -261,7 +261,15 @@ export default function EventModal({ event, onClose, onJoinClick }) {
               rel="noopener noreferrer"
               className="px-6 py-2.5 bg-volt hover:bg-[#e5d800] text-black font-athletic font-bold text-xs uppercase tracking-wider rounded transition-colors flex items-center space-x-2 shadow cursor-pointer"
             >
-              <span>Register on Race Roster</span>
+              <span>
+                {event.registrationUrl?.includes('raceroster.com')
+                  ? 'Register on Race Roster'
+                  : event.registrationUrl?.includes('route541.com')
+                  ? 'Register on Route541'
+                  : event.registrationUrl?.includes('webscorer.com')
+                  ? 'Register on Webscorer'
+                  : 'Register for Race'}
+              </span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           ) : (
