@@ -58,7 +58,7 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
               </h1>
               <p id="hero-subtitle" className="text-slate-700 dark:text-slate-300 text-lg sm:text-xl max-w-2xl font-normal leading-relaxed pt-2">
                 Health, fitness, and camaraderie for runners of <strong className="text-slate-900 dark:text-white font-semibold">all ages and abilities</strong>. 
-                Supporting everyone from first-time 5K finishers to Boston Marathon qualifiers across our beautiful ocean province
+                Supporting everyone from first-time 5K finishers to Marathon qualifiers across our beautiful ocean province
                 <span className="inline-flex items-center gap-1.5 ml-2 align-middle -translate-y-0.5">
                   <img 
                     src="./images/flags/flag-nova-scotia.svg" 
