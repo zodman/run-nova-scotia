@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#040b17] text-slate-100;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-athletic tracking-wide uppercase;
+  }
+}
+
+/* Run Nova Scotia Logo Athletic Theme */
+.font-athletic {
+  font-family: 'Oswald', sans-serif;
+}
+
+.glow-volt {
+  box-shadow: 0 0 25px rgba(254, 240, 0, 0.35);
+}
+
+.glow-volt-lg {
+  box-shadow: 0 0 50px rgba(254, 240, 0, 0.5);
+}
+
+.glow-ocean {
+  box-shadow: 0 0 25px rgba(3, 112, 185, 0.45);
+}
+
+.border-volt-glow {
+  border-color: #FEF000;
+  box-shadow: 0 0 15px rgba(254, 240, 0, 0.35);
+}
+
+.border-ocean-glow {
+  border-color: #0370B9;
+  box-shadow: 0 0 15px rgba(3, 112, 185, 0.4);
+}
+
+/* Explicit Sunbeam Yellow (#FEF000) Class Definitions */
+.bg-volt {
+  background-color: #FEF000;
+}
+.text-volt {
+  color: #FEF000;
+}
+.border-volt {
+  border-color: #FEF000;
+}
+
+/* Diagonal cut corner effect popular in athletic templates */
+.cut-corner-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+}
+
+.cut-corner-tl {
+  clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%, 0 16px);
+}
+
+/* Hide scrollbar for clean horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom patterned background */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 98, 168, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 98, 168, 0.08) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(254, 240, 0, 0.18) 1px, transparent 0);
+  background-size: 24px 24px;
+}
