@@ -131,7 +131,7 @@ export default function Footer({ onJoinClick }) {
             <span>© {new Date().getFullYear()} Run Nova Scotia. All rights reserved.</span>
             <span className="hidden sm:inline text-slate-600">•</span>
             <span className="inline-flex items-center gap-1">
-              <span>👟 Made by</span>{' '}
+              <span>👟 Coded at a 4:30/km pace by</span>{' '}
               <a 
                 id="footer-attribution-andres"
                 href="https://www.strava.com/athletes/zodman" 
