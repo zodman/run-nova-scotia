@@ -10,7 +10,8 @@ import {
   CheckCircle,
   Trophy,
   Flame,
-  Layers
+  Layers,
+  Car
 } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta } from '../data/eventsData';
 
@@ -441,11 +442,20 @@ export default function EventExplorer({
                       )}
                     </div>
 
-                    {/* Region Location Pill */}
-                    <div className="absolute bottom-2 left-3 flex items-center space-x-1 text-xs text-slate-200 bg-black/75 backdrop-blur-sm px-2.5 py-1 rounded">
+                    {/* Region Location Pill with Google Maps Deeplink */}
+                    <a
+                      id={`event-card-location-${race.id}`}
+                      href={race.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(race.location + ', Nova Scotia')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute bottom-2 left-3 flex items-center space-x-1 text-xs text-slate-200 hover:text-volt bg-black/75 hover:bg-black/90 backdrop-blur-sm px-2.5 py-1 rounded transition-colors cursor-pointer border border-white/10"
+                      title="Open location in Google Maps"
+                    >
                       <MapPin className={`w-3 h-3 ${pending ? 'text-volt' : 'text-slate-400'}`} />
                       <span>{race.location}</span>
-                    </div>
+                      <ExternalLink className="w-2.5 h-2.5 opacity-60 ml-0.5" />
+                    </a>
 
                     {/* Watermark label for past events */}
                     {!pending && (
@@ -505,6 +515,25 @@ export default function EventExplorer({
                             </span>
                           ))}
                         </div>
+                      </div>
+
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+                          <Car className="w-3.5 h-3.5 text-ocean dark:text-volt" />
+                          <span>Drive (Hfx/Dart):</span>
+                        </span>
+                        <a
+                          id={`event-card-drive-link-${race.id}`}
+                          href={race.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(race.location + ', Nova Scotia')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt font-medium text-right text-[11px] underline decoration-dotted flex items-center space-x-1 cursor-pointer transition-colors"
+                          title="Open route in Google Maps"
+                        >
+                          <span>{race.driveTimeFromHalifax || '1 hr (tentative - needs confirm)'}</span>
+                          <ExternalLink className="w-2.5 h-2.5 opacity-70" />
+                        </a>
                       </div>
 
                       <div className="flex items-center justify-between text-xs">

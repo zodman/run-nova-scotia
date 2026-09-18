@@ -25,7 +25,9 @@ export const eventsData = [
     "badge": "2027 Kickoff",
     "elevation": "Flat (0m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1755531196237-0cb37838cb05?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1755531196237-0cb37838cb05?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Halifax+Waterfront+Halifax+NS"
   },
   {
     "id": "freeze-your-buns-5k-2027",
@@ -49,7 +51,9 @@ export const eventsData = [
     "badge": "Winter Classic",
     "elevation": "Moderate (+28m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "1 hr (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Victoria+Park+Truro+NS"
   },
   {
     "id": "st-patricks-day-dash-2027",
@@ -74,7 +78,9 @@ export const eventsData = [
     "badge": "Spring Classic",
     "elevation": "Gentle rolling (+20m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1784572468902-94d41afc5e51?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1784572468902-94d41afc5e51?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lake+Banook+Dartmouth+NS"
   },
   {
     "id": "beehive-fives-2027",
@@ -99,7 +105,9 @@ export const eventsData = [
     "badge": "2027 Opener",
     "elevation": "Mostly flat (+24m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1774050250258-bdb077bfe4e3?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1774050250258-bdb077bfe4e3?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "1 hr (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Port+Williams+NS"
   },
   {
     "id": "bluenose-marathon-2027",
@@ -126,7 +134,9 @@ export const eventsData = [
     "badge": "Major BQ Feature",
     "elevation": "Iconic city hills & bridge climb (+145m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1774557937466-3e4b670997fc?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1774557937466-3e4b670997fc?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Scotiabank+Centre+Halifax+NS"
   },
   {
     "id": "kicking-pancreas-5k-2026",
@@ -151,7 +161,9 @@ export const eventsData = [
     "badge": "Next Up • 9 Days",
     "elevation": "Flat lake loop (+12m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1776860850826-647b4e707721?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1776860850826-647b4e707721?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shubie+Park+Dartmouth+NS"
   },
   {
     "id": "valley-harvest-marathon-2026",
@@ -179,7 +191,9 @@ export const eventsData = [
     "badge": "Boston Qualifier",
     "elevation": "Rolling scenic hills (+118m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1781696337747-c575462a97ba?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1781696337747-c575462a97ba?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "1 hr (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Acadia+University+Wolfville+NS"
   },
   {
     "id": "cape-breton-fiddlers-2026",
@@ -206,7 +220,9 @@ export const eventsData = [
     "badge": "Crown Jewel BQ",
     "elevation": "Rolling coastal (+135m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1756211203193-4fa0095a5192?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1756211203193-4fa0095a5192?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~4 hrs 15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sydney+Waterfront+Cape+Breton+NS"
   },
   {
     "id": "wijewi-run-2026",
@@ -231,7 +247,9 @@ export const eventsData = [
     "badge": "Community Classic",
     "elevation": "Gentle rolling (+22m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1784572468902-94d41afc5e51?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1784572468902-94d41afc5e51?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~50 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Glooscap+Landing+Hantsport+NS"
   },
   {
     "id": "rns-year-end-awards-2026",
@@ -255,7 +273,9 @@ export const eventsData = [
     "badge": "Season Finale",
     "elevation": "N/A",
     "resultsUrl": "https://runnovascotia.ca/annual-awards/",
-    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dartmouth+Yacht+Club+Dartmouth+NS"
   },
   {
     "id": "rns-guesstimate-run-2026",
@@ -280,7 +300,9 @@ export const eventsData = [
     "badge": "Member Tradition",
     "elevation": "Moderate coastal park (+45m)",
     "resultsUrl": "https://runnovascotia.ca",
-    "image": "https://images.unsplash.com/photo-1680315088141-cb930f92ffd3?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1680315088141-cb930f92ffd3?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Point+Pleasant+Park+Halifax+NS"
   },
   {
     "id": "penguin-run-2026",
@@ -304,7 +326,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Flat to mild (+22m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1571008887538-b36bb32f4571?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~30 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Enfield+NS"
   },
   {
     "id": "nasty-nuttby-killer-5k-2026",
@@ -328,7 +352,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Severe Mountain Climb (+315m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1781696195464-7600b30c5ab2?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1781696195464-7600b30c5ab2?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nuttby+Mountain+NS"
   },
   {
     "id": "berwick-gala-days-2026",
@@ -352,7 +378,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Moderate rolling (+32m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1758684050603-67fb5a8610e8?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1758684050603-67fb5a8610e8?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Berwick+NS"
   },
   {
     "id": "cobequid-trail-run-2026",
@@ -378,7 +406,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Fast & Flat (+15m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1782145373397-19130f8a3114?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1782145373397-19130f8a3114?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "1 hr (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cobequid+Trail+Truro+NS"
   },
   {
     "id": "louisbourg-race-through-time-2026",
@@ -402,7 +432,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Rugged coastal hills (+98m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~4 hrs 45 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fortress+of+Louisbourg+National+Historic+Site+NS"
   },
   {
     "id": "middleton-heart-run-2026",
@@ -428,7 +460,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Moderate (+40m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1578880981498-3d60436ba825?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1578880981498-3d60436ba825?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 30 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Middleton+NS"
   },
   {
     "id": "dartmouth-natal-day-2026",
@@ -453,7 +487,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Notable hills (+72m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1771859759593-9a8f45117e25?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1771859759593-9a8f45117e25?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Christ+Church+Dartmouth+NS"
   },
   {
     "id": "harbour-hustle-2026",
@@ -477,7 +513,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Dead Flat (0m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1781029103116-15c8d714b269?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1781029103116-15c8d714b269?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Halifax+Waterfront+Halifax+NS"
   },
   {
     "id": "nova-scotia-marathon-2026",
@@ -504,7 +542,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Gently rolling coastal (+110m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1782940983990-76213ceab246?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1782940983990-76213ceab246?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~2 hrs 45 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Barrington+Passage+NS"
   },
   {
     "id": "annapolis-royal-5k-2026",
@@ -528,7 +568,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Moderate (+28m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1532444458054-01a7dd3e9fca?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1532444458054-01a7dd3e9fca?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~2 hrs (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fort+Anne+Annapolis+Royal+NS"
   },
   {
     "id": "dick-beazley-arnold-robertson-2026",
@@ -553,7 +595,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Challenging rolling hills (+85m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~50 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hantsport+School+Hantsport+NS"
   },
   {
     "id": "spike-fun-runs-2026",
@@ -579,7 +623,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Flat & Shaded (+20m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 5 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Miners+Marsh+Kentville+NS"
   },
   {
     "id": "tatamagouche-beer-run-2026",
@@ -604,7 +650,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Rolling (+45m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 35 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tatamagouche+Brewing+Co+NS"
   },
   {
     "id": "ulnooweg-solstice-2026",
@@ -629,7 +677,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Moderate (+42m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1782656301969-de38e1015fa3?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1782656301969-de38e1015fa3?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~55 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Millbrook+Cultural+Heritage+Centre+Millbrook+NS"
   },
   {
     "id": "michelin-tire-trot-2026",
@@ -653,7 +703,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Fast & Flat (+18m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 10 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bridgewater+Memorial+Arena+Bridgewater+NS"
   },
   {
     "id": "lunenburg-world-heritage-2026",
@@ -678,7 +730,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Challenging historic rolling hills (+58m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1773442933572-924ddb3b2381?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1773442933572-924ddb3b2381?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~1 hr 10 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lunenburg+Waterfront+Lunenburg+NS"
   },
   {
     "id": "bumrun-5k-2026",
@@ -702,7 +756,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Gentle rolling (+35m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1486218119243-13883505764c?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1486218119243-13883505764c?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "~10-15 min (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Lake+Banook+Dartmouth+NS"
   },
   {
     "id": "beehive-fives-2026",
@@ -727,7 +783,9 @@ export const eventsData = [
     "badge": "Past Event",
     "elevation": "Mostly flat (+24m)",
     "resultsUrl": "https://atlanticchip.ca/events/",
-    "image": "https://images.unsplash.com/photo-1774050250258-bdb077bfe4e3?auto=format&fit=crop&w=800&q=80"
+    "image": "https://images.unsplash.com/photo-1774050250258-bdb077bfe4e3?auto=format&fit=crop&w=800&q=80",
+    "driveTimeFromHalifax": "1 hr (tentative - needs confirm)",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Port+Williams+NS"
   }
 ];
 

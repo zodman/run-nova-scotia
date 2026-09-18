@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { ChevronRight, Calendar, Award, ShieldCheck, Flame, ArrowUpRight, MapPin, ExternalLink } from 'lucide-react';
+import { ChevronRight, Calendar, Award, ShieldCheck, Flame, ArrowUpRight, MapPin, ExternalLink, Car } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta } from '../data/eventsData';
 
 export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent }) {
@@ -136,7 +136,34 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
                     <MapPin className="w-3.5 h-3.5 text-ocean dark:text-volt" />
                     <span>Location:</span>
                   </span>
-                  <span id="hero-featured-location" className="font-medium text-slate-900 dark:text-white text-right">{nextEvent.location}</span>
+                  <a
+                    id="hero-featured-location"
+                    href={nextEvent.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nextEvent.location + ', Nova Scotia')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-slate-900 dark:text-white hover:text-ocean dark:hover:text-volt text-right flex items-center space-x-1 underline decoration-dotted transition-colors"
+                    title="Open location in Google Maps"
+                  >
+                    <span>{nextEvent.location}</span>
+                    <ExternalLink className="w-3 h-3 opacity-60 ml-0.5" />
+                  </a>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+                    <Car className="w-3.5 h-3.5 text-ocean dark:text-volt" />
+                    <span>Drive (Hfx/Dart):</span>
+                  </span>
+                  <a
+                    id="hero-featured-drive-link"
+                    href={nextEvent.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(nextEvent.location + ', Nova Scotia')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-slate-900 dark:text-white hover:text-ocean dark:hover:text-volt text-right flex items-center space-x-1 text-xs underline decoration-dotted transition-colors"
+                    title="View route on Google Maps"
+                  >
+                    <span>{nextEvent.driveTimeFromHalifax || '1 hr (tentative - needs confirm)'}</span>
+                    <ExternalLink className="w-2.5 h-2.5 opacity-70" />
+                  </a>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-500 dark:text-slate-400">Distances:</span>
