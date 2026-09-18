@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { ChevronRight, Calendar, Award, ShieldCheck, Flame, ArrowUpRight, MapPin, ExternalLink, Car } from 'lucide-react';
-import { eventsData, isEventPending, getEventDaysDelta } from '../data/eventsData';
+import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime } from '../data/eventsData';
 
 export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent }) {
   // Dynamically select the NEXT upcoming event from today
@@ -130,6 +130,15 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
                     <span>Date:</span>
                   </span>
                   <span id="hero-featured-date" className="font-medium text-slate-900 dark:text-white text-right">{nextEvent.date}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">
+                    <Flame className="w-3.5 h-3.5 text-ocean dark:text-volt" />
+                    <span>Happens:</span>
+                  </span>
+                  <span id="hero-featured-relative-time" className="font-bold text-ocean dark:text-volt text-right font-athletic uppercase tracking-wider text-xs">
+                    {getEventRelativeTime(nextEvent.isoDate)}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1.5">

@@ -807,3 +807,61 @@ export function getEventDaysDelta(isoDate) {
   const diffTime = eventDate - today;
   return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 }
+
+// Helper to format natural language relative countdown (e.g. 'In two days', 'In one month', etc.)
+export function getEventRelativeTime(isoDate) {
+  if (!isoDate) return '';
+  const days = getEventDaysDelta(isoDate);
+
+  if (days < 0) {
+    const absDays = Math.abs(days);
+    if (absDays === 1) return 'Yesterday';
+    if (absDays < 7) return `${absDays} days ago`;
+    if (absDays < 30) {
+      const weeks = Math.round(absDays / 7);
+      return `${weeks} ${weeks === 1 ? 'week' : 'weeks'} ago`;
+    }
+    const months = Math.round(absDays / 30);
+    return `${months} ${months === 1 ? 'month' : 'months'} ago`;
+  }
+
+  if (days === 0) return 'Today!';
+  if (days === 1) return 'Tomorrow (in 1 day)';
+  if (days === 2) return 'In 2 days';
+  if (days < 7) return `In ${days} days`;
+  if (days < 14) return `In 1 week (${days} days)`;
+  if (days < 28) {
+    const weeks = Math.round(days / 7);
+    return `In ${weeks} weeks (${days} days)`;
+  }
+  if (days < 50) return `In 1 month (${days} days)`;
+  if (days < 330) {
+    const months = Math.round(days / 30);
+    return `In ${months} months (${days} days)`;
+  }
+  return `In ~1 year (${days} days)`;
+}
+
+// Compact version for badges and pills
+export function getEventRelativeTimeCompact(isoDate) {
+  if (!isoDate) return '';
+  const days = getEventDaysDelta(isoDate);
+
+  if (days < 0) return 'Past Event';
+  if (days === 0) return 'Today';
+  if (days === 1) return 'Tomorrow';
+  if (days === 2) return 'In 2 days';
+  if (days < 7) return `In ${days} days`;
+  if (days < 14) return 'In 1 week';
+  if (days < 28) {
+    const weeks = Math.round(days / 7);
+    return `In ${weeks} weeks`;
+  }
+  if (days < 50) return 'In 1 month';
+  if (days < 330) {
+    const months = Math.round(days / 30);
+    return `In ${months} months`;
+  }
+  return 'In ~1 year';
+}
+

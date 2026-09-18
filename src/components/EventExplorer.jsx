@@ -14,7 +14,7 @@ import {
   Car,
   Link
 } from 'lucide-react';
-import { eventsData, isEventPending, getEventDaysDelta } from '../data/eventsData';
+import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, getEventRelativeTimeCompact } from '../data/eventsData';
 
 export default function EventExplorer({ 
   onSelectEvent, 
@@ -437,14 +437,14 @@ export default function EventExplorer({
                       )}
 
                       {pending ? (
-                        <div className="bg-volt text-black px-2.5 py-0.5 rounded text-[11px] font-athletic font-bold uppercase tracking-wider shadow flex items-center space-x-1">
+                        <div 
+                          id={`event-card-countdown-${race.id}`}
+                          className="bg-volt text-black px-2.5 py-0.5 rounded text-[11px] font-athletic font-bold uppercase tracking-wider shadow flex items-center space-x-1"
+                          title={`Happening ${getEventRelativeTime(race.isoDate)}`}
+                        >
                           <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
                           <span>
-                            {daysDelta === 0 
-                              ? 'Today!' 
-                              : daysDelta === 1 
-                                ? 'Tomorrow!' 
-                                : `Upcoming (${daysDelta}d)`}
+                            {getEventRelativeTimeCompact(race.isoDate)}
                           </span>
                         </div>
                       ) : (
@@ -560,6 +560,18 @@ export default function EventExplorer({
                         <span className="text-slate-500 dark:text-slate-400">Course / Elevation:</span>
                         <span className="text-slate-700 dark:text-slate-300 font-medium text-right text-[11px]">{race.elevation}</span>
                       </div>
+
+                      {pending && (
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-slate-500 dark:text-slate-400 flex items-center space-x-1">
+                            <Clock className="w-3.5 h-3.5 text-ocean dark:text-volt" />
+                            <span>Schedule:</span>
+                          </span>
+                          <span id={`event-card-relative-time-${race.id}`} className="text-ocean dark:text-volt font-bold text-right text-[11px] font-athletic uppercase tracking-wider">
+                            {getEventRelativeTime(race.isoDate)}
+                          </span>
+                        </div>
+                      )}
 
                       <div className="flex items-center justify-between text-xs">
                         <span className="text-slate-500 dark:text-slate-400">Status:</span>

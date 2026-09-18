@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, MapPin, Calendar, ExternalLink, ShieldCheck, Award, Flag, ArrowRight, CheckCircle, Trophy, Clock, Globe, Car } from 'lucide-react';
-import { isEventPending, getEventDaysDelta } from '../data/eventsData';
+import { isEventPending, getEventDaysDelta, getEventRelativeTime } from '../data/eventsData';
 
 export default function EventModal({ event, onClose, onJoinClick }) {
   if (!event) return null;
@@ -46,7 +46,7 @@ export default function EventModal({ event, onClose, onJoinClick }) {
               <span className={`px-2 py-0.5 rounded font-bold ${
                 pending ? 'bg-volt text-black' : 'bg-black/80 text-slate-300 border border-dark-600'
               }`}>
-                {pending ? (daysDelta === 0 ? 'Today' : `Pending • In ${daysDelta} Days`) : 'Completed / Past Event'}
+                {pending ? (daysDelta === 0 ? 'Today' : `Pending • ${getEventRelativeTime(event.isoDate)}`) : 'Completed / Past Event'}
               </span>
             </div>
             <h2 id="event-modal-title" className="text-2xl sm:text-3xl font-athletic font-bold uppercase text-white tracking-wide">
@@ -65,6 +65,11 @@ export default function EventModal({ event, onClose, onJoinClick }) {
               <div>
                 <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">Event Date</div>
                 <div className="font-semibold text-slate-900 dark:text-white">{event.date}</div>
+                {pending && (
+                  <div className="text-[11px] text-ocean dark:text-volt font-athletic font-bold uppercase tracking-wider">
+                    {getEventRelativeTime(event.isoDate)}
+                  </div>
+                )}
               </div>
             </div>
 

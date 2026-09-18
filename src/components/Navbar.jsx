@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu as MenuIcon, 
   X, 
   ChevronDown, 
+  ChevronRight,
   Calendar, 
   Award, 
   Users, 
@@ -12,13 +13,54 @@ import {
   ShieldCheck, 
   Flame,
   Sun,
-  Moon
+  Moon,
+  Trophy,
+  Zap,
+  Clock,
+  Compass
 } from 'lucide-react';
+
+// ============================================================================
+// Amazon Mega Dropdown Directional Aiming Algorithm (Ben Kamens / Amazon technique)
+// Source: https://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown
+// Prevents menu flickering or closing when the mouse moves diagonally into submenus.
+// ============================================================================
+
+function isPointInTriangle(p, a, b, c) {
+  const sign = (p1, p2, p3) => (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y);
+  const d1 = sign(p, a, b);
+  const d2 = sign(p, b, c);
+  const d3 = sign(p, c, a);
+  const hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+  const hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+  return !(hasNeg && hasPos);
+}
+
+function isAimingAtMenu(pCurr, pPrev, rect) {
+  if (!rect || !pPrev || !pCurr) return false;
+  if (pCurr.x >= rect.left && pCurr.x <= rect.right && pCurr.y >= rect.top && pCurr.y <= rect.bottom) {
+    return true;
+  }
+  const topLeft = { x: rect.left, y: rect.top };
+  const topRight = { x: rect.right, y: rect.top };
+  const bottomLeft = { x: rect.left, y: rect.bottom };
+  const bottomRight = { x: rect.right, y: rect.bottom };
+
+  return (
+    isPointInTriangle(pCurr, pPrev, topLeft, bottomRight) ||
+    isPointInTriangle(pCurr, pPrev, topRight, bottomLeft) ||
+    isPointInTriangle(pCurr, pPrev, topLeft, topRight)
+  );
+}
 
 export default function Navbar({ theme = 'dark', onToggleTheme, onOpenJoinModal, onSelectRaceFilter, onExplorePerformance }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const mouseLocsRef = useRef([]);
+  const timeoutRef = useRef(null);
+  const activeMenuPanelRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +69,76 @@ export default function Navbar({ theme = 'dark', onToggleTheme, onOpenJoinModal,
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      mouseLocsRef.current.push({ x: e.clientX, y: e.clientY });
+      if (mouseLocsRef.current.length > 5) {
+        mouseLocsRef.current.shift();
+      }
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const clearDelayTimeout = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const handleNavTriggerEnter = (menuName) => {
+    clearDelayTimeout();
+
+    if (activeDropdown && activeDropdown !== menuName && activeMenuPanelRef.current) {
+      const prevLoc = mouseLocsRef.current[0];
+      const currLoc = mouseLocsRef.current[mouseLocsRef.current.length - 1];
+      const rect = activeMenuPanelRef.current.getBoundingClientRect();
+
+      if (isAimingAtMenu(currLoc, prevLoc, rect)) {
+        timeoutRef.current = setTimeout(() => {
+          setActiveDropdown(menuName);
+        }, 300);
+        return;
+      }
+    }
+
+    setActiveDropdown(menuName);
+  };
+
+  const handleNavTriggerLeave = () => {
+    clearDelayTimeout();
+    if (!activeDropdown || !activeMenuPanelRef.current) {
+      setActiveDropdown(null);
+      return;
+    }
+
+    const prevLoc = mouseLocsRef.current[0];
+    const currLoc = mouseLocsRef.current[mouseLocsRef.current.length - 1];
+    const rect = activeMenuPanelRef.current.getBoundingClientRect();
+
+    if (isAimingAtMenu(currLoc, prevLoc, rect)) {
+      timeoutRef.current = setTimeout(() => {
+        setActiveDropdown(null);
+      }, 350);
+    } else {
+      setActiveDropdown(null);
+    }
+  };
+
+  const handleDropdownEnter = () => {
+    clearDelayTimeout();
+  };
+
+  const handleDropdownLeave = (e) => {
+    clearDelayTimeout();
+    const toElement = e.relatedTarget;
+    if (toElement && toElement.closest && toElement.closest('#navbar-desktop-menu')) {
+      return;
+    }
+    setActiveDropdown(null);
+  };
 
   const toggleDropdown = (name) => {
     setActiveDropdown(activeDropdown === name ? null : name);
@@ -139,68 +251,329 @@ export default function Navbar({ theme = 'dark', onToggleTheme, onOpenJoinModal,
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
-          <nav id="navbar-desktop-menu" className="hidden lg:flex items-center space-x-8">
-            {/* About Dropdown */}
-            <div id="nav-dropdown-about" className="relative group">
+          {/* Desktop Navigation Links with Amazon Mega Dropdown Menu-Aim */}
+          <nav 
+            id="navbar-desktop-menu" 
+            className="hidden lg:flex items-center space-x-8 relative"
+          >
+            {/* About Dropdown (Protected by Amazon Menu-Aim) */}
+            <div 
+              id="nav-dropdown-about" 
+              className="relative"
+              onMouseEnter={() => handleNavTriggerEnter('about')}
+              onMouseLeave={handleNavTriggerLeave}
+            >
               <button 
                 id="nav-btn-about"
                 onClick={() => toggleDropdown('about')}
-                className="flex items-center space-x-1.5 text-sm font-semibold tracking-wider uppercase text-slate-800 hover:text-ocean dark:text-slate-200 dark:hover:text-volt transition-colors py-2 cursor-pointer"
+                className={`flex items-center space-x-1.5 text-sm font-semibold tracking-wider uppercase transition-colors py-2 cursor-pointer ${
+                  activeDropdown === 'about'
+                    ? 'text-ocean dark:text-volt'
+                    : 'text-slate-800 hover:text-ocean dark:text-slate-200 dark:hover:text-volt'
+                }`}
               >
                 <span>About</span>
-                <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200" />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'about' ? 'rotate-180 text-ocean dark:text-volt' : ''}`} />
               </button>
-              <div id="nav-menu-about-dropdown" className="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-[#14181d] border border-slate-200 dark:border-dark-700 rounded-lg shadow-xl dark:shadow-2xl p-2.5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                <a id="nav-link-about-rns" href="#about" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  About Run Nova Scotia
-                </a>
-                <a id="nav-link-about-board" href="#board" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  Management Board
-                </a>
-                <a id="nav-link-about-life-members" href="#life-members" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  Honorary Life Members
-                </a>
-                <a id="nav-link-about-sponsors" href="#sponsors" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  Official Sponsors & Partners
-                </a>
-              </div>
+
+              {activeDropdown === 'about' && (
+                <div 
+                  ref={activeMenuPanelRef}
+                  id="nav-menu-about-dropdown" 
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                  className="absolute left-0 top-full mt-2 w-72 bg-white dark:bg-[#0c121d] border border-slate-200 dark:border-dark-700 rounded-2xl shadow-2xl p-3 z-50 animate-fadeIn space-y-1.5 backdrop-blur-md"
+                >
+                  <a 
+                    id="nav-link-about-rns" 
+                    href="#about" 
+                    onClick={() => setActiveDropdown(null)}
+                    className="block p-2.5 rounded-xl text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-volt dark:hover:bg-dark-800 transition-colors"
+                  >
+                    <div className="font-semibold text-sm text-slate-900 dark:text-white">About Run Nova Scotia</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">Our mission, 40-year history, and community</div>
+                  </a>
+                  <a 
+                    id="nav-link-about-board" 
+                    href="#board" 
+                    onClick={() => setActiveDropdown(null)}
+                    className="block p-2.5 rounded-xl text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-volt dark:hover:bg-dark-800 transition-colors"
+                  >
+                    <div className="font-semibold text-sm text-slate-900 dark:text-white">Management Board</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">Volunteer leadership and directors</div>
+                  </a>
+                  <a 
+                    id="nav-link-about-life-members" 
+                    href="#life-members" 
+                    onClick={() => setActiveDropdown(null)}
+                    className="block p-2.5 rounded-xl text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-volt dark:hover:bg-dark-800 transition-colors"
+                  >
+                    <div className="font-semibold text-sm text-slate-900 dark:text-white">Honorary Life Members</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">Celebrating 40 years of provincial pioneers</div>
+                  </a>
+                  <a 
+                    id="nav-link-about-sponsors" 
+                    href="#sponsors" 
+                    onClick={() => setActiveDropdown(null)}
+                    className="block p-2.5 rounded-xl text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-volt dark:hover:bg-dark-800 transition-colors"
+                  >
+                    <div className="font-semibold text-sm text-slate-900 dark:text-white">Official Sponsors & Partners</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">Supporting athletes and local road races</div>
+                  </a>
+                </div>
+              )}
             </div>
 
-            {/* Races & Series Dropdown */}
-            <div id="nav-dropdown-races" className="relative group">
+            {/* Races & Series MEGA DROPDOWN (Protected by Amazon Menu-Aim Technique) */}
+            <div 
+              id="nav-dropdown-races" 
+              className="relative"
+              onMouseEnter={() => handleNavTriggerEnter('races')}
+              onMouseLeave={handleNavTriggerLeave}
+            >
               <button 
                 id="nav-btn-races"
                 onClick={() => toggleDropdown('races')}
-                className="flex items-center space-x-1.5 text-sm font-semibold tracking-wider uppercase text-slate-800 hover:text-ocean dark:text-slate-200 dark:hover:text-volt transition-colors py-2 cursor-pointer"
+                className={`flex items-center space-x-1.5 text-sm font-semibold tracking-wider uppercase transition-colors py-2 cursor-pointer ${
+                  activeDropdown === 'races'
+                    ? 'text-ocean dark:text-volt'
+                    : 'text-slate-800 hover:text-ocean dark:text-slate-200 dark:hover:text-volt'
+                }`}
               >
                 <span>Races & Series</span>
-                <ChevronDown className="w-3.5 h-3.5 group-hover:rotate-180 transition-transform duration-200" />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'races' ? 'rotate-180 text-ocean dark:text-volt' : ''}`} />
               </button>
-              <div id="nav-menu-races-dropdown" className="absolute left-0 top-full mt-1 w-64 bg-white dark:bg-[#14181d] border border-slate-200 dark:border-dark-700 rounded-lg shadow-xl dark:shadow-2xl p-2.5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 translate-y-2 group-hover:translate-y-0">
-                <a id="nav-link-races-series" href="#events" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  2026 Road Race Series
-                </a>
-                <a 
-                  id="nav-link-races-performance" 
-                  href="#events" 
-                  onClick={(e) => {
-                    if (onExplorePerformance) {
-                      e.preventDefault();
-                      onExplorePerformance();
-                    }
-                  }}
-                  className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors cursor-pointer"
+
+              {/* Amazon-Style Mega Dropdown Panel */}
+              {activeDropdown === 'races' && (
+                <div 
+                  ref={activeMenuPanelRef}
+                  id="nav-menu-races-dropdown" 
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                  className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[820px] bg-white dark:bg-[#0c121d] border border-slate-200 dark:border-dark-700 rounded-2xl shadow-2xl p-6 z-50 animate-fadeIn backdrop-blur-md"
                 >
-                  Performance Series (Dr. Jeff Ratushny)
-                </a>
-                <a id="nav-link-races-points" href="#series-info" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  Points Accumulation Rules
-                </a>
-                <a id="nav-link-races-youth" href="#clubs" className="block px-3 py-2 text-sm text-slate-700 hover:text-black hover:bg-slate-100 dark:text-slate-300 dark:hover:text-black dark:hover:bg-volt rounded transition-colors">
-                  Youth Running Series
-                </a>
-              </div>
+                  {/* Mega Menu Top Header */}
+                  <div className="flex items-center justify-between pb-4 mb-5 border-b border-slate-200 dark:border-dark-800">
+                    <div className="flex items-center space-x-2">
+                      <Flame className="w-4 h-4 text-ocean dark:text-volt" />
+                      <span className="text-xs uppercase font-athletic font-bold tracking-widest text-slate-900 dark:text-white">
+                        Run Nova Scotia Race & Series Directory
+                      </span>
+                    </div>
+                    <a
+                      href="#events"
+                      onClick={() => setActiveDropdown(null)}
+                      className="text-xs font-athletic font-bold uppercase tracking-wider text-ocean dark:text-volt hover:underline flex items-center space-x-1 cursor-pointer"
+                    >
+                      <span>Explore All 29 Races</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  {/* 4-Column Structured Mega Grid */}
+                  <div className="grid grid-cols-4 gap-6">
+                    {/* Column 1: Road Race Series */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs uppercase font-athletic font-bold tracking-wider text-ocean dark:text-volt flex items-center space-x-1.5">
+                        <Calendar className="w-3.5 h-3.5" />
+                        <span>Road Race Series</span>
+                      </h4>
+                      <ul className="space-y-2 text-xs">
+                        <li>
+                          <a
+                            id="nav-link-races-series"
+                            href="#events"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">2026 Schedule</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Provincial sanctioned races</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#events"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Boston Qualifiers</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Blue Nose, Cape Breton, Valley</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#series-info"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Series Divisions</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Open, Masters (40+), Senior</div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Column 2: Performance Series (Dr. Jeff Ratushny) */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs uppercase font-athletic font-bold tracking-wider text-ocean dark:text-volt flex items-center space-x-1.5">
+                        <Trophy className="w-3.5 h-3.5" />
+                        <span>Performance Series</span>
+                      </h4>
+                      <ul className="space-y-2 text-xs">
+                        <li>
+                          <a
+                            id="nav-link-races-performance"
+                            href="#events"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setActiveDropdown(null);
+                              if (onExplorePerformance) onExplorePerformance();
+                            }}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors cursor-pointer"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Dr. Jeff Ratushny Races</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Qualifying 5K, 10K, Half events</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://runnovascotia.ca/performance-series/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt flex items-center space-x-1">
+                              <span>Official Scoring Rules</span>
+                              <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Combined Gun Time competition</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#events"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setActiveDropdown(null);
+                              if (onExplorePerformance) onExplorePerformance();
+                            }}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors cursor-pointer"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Cash Prizes & Trophies</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Awarded at annual banquet</div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Column 3: Youth & Special Events */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs uppercase font-athletic font-bold tracking-wider text-ocean dark:text-volt flex items-center space-x-1.5">
+                        <Award className="w-3.5 h-3.5" />
+                        <span>Youth & Special</span>
+                      </h4>
+                      <ul className="space-y-2 text-xs">
+                        <li>
+                          <a
+                            id="nav-link-races-youth"
+                            href="#clubs"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Youth Running Series</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Under-18 provincial division</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#events"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Novelty & Fun Runs</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Polar Bear Dip, Beer Run</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#events"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Awards Celebration</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Dartmouth Yacht Club gala</div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Column 4: Timing & Racer Resources */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs uppercase font-athletic font-bold tracking-wider text-ocean dark:text-volt flex items-center space-x-1.5">
+                        <Zap className="w-3.5 h-3.5" />
+                        <span>Timing & Points</span>
+                      </h4>
+                      <ul className="space-y-2 text-xs">
+                        <li>
+                          <a
+                            id="nav-link-races-points"
+                            href="#series-info"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Points Accumulation</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Best 7 sanctioned races count</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://atlanticchip.ca/events/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt flex items-center space-x-1">
+                              <span>Atlantic Chip Timing</span>
+                              <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                            </div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Live chip results & rankings</div>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="#membership"
+                            onClick={() => setActiveDropdown(null)}
+                            className="group block text-slate-700 dark:text-slate-300 hover:text-ocean dark:hover:text-volt transition-colors"
+                          >
+                            <div className="font-semibold text-slate-900 dark:text-white group-hover:text-ocean dark:group-hover:text-volt">Member Race Discounts</div>
+                            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">Save 5%+ on race entries</div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Mega Menu Footer Callout */}
+                  <div className="mt-6 pt-4 border-t border-slate-200 dark:border-dark-800 bg-slate-50/80 dark:bg-dark-900/60 rounded-xl p-3 flex items-center justify-between">
+                    <div className="flex items-center space-x-2 text-xs text-slate-600 dark:text-slate-400">
+                      <ShieldCheck className="w-4 h-4 text-ocean dark:text-volt flex-shrink-0" />
+                      <span>Official Governing Road Running Association of Nova Scotia since 1984</span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        onOpenJoinModal();
+                      }}
+                      className="px-3.5 py-1.5 bg-volt hover:bg-[#e5d800] text-black font-athletic font-bold text-xs uppercase tracking-wider rounded cursor-pointer transition-colors shadow-sm"
+                    >
+                      Join Run NS
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
 
             <a id="nav-link-events" href="#events" className="text-sm font-semibold tracking-wider uppercase text-slate-800 hover:text-ocean dark:text-slate-200 dark:hover:text-volt transition-colors py-2">
