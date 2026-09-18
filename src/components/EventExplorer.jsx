@@ -11,7 +11,8 @@ import {
   Trophy,
   Flame,
   Layers,
-  Car
+  Car,
+  Link
 } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta } from '../data/eventsData';
 
@@ -145,8 +146,27 @@ export default function EventExplorer({
               <span>Provincial Series Calendar</span>
             </div>
             <h2 id="events-title" className="text-3xl sm:text-5xl font-athletic font-bold uppercase tracking-tight text-slate-900 dark:text-white">
-              Nova Scotia Road <span className="text-ocean dark:text-volt">Race Calendar</span>
+              <a 
+                id="events-title-link" 
+                href="#events" 
+                className="group inline-flex items-center gap-2.5 hover:text-ocean dark:hover:text-volt transition-colors cursor-pointer"
+                title="Direct link to Nova Scotia Road Race Calendar section (#events)"
+              >
+                <span>Nova Scotia Road <span className="text-ocean dark:text-volt">Race Calendar</span></span>
+                <Link className="w-5 h-5 sm:w-6 sm:h-6 text-slate-400 group-hover:text-ocean dark:group-hover:text-volt opacity-40 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+              </a>
             </h2>
+            <div className="mt-1 flex items-center space-x-2">
+              <a 
+                id="events-header-direct-link" 
+                href="#events" 
+                className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 bg-slate-100 hover:bg-slate-200 dark:bg-dark-800 dark:hover:bg-dark-750 text-slate-600 dark:text-slate-300 hover:text-ocean dark:hover:text-volt rounded text-xs font-mono border border-slate-200 dark:border-dark-700 transition-colors shadow-sm cursor-pointer"
+                title="Direct anchor link to Nova Scotia Road Race Calendar section (#events)"
+              >
+                <Link className="w-3 h-3 text-ocean dark:text-volt" />
+                <span>#events</span>
+              </a>
+            </div>
             <p id="events-subtitle" className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
               Sanctioned events across <strong className="text-slate-900 dark:text-white">2026 and 2027</strong>. 
               Ordered with <strong className="text-ocean dark:text-volt">still pending / upcoming races first</strong>, 
