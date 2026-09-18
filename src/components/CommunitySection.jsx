@@ -1,11 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { Users, MapPin, Calendar, Heart, ShieldCheck, Mail, ArrowRight, ExternalLink, Search, Clock, Phone, X, Filter } from 'lucide-react';
+import { Users, MapPin, Calendar, Heart, ShieldCheck, Mail, ArrowRight, ExternalLink, Search, Clock, Phone, X, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { runClubsData, boardMembersData, lifeMembers } from '../data/communityData';
 
 export default function CommunitySection() {
   const [activeTab, setActiveTab] = useState('clubs');
   const [selectedRegion, setSelectedRegion] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const CLUBS_PER_PAGE = 6;
 
   // Calculate counts per region
   const regionCounts = useMemo(() => {
@@ -40,6 +42,32 @@ export default function CommunitySection() {
       return matchesRegion && matchesQuery;
     });
   }, [selectedRegion, searchQuery]);
+
+  // Pagination calculations (6 clubs per page -> 2 rows of 3 on desktop)
+  const totalPages = Math.ceil(filteredClubs.length / CLUBS_PER_PAGE) || 1;
+  const clampedPage = Math.min(Math.max(1, currentPage), totalPages);
+  const startIndex = (clampedPage - 1) * CLUBS_PER_PAGE;
+  const endIndex = Math.min(startIndex + CLUBS_PER_PAGE, filteredClubs.length);
+  const paginatedClubs = filteredClubs.slice(startIndex, startIndex + CLUBS_PER_PAGE);
+
+  const handlePageChange = (newPage) => {
+    const targetPage = Math.min(Math.max(1, newPage), totalPages);
+    setCurrentPage(targetPage);
+    const container = document.getElementById('community-clubs-view');
+    if (container) {
+      container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleRegionSelect = (regionKey) => {
+    setSelectedRegion(regionKey);
+    setCurrentPage(1);
+  };
+
+  const handleSearchChange = (val) => {
+    setSearchQuery(val);
+    setCurrentPage(1);
+  };
 
   return (
     <section id="community-section" className="py-24 bg-slate-50 dark:bg-[#0b1627] border-y border-slate-200 dark:border-dark-750 relative transition-colors duration-300">
@@ -117,12 +145,12 @@ export default function CommunitySection() {
                     type="text"
                     placeholder="Search clubs by name, town, route, or focus (e.g. Halifax, trail, women, marathon)..."
                     value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onChange={(e) => handleSearchChange(e.target.value)}
                     className="w-full pl-10 pr-10 py-2.5 bg-slate-50 dark:bg-dark-900 border border-slate-200 dark:border-dark-750 rounded-xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400 focus:outline-none focus:border-ocean dark:focus:border-volt transition-colors"
                   />
                   {searchQuery && (
                     <button
-                      onClick={() => setSearchQuery('')}
+                      onClick={() => handleSearchChange('')}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
                       title="Clear search"
                     >
@@ -134,7 +162,9 @@ export default function CommunitySection() {
                 {/* Status Indicator */}
                 <div className="text-xs font-athletic font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 flex items-center justify-end whitespace-nowrap">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-2" />
-                  Showing {filteredClubs.length} of {runClubsData.length} Clubs
+                  {filteredClubs.length > 0
+                    ? `Showing ${startIndex + 1}–${endIndex} of ${filteredClubs.length} Clubs`
+                    : `0 Clubs found`}
                 </div>
               </div>
 
@@ -147,7 +177,7 @@ export default function CommunitySection() {
                   <button
                     key={region.key}
                     id={`filter-region-${region.key.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                    onClick={() => setSelectedRegion(region.key)}
+                    onClick={() => handleRegionSelect(region.key)}
                     className={`px-3 py-1.5 rounded-lg font-athletic text-xs uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                       selectedRegion === region.key
                         ? 'bg-slate-900 text-white dark:bg-volt dark:text-black font-bold shadow-sm'
@@ -160,104 +190,169 @@ export default function CommunitySection() {
               </div>
             </div>
 
-            {/* Clubs Grid */}
+            {/* Clubs Grid (6 elements in 2 rows on desktop) */}
             {filteredClubs.length > 0 ? (
-              <div id="community-clubs-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredClubs.map((club, idx) => (
-                  <div 
-                    key={club.id || idx}
-                    id={`club-card-${club.id || idx + 1}`}
-                    className="bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 hover:border-ocean/60 dark:hover:border-volt/60 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-sm hover:shadow-md"
-                  >
-                    <div className="space-y-4">
-                      {/* Card Header: Name + Region/City Badges */}
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="space-y-1 flex-1">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-bold uppercase tracking-wider bg-volt text-black shadow-xs">
-                              {club.city}
-                            </span>
-                            <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-semibold uppercase tracking-wider bg-slate-100 dark:bg-dark-750 text-slate-600 dark:text-slate-300">
-                              {club.region}
-                            </span>
+              <div className="space-y-8">
+                <div id="community-clubs-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {paginatedClubs.map((club, idx) => (
+                    <div 
+                      key={club.id || idx}
+                      id={`club-card-${club.id || startIndex + idx + 1}`}
+                      className="bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 hover:border-ocean/60 dark:hover:border-volt/60 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-sm hover:shadow-md"
+                    >
+                      <div className="space-y-4">
+                        {/* Card Header: Name + Region/City Badges */}
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="space-y-1 flex-1">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-bold uppercase tracking-wider bg-volt text-black shadow-xs">
+                                {club.city}
+                              </span>
+                              <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-semibold uppercase tracking-wider bg-slate-100 dark:bg-dark-750 text-slate-600 dark:text-slate-300">
+                                {club.region}
+                              </span>
+                            </div>
+                            <h3 className="text-xl font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide pt-1">
+                              {club.name}
+                            </h3>
                           </div>
-                          <h3 className="text-xl font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide pt-1">
-                            {club.name}
-                          </h3>
-                        </div>
-                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-750 text-ocean dark:text-volt flex items-center justify-center shrink-0">
-                          <Users className="w-5 h-5" />
-                        </div>
-                      </div>
-
-                      {/* Location & Times */}
-                      <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 pt-3 border-t border-slate-100 dark:border-dark-750">
-                        <div className="flex items-start gap-2">
-                          <MapPin className="w-4 h-4 text-ocean dark:text-volt shrink-0 mt-0.5" />
-                          <div>
-                            <span className="text-slate-400 dark:text-slate-400 block font-semibold text-[11px] uppercase tracking-wider">Location:</span>
-                            <span className="text-slate-800 dark:text-slate-200">{club.location || 'Various local meetup points'}</span>
+                          <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-750 text-ocean dark:text-volt flex items-center justify-center shrink-0">
+                            <Users className="w-5 h-5" />
                           </div>
                         </div>
-                        <div className="flex items-start gap-2">
-                          <Clock className="w-4 h-4 text-ocean dark:text-volt shrink-0 mt-0.5" />
-                          <div>
-                            <span className="text-slate-400 dark:text-slate-400 block font-semibold text-[11px] uppercase tracking-wider">Weekly Schedule:</span>
-                            <span className="text-slate-800 dark:text-slate-200 font-medium">{club.meets}</span>
+
+                        {/* Location & Times */}
+                        <div className="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 pt-3 border-t border-slate-100 dark:border-dark-750">
+                          <div className="flex items-start gap-2">
+                            <MapPin className="w-4 h-4 text-ocean dark:text-volt shrink-0 mt-0.5" />
+                            <div>
+                              <span className="text-slate-400 dark:text-slate-400 block font-semibold text-[11px] uppercase tracking-wider">Location:</span>
+                              <span className="text-slate-800 dark:text-slate-200">{club.location || 'Various local meetup points'}</span>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <Clock className="w-4 h-4 text-ocean dark:text-volt shrink-0 mt-0.5" />
+                            <div>
+                              <span className="text-slate-400 dark:text-slate-400 block font-semibold text-[11px] uppercase tracking-wider">Weekly Schedule:</span>
+                              <span className="text-slate-800 dark:text-slate-200 font-medium">{club.meets}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      {/* Club Focus */}
-                      <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-dark-900/60 p-3 rounded-xl border border-slate-100 dark:border-dark-800">
-                        {club.focus}
-                      </div>
-
-                      {/* Tags */}
-                      {club.tags && club.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5 pt-1">
-                          {club.tags.map((tag, tIdx) => (
-                            <span 
-                              key={tIdx} 
-                              className="text-[10px] font-athletic uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 dark:bg-dark-800 text-slate-600 dark:text-slate-400"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
+                        {/* Club Focus */}
+                        <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-dark-900/60 p-3 rounded-xl border border-slate-100 dark:border-dark-800">
+                          {club.focus}
                         </div>
-                      )}
+
+                        {/* Tags */}
+                        {club.tags && club.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {club.tags.map((tag, tIdx) => (
+                              <span 
+                                key={tIdx} 
+                                className="text-[10px] font-athletic uppercase tracking-wider px-2 py-0.5 rounded-md bg-slate-100 dark:bg-dark-800 text-slate-600 dark:text-slate-400"
+                              >
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Direct Club Link Button */}
+                      <div className="pt-5 mt-4 border-t border-slate-100 dark:border-dark-750">
+                        {club.website ? (
+                          <a
+                            id={`club-link-${club.id || startIndex + idx + 1}`}
+                            href={club.website}
+                            target={club.linkType === 'email' || club.linkType === 'phone' ? undefined : "_blank"}
+                            rel={club.linkType === 'email' || club.linkType === 'phone' ? undefined : "noopener noreferrer"}
+                            className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-dark-750 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 font-athletic text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-between group/btn cursor-pointer shadow-xs"
+                          >
+                            <span className="flex items-center gap-2 truncate">
+                              {club.linkType === 'email' ? (
+                                <Mail className="w-3.5 h-3.5 shrink-0" />
+                              ) : club.linkType === 'phone' ? (
+                                <Phone className="w-3.5 h-3.5 shrink-0" />
+                              ) : (
+                                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                              )}
+                              <span className="truncate">{club.contact}</span>
+                            </span>
+                            <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover/btn:translate-x-1 transition-transform shrink-0" />
+                          </a>
+                        ) : (
+                          <div className="text-xs text-slate-400 italic text-center py-2">
+                            Contact via Run Nova Scotia
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Pagination Controls (Next / Prev + Page Numbers) */}
+                {totalPages > 1 && (
+                  <div id="community-clubs-pagination" className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-dark-750">
+                    <div className="text-xs font-athletic font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 text-center sm:text-left">
+                      Showing <span className="text-slate-900 dark:text-white font-bold">{startIndex + 1}–{endIndex}</span> of <span className="text-slate-900 dark:text-white font-bold">{filteredClubs.length}</span> clubs &bull; Page <span className="text-ocean dark:text-volt font-bold">{clampedPage}</span> of {totalPages}
                     </div>
 
-                    {/* Direct Club Link Button */}
-                    <div className="pt-5 mt-4 border-t border-slate-100 dark:border-dark-750">
-                      {club.website ? (
-                        <a
-                          id={`club-link-${club.id || idx + 1}`}
-                          href={club.website}
-                          target={club.linkType === 'email' || club.linkType === 'phone' ? undefined : "_blank"}
-                          rel={club.linkType === 'email' || club.linkType === 'phone' ? undefined : "noopener noreferrer"}
-                          className="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-dark-750 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 font-athletic text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-between group/btn cursor-pointer shadow-xs"
-                        >
-                          <span className="flex items-center gap-2 truncate">
-                            {club.linkType === 'email' ? (
-                              <Mail className="w-3.5 h-3.5 shrink-0" />
-                            ) : club.linkType === 'phone' ? (
-                              <Phone className="w-3.5 h-3.5 shrink-0" />
-                            ) : (
-                              <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                            )}
-                            <span className="truncate">{club.contact}</span>
-                          </span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover/btn:translate-x-1 transition-transform shrink-0" />
-                        </a>
-                      ) : (
-                        <div className="text-xs text-slate-400 italic text-center py-2">
-                          Contact via Run Nova Scotia
-                        </div>
-                      )}
+                    <div className="flex items-center space-x-2">
+                      {/* Prev Button */}
+                      <button
+                        id="community-clubs-pagination-prev"
+                        onClick={() => handlePageChange(clampedPage - 1)}
+                        disabled={clampedPage === 1}
+                        className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                          clampedPage === 1
+                            ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                            : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                        }`}
+                        aria-label="Previous Page"
+                      >
+                        <ChevronLeft className="w-4 h-4 mr-1" />
+                        Prev
+                      </button>
+
+                      {/* Page Numbers */}
+                      <div className="flex items-center space-x-1.5">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                          <button
+                            key={pageNum}
+                            id={`community-clubs-page-${pageNum}`}
+                            onClick={() => handlePageChange(pageNum)}
+                            className={`w-9 h-9 rounded-xl text-xs font-athletic font-bold transition-all flex items-center justify-center cursor-pointer ${
+                              pageNum === clampedPage
+                                ? 'bg-volt text-black shadow-md font-extrabold scale-105'
+                                : 'bg-white dark:bg-dark-850 hover:bg-slate-100 dark:hover:bg-dark-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-750'
+                            }`}
+                            aria-label={`Go to page ${pageNum}`}
+                            aria-current={pageNum === clampedPage ? 'page' : undefined}
+                          >
+                            {pageNum}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Next Button */}
+                      <button
+                        id="community-clubs-pagination-next"
+                        onClick={() => handlePageChange(clampedPage + 1)}
+                        disabled={clampedPage === totalPages}
+                        className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                          clampedPage === totalPages
+                            ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                            : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                        }`}
+                        aria-label="Next Page"
+                      >
+                        Next
+                        <ChevronRight className="w-4 h-4 ml-1" />
+                      </button>
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             ) : (
               <div className="text-center py-16 bg-white dark:bg-dark-850 rounded-2xl border border-slate-200 dark:border-dark-750 p-8 space-y-4">
@@ -269,7 +364,7 @@ export default function CommunitySection() {
                   Try adjusting your search query or selecting "All NS Clubs" to view all {runClubsData.length} clubs across Nova Scotia.
                 </p>
                 <button
-                  onClick={() => { setSelectedRegion('ALL'); setSearchQuery(''); }}
+                  onClick={() => { handleRegionSelect('ALL'); handleSearchChange(''); }}
                   className="px-5 py-2 bg-volt text-black text-xs font-athletic font-bold uppercase tracking-wider rounded-lg shadow hover:bg-[#e5d800] transition-colors"
                 >
                   Clear Filters & Search
