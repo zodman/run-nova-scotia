@@ -1,11 +1,23 @@
-# Run Nova Scotia — Modern Web Platform
+<p align="center">
+  <a href="https://zodman.github.io/run-nova-scotia/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="public/images/rns-logo-white.png">
+      <source media="(prefers-color-scheme: light)" srcset="public/images/rns-logo.png">
+      <img src="public/images/rns-logo.png" alt="Run Nova Scotia Logo" width="220" />
+    </picture>
+  </a>
+</p>
 
-[![Deploy to GitHub Pages](https://github.com/zodman/run-nova-scotia/actions/workflows/deploy.yml/badge.svg)](https://github.com/zodman/run-nova-scotia/actions/workflows/deploy.yml)
-[![Live Demo](https://img.shields.io/badge/Live_Site-GitHub_Pages-FEF000?style=flat&logo=github&logoColor=black)](https://zodman.github.io/run-nova-scotia/)
-[![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<h1 align="center">Run Nova Scotia — Modern Web Platform</h1>
+
+<p align="center">
+  <a href="https://github.com/zodman/run-nova-scotia/actions/workflows/deploy.yml"><img src="https://github.com/zodman/run-nova-scotia/actions/workflows/deploy.yml/badge.svg" alt="Deploy to GitHub Pages"></a>
+  <a href="https://zodman.github.io/run-nova-scotia/"><img src="https://img.shields.io/badge/Live_Site-GitHub_Pages-FEF000?style=flat&logo=github&logoColor=black" alt="Live Demo"></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react&logoColor=black" alt="React"></a>
+  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite"></a>
+  <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=flat&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+</p>
 
 A modern, responsive web application for **Run Nova Scotia**, Nova Scotia's governing road racing association founded in 1983. Built with React 18, Vite 6, and Tailwind CSS.
 
