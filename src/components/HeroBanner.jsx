@@ -25,6 +25,7 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
           poster="./images/hero-poster.jpg"
           className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 dark:opacity-60 sm:dark:opacity-75 filter brightness-105 contrast-110 saturate-110"
         >
+          <source src="./videos/hero-running.webm" type="video/webm" />
           <source src="./videos/hero-running.mp4" type="video/mp4" />
           {/* Fallback image if video fails or is unsupported */}
           <img 
