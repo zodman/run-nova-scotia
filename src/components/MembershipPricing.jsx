@@ -155,14 +155,59 @@ export default function MembershipPricing({ onSelectPlan }) {
           </div>
         </div>
 
-        {/* Benefits Breakdown Banner (Zunzo Style) */}
+        {/* Benefits & Official Member Tech Shirt Spotlight */}
         <div id="pricing-benefits-banner" className="bg-slate-50 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 rounded-2xl p-8 sm:p-10 shadow-xl dark:shadow-2xl">
+          
+          {/* Member Tech Shirt Spotlight Card */}
+          <div className="mb-12 bg-gradient-to-r from-ocean/10 via-volt/10 to-ocean/5 dark:from-ocean/20 dark:via-volt/15 dark:to-dark-800 border border-ocean/30 dark:border-volt/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg">
+            <div className="w-full md:w-5/12 flex justify-center">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-ocean/20 dark:bg-volt/20 rounded-full blur-2xl transform group-hover:scale-110 transition-transform duration-300" />
+                <img 
+                  src="./images/tshirt_cropped.png" 
+                  alt="Official Run Nova Scotia 2026/2027 Long Sleeve Tech Shirt" 
+                  className="relative z-10 max-h-72 sm:max-h-80 w-auto object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_15px_25px_rgba(254,240,0,0.25)] transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            </div>
+
+            <div className="w-full md:w-7/12 space-y-4 text-center md:text-left">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-volt text-black text-xs font-athletic font-bold uppercase tracking-wider">
+                <Shirt className="w-3.5 h-3.5" />
+                <span>Included With Annual Membership</span>
+              </div>
+              
+              <h3 className="text-2xl sm:text-4xl font-athletic font-bold uppercase text-slate-900 dark:text-white tracking-tight">
+                The Iconic Official <span className="text-ocean dark:text-volt">Run Nova Scotia</span> Tech Shirt
+              </h3>
+
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                A maritime racing tradition since 1984! Every registered member receives this collector's item performance technical long sleeve in vibrant ocean blue with custom province-wide race art, lighthouse, and floral emblem. Available in unisex and women's cuts.
+              </p>
+
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs font-athletic font-semibold uppercase text-slate-700 dark:text-slate-200">
+                <span className="flex items-center space-x-1.5 bg-white/70 dark:bg-dark-900/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-dark-700">
+                  <Check className="w-4 h-4 text-ocean dark:text-volt stroke-[3]" />
+                  <span>Moisture-Wicking Tech Fabric</span>
+                </span>
+                <span className="flex items-center space-x-1.5 bg-white/70 dark:bg-dark-900/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-dark-700">
+                  <Check className="w-4 h-4 text-ocean dark:text-volt stroke-[3]" />
+                  <span>Unisex S–2XL & Women's XS–XL</span>
+                </span>
+                <span className="flex items-center space-x-1.5 bg-white/70 dark:bg-dark-900/80 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-dark-700">
+                  <Check className="w-4 h-4 text-ocean dark:text-volt stroke-[3]" />
+                  <span>Pickup at Races or Direct Shipped</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
           <div id="pricing-benefits-header" className="text-center max-w-2xl mx-auto mb-10">
             <h3 id="pricing-benefits-title" className="text-2xl sm:text-3xl font-athletic font-bold uppercase text-slate-900 dark:text-white">
               Why Join <span className="text-ocean dark:text-volt">Run Nova Scotia</span>?
             </h3>
             <p id="pricing-benefits-subtitle" className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">
-              Your $35 membership fee directly supports grassroots road running, permits, chip timing equipment, and youth series throughout Nova Scotia.
+              Your membership directly supports grassroots road running, permits, chip timing equipment, and youth series throughout Nova Scotia.
             </p>
           </div>
 

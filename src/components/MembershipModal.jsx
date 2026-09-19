@@ -250,11 +250,21 @@ export default function MembershipModal({ plan, isOpen, onClose }) {
           )}
 
           {/* Shirt preview callout */}
-          <div id="membership-shirt-note" className="bg-slate-50 dark:bg-dark-850 p-4 rounded-xl border border-slate-200 dark:border-dark-750 flex items-center space-x-3 text-xs text-slate-700 dark:text-slate-300">
-            <Shirt className="w-6 h-6 text-ocean dark:text-volt flex-shrink-0" />
+          <div id="membership-shirt-note" className="bg-slate-50 dark:bg-dark-850 p-4 rounded-xl border border-slate-200 dark:border-dark-750 flex items-center space-x-4 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
+            <div className="w-14 h-14 rounded-lg bg-ocean/10 dark:bg-volt/10 p-1 flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-dark-700">
+              <img 
+                src="./images/tshirt_cropped.png" 
+                alt="Member Tech Shirt" 
+                className="max-h-full max-w-full object-contain drop-shadow"
+              />
+            </div>
             <div>
-              <span className="font-semibold text-slate-900 dark:text-white block">Iconic Annual Member Tech Shirt</span>
-              <span>Every registered member receives the 2026/2027 collector's technical shirt. Available for pickup at series races or shipped.</span>
+              <span className="font-semibold text-slate-900 dark:text-white block text-xs uppercase font-athletic tracking-wide">
+                Iconic 2026/2027 Annual Member Tech Shirt
+              </span>
+              <span className="text-[11px] text-slate-600 dark:text-slate-400">
+                Every registered member receives this collector's item performance long sleeve. Available for pickup at series races or shipped directly.
+              </span>
             </div>
           </div>
 
