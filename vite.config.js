@@ -18,6 +18,27 @@ export default defineConfig({
       'react/jsx-dev-runtime'
     ],
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+    legalComments: 'none',
+  },
+  build: {
+    target: 'es2020',
+    minify: 'esbuild',
+    cssMinify: true,
+    cssCodeSplit: true,
+    sourcemap: false,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'vendor-react';
+          }
+        },
+      },
+    },
+  },
   server: {
     port: 3000,
     host: true,

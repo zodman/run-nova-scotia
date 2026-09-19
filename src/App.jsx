@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import HeroBanner from './components/HeroBanner';
 import TickerMarquee from './components/TickerMarquee';
@@ -6,13 +6,15 @@ import StatsSection from './components/StatsSection';
 import AboutSection from './components/AboutSection';
 import SeriesTabs from './components/SeriesTabs';
 import EventExplorer from './components/EventExplorer';
-import EventModal from './components/EventModal';
 import MembershipPricing from './components/MembershipPricing';
-import MembershipModal from './components/MembershipModal';
-import CommunitySection from './components/CommunitySection';
-import SponsorsMarquee from './components/SponsorsMarquee';
 import CtaBanner from './components/CtaBanner';
 import Footer from './components/Footer';
+
+// Code-split dynamic imports for production performance
+const EventModal = lazy(() => import('./components/EventModal'));
+const MembershipModal = lazy(() => import('./components/MembershipModal'));
+const CommunitySection = lazy(() => import('./components/CommunitySection'));
+const SponsorsMarquee = lazy(() => import('./components/SponsorsMarquee'));
 
 export default function App() {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -118,10 +120,14 @@ export default function App() {
         />
 
         {/* Run Clubs, Board & Life Members */}
-        <CommunitySection />
+        <Suspense fallback={<div className="py-16 text-center text-slate-400 font-athletic tracking-widest text-sm uppercase">Loading Community...</div>}>
+          <CommunitySection />
+        </Suspense>
 
         {/* Sponsors & Partners Marquee */}
-        <SponsorsMarquee />
+        <Suspense fallback={null}>
+          <SponsorsMarquee />
+        </Suspense>
 
         {/* Call to Action Banner */}
         <CtaBanner 
@@ -134,21 +140,27 @@ export default function App() {
         onJoinClick={() => handleOpenJoinModal()}
       />
 
-      {/* Interactive Modals */}
-      <EventModal 
-        event={selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        onJoinClick={() => handleOpenJoinModal()}
-      />
+      {/* Interactive Modals (Code-Split / Loaded on Demand) */}
+      <Suspense fallback={null}>
+        {selectedEvent && (
+          <EventModal 
+            event={selectedEvent}
+            onClose={() => setSelectedEvent(null)}
+            onJoinClick={() => handleOpenJoinModal()}
+          />
+        )}
 
-      <MembershipModal 
-        plan={selectedPlan}
-        isOpen={isJoinModalOpen}
-        onClose={() => {
-          setIsJoinModalOpen(false);
-          setSelectedPlan(null);
-        }}
-      />
+        {isJoinModalOpen && (
+          <MembershipModal 
+            plan={selectedPlan}
+            isOpen={isJoinModalOpen}
+            onClose={() => {
+              setIsJoinModalOpen(false);
+              setSelectedPlan(null);
+            }}
+          />
+        )}
+      </Suspense>
 
     </div>
   );
