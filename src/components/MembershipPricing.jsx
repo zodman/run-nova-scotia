@@ -47,42 +47,39 @@ export default function MembershipPricing({ onSelectPlan }) {
           </p>
         </div>
 
-        {/* Carousel Navigation Header */}
-        <div className="flex items-center justify-between mb-6 px-1">
-          <div className="text-xs font-athletic font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Swipe or use arrows to view all {membershipPlans.length} membership options
-          </div>
+        {/* Carousel Container with Left & Right Navigation Buttons */}
+        <div className="relative group mb-16">
+          
+          {/* Left / Prev Button */}
+          <button
+            id="pricing-carousel-prev-btn"
+            onClick={() => handleScroll('left')}
+            disabled={!canScrollLeft}
+            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-dark-800 border-2 border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-100 disabled:opacity-0 disabled:pointer-events-none hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt hover:scale-110 flex items-center justify-center transition-all shadow-xl cursor-pointer"
+            aria-label="Previous membership options"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
-          <div className="flex items-center space-x-2">
-            <button
-              id="pricing-carousel-prev-btn"
-              onClick={() => handleScroll('left')}
-              disabled={!canScrollLeft}
-              className="w-10 h-10 rounded-xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt flex items-center justify-center transition-all shadow-sm cursor-pointer"
-              aria-label="Previous membership options"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              id="pricing-carousel-next-btn"
-              onClick={() => handleScroll('right')}
-              disabled={!canScrollRight}
-              className="w-10 h-10 rounded-xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt flex items-center justify-center transition-all shadow-sm cursor-pointer"
-              aria-label="Next membership options"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
+          {/* Right / Next Button */}
+          <button
+            id="pricing-carousel-next-btn"
+            onClick={() => handleScroll('right')}
+            disabled={!canScrollRight}
+            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white dark:bg-dark-800 border-2 border-slate-200 dark:border-dark-700 text-slate-800 dark:text-slate-100 disabled:opacity-0 disabled:pointer-events-none hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt hover:scale-110 flex items-center justify-center transition-all shadow-xl cursor-pointer"
+            aria-label="Next membership options"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-        {/* Pricing Cards Horizontal Row / Carousel */}
-        <div 
-          id="pricing-cards-carousel"
-          ref={scrollRef}
-          onScroll={checkScroll}
-          className="flex overflow-x-auto gap-6 items-stretch pt-6 px-3 pb-6 mb-16 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none] -mx-3"
-          style={{ scrollbarWidth: 'none' }}
-        >
+          {/* Pricing Cards Horizontal Row / Carousel */}
+          <div 
+            id="pricing-cards-carousel"
+            ref={scrollRef}
+            onScroll={checkScroll}
+            className="flex overflow-x-auto gap-6 items-stretch pt-6 px-4 pb-6 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none]"
+            style={{ scrollbarWidth: 'none' }}
+          >
           {membershipPlans.map((plan) => (
             <div 
               key={plan.id}
