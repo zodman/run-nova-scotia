@@ -22,14 +22,14 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
           loop
           muted
           playsInline
-          poster="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=80"
+          poster="./images/hero-poster.jpg"
           className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 dark:opacity-60 sm:dark:opacity-75 filter brightness-105 contrast-110 saturate-110"
         >
           <source src="./videos/hero-running.mp4" type="video/mp4" />
           {/* Fallback image if video fails or is unsupported */}
           <img 
-            src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=90" 
-            alt="Road runners in Nova Scotia" 
+            src="./images/hero-poster.jpg" 
+            alt="Run Nova Scotia Road Race runners in Nova Scotia" 
             className="w-full h-full object-cover object-center"
           />
         </video>
