@@ -239,12 +239,12 @@ export default function Navbar({ theme = 'dark', onToggleTheme, onOpenJoinModal,
           <a id="navbar-logo" href="#" className="flex items-center space-x-3 group">
             <div className="relative flex items-center">
               <img 
-                src="/images/rns-logo.png" 
+                src="./images/rns-logo.png" 
                 alt="Run Nova Scotia" 
                 className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://runnovascotia.ca/wp-content/uploads/2023/02/run-nova-scotia-logo-01.png";
+                  e.target.src = "./images/rns-logo.png";
                 }}
               />
               <span className="sr-only">Run Nova Scotia</span>

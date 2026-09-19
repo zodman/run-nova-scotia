@@ -26,12 +26,12 @@ export default function Footer({ onJoinClick }) {
             <a id="footer-logo-link" href="#" className="inline-block">
               <img 
                 id="footer-logo"
-                src="/images/rns-logo.png" 
+                src="./images/rns-logo.png" 
                 alt="Run Nova Scotia" 
                 className="h-14 w-auto object-contain"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://runnovascotia.ca/wp-content/uploads/2023/02/run-nova-scotia-logo-01.png";
+                  e.target.src = "./images/rns-logo.png";
                 }}
               />
             </a>
