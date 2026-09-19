@@ -1,8 +1,28 @@
-import React from 'react';
-import { Check, ShieldCheck, Shirt, Award, ArrowRight, Zap } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Check, ShieldCheck, Shirt, Award, ArrowRight, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { membershipPlans, membershipBenefitsList } from '../data/membershipData';
 
 export default function MembershipPricing({ onSelectPlan }) {
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 10);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  const handleScroll = (direction) => {
+    if (scrollRef.current) {
+      const cardWidth = scrollRef.current.querySelector('[id^="pricing-card-"]')?.offsetWidth || 340;
+      const scrollAmount = (cardWidth + 24) * (direction === 'left' ? -1 : 1);
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="membership" className="py-24 bg-white dark:bg-[#040b17] relative overflow-hidden transition-colors duration-300">
       
@@ -12,30 +32,64 @@ export default function MembershipPricing({ onSelectPlan }) {
       <div id="pricing-container" className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Title */}
-        <div id="pricing-header" className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div id="pricing-header" className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div id="pricing-header-eyebrow" className="inline-flex items-center space-x-2 text-ocean dark:text-volt text-xs sm:text-sm font-athletic font-bold uppercase tracking-widest">
             <span className="w-6 h-0.5 bg-ocean dark:bg-volt" />
-            <span>Membership 2026 / 2027</span>
+            <span>Membership 2027</span>
             <span className="w-6 h-0.5 bg-ocean dark:bg-volt" />
           </div>
           <h2 id="pricing-title" className="text-3xl sm:text-5xl font-athletic font-bold uppercase tracking-tight text-slate-900 dark:text-white">
             Join The <span className="text-ocean dark:text-volt">Run Nova Scotia</span> Family
           </h2>
           <p id="pricing-subtitle" className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
-            Open to all comers — whether you are a first-time jogger, experienced road racer, or passionate supporter. 
-            Enjoy race discounts, iconic shirts, and provincial series standing.
+            Open to all comers — whether you are an individual runner, active family, or senior master. 
+            All amounts include mandatory fees and provide complete Road Race & Performance Series perks.
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div id="pricing-cards-grid" className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-20">
+        {/* Carousel Navigation Header */}
+        <div className="flex items-center justify-between mb-6 px-1">
+          <div className="text-xs font-athletic font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+            Swipe or use arrows to view all {membershipPlans.length} membership options
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <button
+              id="pricing-carousel-prev-btn"
+              onClick={() => handleScroll('left')}
+              disabled={!canScrollLeft}
+              className="w-10 h-10 rounded-xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt flex items-center justify-center transition-all shadow-sm cursor-pointer"
+              aria-label="Previous membership options"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              id="pricing-carousel-next-btn"
+              onClick={() => handleScroll('right')}
+              disabled={!canScrollRight}
+              className="w-10 h-10 rounded-xl bg-white dark:bg-dark-800 border border-slate-200 dark:border-dark-700 text-slate-700 dark:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed hover:border-ocean dark:hover:border-volt hover:text-ocean dark:hover:text-volt flex items-center justify-center transition-all shadow-sm cursor-pointer"
+              aria-label="Next membership options"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Pricing Cards Horizontal Row / Carousel */}
+        <div 
+          id="pricing-cards-carousel"
+          ref={scrollRef}
+          onScroll={checkScroll}
+          className="flex overflow-x-auto gap-6 items-stretch pb-6 mb-16 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none]"
+          style={{ scrollbarWidth: 'none' }}
+        >
           {membershipPlans.map((plan) => (
             <div 
               key={plan.id}
               id={`pricing-card-${plan.id}`}
-              className={`relative rounded-2xl flex flex-col justify-between p-8 transition-all duration-300 transform hover:-translate-y-1.5 ${
+              className={`flex-none w-[300px] sm:w-[340px] snap-start relative rounded-2xl flex flex-col justify-between p-7 transition-all duration-300 transform hover:-translate-y-1 ${
                 plan.isPopular 
-                  ? 'bg-white dark:bg-dark-850 border-2 border-ocean dark:border-volt shadow-xl dark:shadow-[0_0_35px_rgba(254,240,0,0.25)] md:-translate-y-2' 
+                  ? 'bg-white dark:bg-dark-850 border-2 border-ocean dark:border-volt shadow-xl dark:shadow-[0_0_30px_rgba(254,240,0,0.22)]' 
                   : 'bg-slate-50 dark:bg-dark-850/70 border border-slate-200 dark:border-dark-750 hover:border-ocean/50 dark:hover:border-volt/50 shadow-md'
               }`}
             >
@@ -43,7 +97,7 @@ export default function MembershipPricing({ onSelectPlan }) {
               {plan.badge && (
                 <div 
                   id={`pricing-badge-${plan.id}`}
-                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-athletic font-bold uppercase tracking-wider ${
+                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-athletic font-bold uppercase tracking-wider whitespace-nowrap ${
                     plan.isPopular ? 'bg-volt text-black shadow-lg' : 'bg-slate-200 dark:bg-dark-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-dark-650'
                   }`}
                 >
@@ -53,42 +107,42 @@ export default function MembershipPricing({ onSelectPlan }) {
 
               {/* Card Header */}
               <div className="space-y-4">
-                <h3 id={`pricing-plan-title-${plan.id}`} className="text-2xl font-athletic font-bold uppercase text-slate-900 dark:text-white tracking-wide">
+                <h3 id={`pricing-plan-title-${plan.id}`} className="text-xl font-athletic font-bold uppercase text-slate-900 dark:text-white tracking-wide">
                   {plan.name}
                 </h3>
                 
-                <div className="flex items-baseline space-x-1">
-                  <span id={`pricing-plan-price-${plan.id}`} className="text-5xl font-athletic font-extrabold text-ocean dark:text-volt tracking-tight">
+                <div className="flex items-baseline space-x-1.5">
+                  <span id={`pricing-plan-price-${plan.id}`} className="text-4xl font-athletic font-extrabold text-ocean dark:text-volt tracking-tight">
                     {plan.price}
                   </span>
-                  <span className="text-sm font-athletic uppercase text-slate-500 dark:text-slate-400">
+                  <span className="text-xs font-athletic uppercase text-slate-500 dark:text-slate-400">
                     {plan.period}
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed min-h-[40px]">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed min-h-[44px]">
                   {plan.description}
                 </p>
 
                 {/* Features List */}
-                <div id={`pricing-plan-features-${plan.id}`} className="pt-4 border-t border-slate-200 dark:border-dark-750 space-y-3">
+                <div id={`pricing-plan-features-${plan.id}`} className="pt-4 border-t border-slate-200 dark:border-dark-750 space-y-2.5">
                   {plan.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                    <div key={idx} className="flex items-start space-x-2 text-xs text-slate-700 dark:text-slate-300">
                       <div className="w-4 h-4 rounded-full bg-volt/20 dark:bg-volt/15 text-slate-950 dark:text-volt flex items-center justify-center flex-shrink-0 mt-0.5 font-bold">
                         <Check className="w-3 h-3 stroke-[3]" />
                       </div>
-                      <span>{feat}</span>
+                      <span className="leading-snug">{feat}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Action CTA Button */}
-              <div className="pt-8 mt-6">
+              <div className="pt-6 mt-4">
                 <button
                   id={`pricing-plan-btn-${plan.id}`}
                   onClick={() => onSelectPlan(plan)}
-                  className={`w-full py-3.5 rounded font-athletic text-base uppercase tracking-wider font-bold transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
+                  className={`w-full py-3 rounded font-athletic text-sm uppercase tracking-wider font-bold transition-all duration-200 flex items-center justify-center space-x-2 cursor-pointer ${
                     plan.isPopular
                       ? 'bg-volt hover:bg-[#E5D800] text-black shadow-md hover:shadow-lg'
                       : 'bg-slate-200 hover:bg-slate-300 dark:bg-dark-750 dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-white border border-slate-300 dark:border-dark-650'
