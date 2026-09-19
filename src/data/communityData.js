@@ -357,37 +357,37 @@ export const boardMembersData = [
     role: "President",
     name: "Pam Dimock",
     bio: "Passionate road racer and dedicated volunteer advancing running infrastructure across Nova Scotia for over two decades.",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   },
   {
     role: "Vice President",
     name: "Craig Durling",
     bio: "Long-time series participant coordinating race director relations and timing standards.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   },
   {
     role: "Treasurer",
     name: "David MacLennan",
     bio: "Multi-time provincial champion providing rigorous financial oversight and community grant administration.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   },
   {
     role: "Secretary & Membership",
     name: "Sarah MacDonald",
     bio: "Managing the annual registration roster, membership shirts, and community inquiries.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   },
   {
     role: "Director of Youth Series",
     name: "Mark Henderson",
     bio: "Igniting the running spark for thousands of school-age children through the Youth Running Series.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   },
   {
     role: "Director of Communications",
     name: "Elena Cormier",
     bio: "Connecting runners across the province through newsletters, social media, and digital platforms.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80"
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&h=800&crop=faces&q=85"
   }
 ];
 

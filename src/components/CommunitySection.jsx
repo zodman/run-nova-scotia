@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Users, MapPin, Calendar, ShieldCheck, Mail, ArrowRight, ExternalLink, Search, Clock, Phone, X, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { runClubsData, boardMembersData, lifeMembers } from '../data/communityData';
 
@@ -8,6 +8,23 @@ export default function CommunitySection() {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const CLUBS_PER_PAGE = 6;
+
+  // Sync hash routing (#board, #clubs, #life)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash === '#board') {
+        setActiveTab('board');
+      } else if (hash === '#life') {
+        setActiveTab('life');
+      } else if (hash === '#clubs') {
+        setActiveTab('clubs');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   // Calculate counts per region
   const regionCounts = useMemo(() => {
@@ -72,6 +89,8 @@ export default function CommunitySection() {
   return (
     <section id="community-section" className="py-24 bg-slate-50 dark:bg-[#0b1627] border-y border-slate-200 dark:border-dark-750 relative transition-colors duration-300">
       <div id="clubs" className="absolute -top-12" />
+      <div id="board" className="absolute -top-12" />
+      <div id="life" className="absolute -top-12" />
       <div id="community-container" className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
@@ -400,27 +419,34 @@ export default function CommunitySection() {
               <div 
                 key={idx}
                 id={`board-member-card-${idx + 1}`}
-                className="bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 rounded-2xl overflow-hidden group hover:border-ocean/60 dark:hover:border-volt/60 transition-all shadow-sm hover:shadow-md"
+                className="bg-white dark:bg-dark-850 border border-slate-200 dark:border-dark-750 rounded-2xl overflow-hidden group hover:border-ocean/60 dark:hover:border-volt/60 transition-all shadow-sm hover:shadow-md flex flex-col"
               >
-                <div className="h-48 overflow-hidden relative">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-dark-800">
                   <img 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 filter grayscale contrast-125"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=0284C7&color=CCFF00&size=512&font-size=0.33`;
+                    }}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-dark-850 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-4 bg-volt text-black text-[11px] font-athletic font-bold uppercase tracking-wider px-2.5 py-0.5 rounded">
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-4 bg-volt text-black text-[11px] font-athletic font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-md">
                     {member.role}
                   </div>
                 </div>
 
-                <div className="p-5 space-y-2">
-                  <h4 className="text-lg font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide">
-                    {member.name}
-                  </h4>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {member.bio}
-                  </p>
+                <div className="p-5 space-y-2 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-lg font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide">
+                      {member.name}
+                    </h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mt-1">
+                      {member.bio}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
