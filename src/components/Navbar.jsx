@@ -150,10 +150,18 @@ export default function Navbar({ theme = 'dark', onToggleTheme, onOpenJoinModal,
       <div id="top-bar" className="bg-[#040b16] border-b border-dark-750 text-xs py-2 px-4 sm:px-8 hidden md:block">
         <div id="top-small-menu" className="max-w-7xl mx-auto flex justify-between items-center text-slate-300">
           <div id="top-bar-announcements" className="flex items-center space-x-6">
-            <span className="flex items-center space-x-1.5 hover:text-white transition-colors">
-              <Flame className="w-3.5 h-3.5 text-volt" />
-              <span>2026 Run Nova Scotia Road Race Series Registration Is Open!</span>
-            </span>
+            <a 
+              id="top-bar-announcement-link"
+              href="#events" 
+              className="flex items-center space-x-1.5 hover:text-volt transition-colors cursor-pointer group"
+              title="Explore 2026 Road Race Series & Register"
+            >
+              <Flame className="w-3.5 h-3.5 text-volt group-hover:scale-110 transition-transform" />
+              <span className="underline decoration-volt/40 underline-offset-4 group-hover:decoration-volt">
+                2026 Run Nova Scotia Road Race Series Registration Is Open!
+              </span>
+              <ChevronRight className="w-3.5 h-3.5 text-volt opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+            </a>
             <span className="text-dark-600">•</span>
             <a href="mailto:admin@runnovascotia.ca" className="flex items-center space-x-1.5 hover:text-volt transition-colors">
               <Mail className="w-3.5 h-3.5 text-volt" />
