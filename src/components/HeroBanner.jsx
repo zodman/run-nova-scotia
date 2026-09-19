@@ -15,13 +15,24 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
   return (
     <section id="hero-section" className="relative min-h-[90vh] flex items-center bg-slate-100 dark:bg-[#040b17] overflow-hidden transition-colors duration-300">
       
-      {/* Background with runner action image with vivid clarity and subtle readability mask */}
-      <div id="hero-background" className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=90" 
-          alt="Road runners in Nova Scotia" 
-          className="w-full h-full object-cover object-center sm:object-[center_35%] opacity-80 sm:opacity-90 dark:opacity-75 sm:dark:opacity-85 filter brightness-100 contrast-105 saturate-105 transition-opacity duration-500"
-        />
+      {/* Background with looping runner action video with image fallback and subtle readability mask */}
+      <div id="hero-background" className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=80"
+          className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 dark:opacity-60 sm:dark:opacity-75 filter brightness-105 contrast-110 saturate-110"
+        >
+          <source src="./videos/hero-running.mp4" type="video/mp4" />
+          {/* Fallback image if video fails or is unsupported */}
+          <img 
+            src="https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=2000&q=90" 
+            alt="Road runners in Nova Scotia" 
+            className="w-full h-full object-cover object-center"
+          />
+        </video>
         {/* Soft horizontal gradient prioritizing text legibility on left while keeping runners clear on right */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/60 to-slate-100/20 lg:to-transparent dark:from-[#040b17]/90 dark:via-[#040b17]/55 dark:to-[#040b17]/15 dark:lg:to-transparent" />
         
