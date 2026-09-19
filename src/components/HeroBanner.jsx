@@ -1,8 +1,23 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef, useEffect } from 'react';
 import { ChevronRight, Calendar, Award, ShieldCheck, Flame, ArrowUpRight, MapPin, ExternalLink, Car } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, addUtmParams } from '../data/eventsData';
 
 export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.defaultMuted = true;
+      video.muted = true;
+      video.loop = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  }, []);
+
   // Dynamically select the NEXT upcoming event from today
   const nextEvent = useMemo(() => {
     const upcoming = eventsData
@@ -18,10 +33,15 @@ export default function HeroBanner({ onExploreRaces, onJoinClick, onSelectEvent 
       {/* Background with looping runner action video with image fallback and subtle readability mask */}
       <div id="hero-background" className="absolute inset-0 z-0 overflow-hidden">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
+          onEnded={(e) => {
+            e.currentTarget.currentTime = 0;
+            e.currentTarget.play().catch(() => {});
+          }}
           poster="./images/hero-poster.jpg"
           className="w-full h-full object-cover object-center opacity-75 sm:opacity-85 dark:opacity-60 sm:dark:opacity-75 filter brightness-105 contrast-110 saturate-110"
         >
