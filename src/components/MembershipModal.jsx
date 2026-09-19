@@ -106,38 +106,145 @@ export default function MembershipModal({ plan, isOpen, onClose }) {
 
           {/* Option 2: e-Transfer */}
           {paymentMethod === 'etransfer' && (
-            <div id="membership-panel-etransfer" className="bg-slate-50 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 p-5 rounded-xl space-y-4 text-xs">
-              <h4 className="text-sm font-athletic font-bold uppercase text-slate-900 dark:text-white">
-                How to Pay by Interac e-Transfer:
-              </h4>
+            <div id="membership-panel-etransfer" className="bg-slate-50 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 p-5 rounded-xl space-y-5 text-xs">
+              
+              {/* Registration Fees Section */}
+              <div id="membership-etransfer-fees" className="space-y-3">
+                <div className="border-b border-slate-200 dark:border-dark-700 pb-2">
+                  <h4 className="text-sm font-athletic font-bold uppercase text-slate-900 dark:text-white">
+                    Registration Fees
+                  </h4>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    Where pricing applies, shown amounts include mandatory charges, items, and fees.
+                  </p>
+                </div>
 
-              <ol className="list-decimal list-inside space-y-2 text-slate-700 dark:text-slate-300">
-                <li>
-                  Send membership payment ({plan ? plan.price : '$35'}) to: <strong className="text-ocean dark:text-volt font-mono select-all">admin@runnovascotia.ca</strong> (No password required).
-                </li>
-                <li>
-                  Email the following details to Registrar Pam Dimock at: <strong className="text-ocean dark:text-volt font-mono select-all">pam.dimock@gmail.com</strong>
-                </li>
-              </ol>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {/* Individual */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Individual Membership</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$40.06</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        2027 Run NS Membership for new and returning members.
+                      </p>
+                    </div>
+                  </div>
 
-              <div className="bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 p-3 rounded-lg text-slate-800 dark:text-slate-300 space-y-1 font-mono text-[11px] shadow-sm">
-                <p>• Full Name(s) & Gender</p>
-                <p>• Date of Birth (YYYY-MM-DD)</p>
-                <p>• Full Mailing Address & Phone Number</p>
-                <p>• Email Address</p>
-                <p>• Desired T-Shirt Size(s) (Unisex S to 2XL or Women XS to XL)</p>
-                <p>• Confirmation of amount e-transferred</p>
+                  {/* Family of 2 */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Family of 2</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$61.65</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        Up to 2 Family members residing at the same address.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Family of 3 */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Family of 3</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$67.05</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        Up to 3 Family members residing at the same address.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Family of 4 */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Family of 4</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$72.44</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        Up to 4 Family members residing at the same address.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Family of 5 */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Family of 5</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$77.84</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        Up to 5 Family members residing at the same address.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Family of 6 */}
+                  <div className="p-3 bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 rounded-lg flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Family of 6</span>
+                        <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$83.24</span>
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                        Up to 6 Family members residing at the same address.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Perpetual Membership */}
+                  <div className="sm:col-span-2 p-3 bg-white dark:bg-dark-900 border border-ocean/40 dark:border-volt/40 rounded-lg flex flex-col justify-between">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="font-athletic font-bold text-xs uppercase text-slate-900 dark:text-white">Perpetual Membership</span>
+                      <span className="font-athletic font-extrabold text-sm text-ocean dark:text-volt whitespace-nowrap">CA$72.44</span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                      Must be at least 65 years old. This buys you a Run NS membership for life!
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="pt-2">
-                <a
-                  id="membership-etransfer-email-btn"
-                  href="mailto:pam.dimock@gmail.com?subject=Run%20Nova%20Scotia%20Membership%20Application&body=Hello%20Pam,%0D%0A%0D%0APlease%20find%20my%20membership%20application%20details%20below:%0D%0A- Full Name:%20%0D%0A- Gender:%20%0D%0A- Date of Birth:%20%0D%0A- Phone:%20%0D%0A- Mailing Address:%20%0D%0A- Shirt Size:%20%0D%0A- Amount e-transferred:%20"
-                  className="inline-flex items-center space-x-2 text-xs font-athletic font-bold uppercase tracking-wider text-black bg-volt hover:bg-[#E5D800] px-4 py-2.5 rounded transition-colors cursor-pointer shadow"
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  <span>Open Pre-filled Email to Registrar</span>
-                </a>
+              {/* Instructions */}
+              <div className="space-y-3 pt-1 border-t border-slate-200 dark:border-dark-700">
+                <h4 className="text-sm font-athletic font-bold uppercase text-slate-900 dark:text-white">
+                  How to Complete Your e-Transfer:
+                </h4>
+
+                <ol className="list-decimal list-inside space-y-2 text-slate-700 dark:text-slate-300">
+                  <li>
+                    Send your fee to: <strong className="text-ocean dark:text-volt font-mono select-all">admin@runnovascotia.ca</strong> (No password required).
+                  </li>
+                  <li>
+                    Email the following details to Registrar Pam Dimock at: <strong className="text-ocean dark:text-volt font-mono select-all">pam.dimock@gmail.com</strong>
+                  </li>
+                </ol>
+
+                <div className="bg-white dark:bg-dark-900 border border-slate-200 dark:border-dark-700 p-3 rounded-lg text-slate-800 dark:text-slate-300 space-y-1 font-mono text-[11px] shadow-sm">
+                  <p>• Full Name(s) & Gender</p>
+                  <p>• Date of Birth (YYYY-MM-DD)</p>
+                  <p>• Full Mailing Address & Phone Number</p>
+                  <p>• Email Address</p>
+                  <p>• Desired T-Shirt Size(s) (Unisex S to 2XL or Women XS to XL)</p>
+                  <p>• Membership tier selected & Confirmation of amount e-transferred</p>
+                </div>
+
+                <div className="pt-2">
+                  <a
+                    id="membership-etransfer-email-btn"
+                    href="mailto:pam.dimock@gmail.com?subject=Run%20Nova%20Scotia%20Membership%20Application&body=Hello%20Pam,%0D%0A%0D%0APlease%20find%20my%20membership%20application%20details%20below:%0D%0A- Membership Tier:%20%0D%0A- Full Name:%20%0D%0A- Gender:%20%0D%0A- Date of Birth:%20%0D%0A- Phone:%20%0D%0A- Mailing Address:%20%0D%0A- Shirt Size:%20%0D%0A- Amount e-transferred:%20"
+                    className="inline-flex items-center space-x-2 text-xs font-athletic font-bold uppercase tracking-wider text-black bg-volt hover:bg-[#E5D800] px-4 py-2.5 rounded transition-colors cursor-pointer shadow"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Open Pre-filled Email to Registrar</span>
+                  </a>
+                </div>
               </div>
             </div>
           )}
