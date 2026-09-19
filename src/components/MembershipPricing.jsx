@@ -152,6 +152,7 @@ export default function MembershipPricing({ onSelectPlan }) {
 
             </div>
           ))}
+          </div>
         </div>
 
         {/* Benefits Breakdown Banner (Zunzo Style) */}
