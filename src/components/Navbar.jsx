@@ -16,8 +16,7 @@ import {
   Moon,
   Trophy,
   Zap,
-  Clock,
-  Compass
+  Clock
 } from 'lucide-react';
 
 // ============================================================================

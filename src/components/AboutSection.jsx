@@ -1,5 +1,4 @@
-import React from 'react';
-import { CheckCircle2, ShieldCheck, Heart, Users, MapPin } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function AboutSection({ onJoinClick }) {
   const pillars = [

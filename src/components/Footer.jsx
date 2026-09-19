@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, ArrowRight, ShieldCheck, Heart, Send, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, ArrowRight, ShieldCheck, Send, ExternalLink } from 'lucide-react';
 
 export default function Footer({ onJoinClick }) {
   const [email, setEmail] = useState('');

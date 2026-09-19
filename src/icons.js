@@ -1,5 +1,5 @@
-// Optimized Lucide icon barrel: directly imports only the icons used across the app,
-// reducing dev/prod bundle weight from 1.3 MB (1,400+ icons) down to ~15 KB.
+// Strictly only icons rendered in JSX across the application.
+// Completely removes all unused icons to keep the bundle as small as possible.
 
 export { default as ArrowRight } from 'lucide-react/dist/esm/icons/arrow-right.mjs';
 export { default as ArrowUpRight } from 'lucide-react/dist/esm/icons/arrow-up-right.mjs';
@@ -14,14 +14,12 @@ export { default as ChevronDown } from 'lucide-react/dist/esm/icons/chevron-down
 export { default as ChevronLeft } from 'lucide-react/dist/esm/icons/chevron-left.mjs';
 export { default as ChevronRight } from 'lucide-react/dist/esm/icons/chevron-right.mjs';
 export { default as Clock } from 'lucide-react/dist/esm/icons/clock.mjs';
-export { default as Compass } from 'lucide-react/dist/esm/icons/compass.mjs';
 export { default as CreditCard } from 'lucide-react/dist/esm/icons/credit-card.mjs';
 export { default as ExternalLink } from 'lucide-react/dist/esm/icons/external-link.mjs';
 export { default as Filter } from 'lucide-react/dist/esm/icons/filter.mjs';
 export { default as Flag } from 'lucide-react/dist/esm/icons/flag.mjs';
 export { default as Flame } from 'lucide-react/dist/esm/icons/flame.mjs';
 export { default as Globe } from 'lucide-react/dist/esm/icons/globe.mjs';
-export { default as Heart } from 'lucide-react/dist/esm/icons/heart.mjs';
 export { default as HeartHandshake } from 'lucide-react/dist/esm/icons/heart-handshake.mjs';
 export { default as Layers } from 'lucide-react/dist/esm/icons/layers.mjs';
 export { default as Link } from 'lucide-react/dist/esm/icons/link.mjs';
@@ -40,8 +38,6 @@ export { default as SlidersHorizontal } from 'lucide-react/dist/esm/icons/slider
 export { default as Sparkles } from 'lucide-react/dist/esm/icons/sparkles.mjs';
 export { default as Sun } from 'lucide-react/dist/esm/icons/sun.mjs';
 export { default as Trophy } from 'lucide-react/dist/esm/icons/trophy.mjs';
-export { default as User } from 'lucide-react/dist/esm/icons/user.mjs';
-export { default as UserCheck } from 'lucide-react/dist/esm/icons/user-check.mjs';
 export { default as Users } from 'lucide-react/dist/esm/icons/users.mjs';
 export { default as X } from 'lucide-react/dist/esm/icons/x.mjs';
 export { default as Zap } from 'lucide-react/dist/esm/icons/zap.mjs';

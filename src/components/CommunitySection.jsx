@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Users, MapPin, Calendar, Heart, ShieldCheck, Mail, ArrowRight, ExternalLink, Search, Clock, Phone, X, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Users, MapPin, Calendar, ShieldCheck, Mail, ArrowRight, ExternalLink, Search, Clock, Phone, X, Filter, ChevronLeft, ChevronRight } from 'lucide-react';
 import { runClubsData, boardMembersData, lifeMembers } from '../data/communityData';
 
 export default function CommunitySection() {

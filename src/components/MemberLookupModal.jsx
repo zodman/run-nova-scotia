@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Search, UserCheck, ShieldAlert, Mail, ArrowRight, User } from 'lucide-react';
+import { X, Search, ShieldAlert, Mail, ArrowRight } from 'lucide-react';
 import { mockMembers } from '../data/sponsorsData';
 
 export default function MemberLookupModal({ isOpen, onClose, onJoinClick }) {

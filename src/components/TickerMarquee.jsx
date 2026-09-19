@@ -1,5 +1,4 @@
 import React from 'react';
-import { Zap, Flame, Compass } from 'lucide-react';
 
 export default function TickerMarquee() {
   const items = [
