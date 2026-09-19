@@ -93,7 +93,7 @@ export default function MembershipModal({ plan, isOpen, onClose }) {
               
               <a 
                 id="membership-raceroster-btn"
-                href="https://raceroster.com?utm_source=runnovascotia&utm_medium=referral&utm_campaign=membership_registration" 
+                href="https://raceroster.com/events/2027/141052/2027-run-ns-annual-membership?utm_source=runnovascotia&utm_medium=referral&utm_campaign=membership_registration" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-volt hover:bg-[#E5D800] text-black font-athletic font-bold text-sm uppercase tracking-wider rounded-lg transition-colors flex items-center justify-center space-x-2 shadow cursor-pointer"
