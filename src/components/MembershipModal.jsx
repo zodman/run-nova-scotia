@@ -251,11 +251,11 @@ export default function MembershipModal({ plan, isOpen, onClose }) {
 
           {/* Shirt preview callout */}
           <div id="membership-shirt-note" className="bg-slate-50 dark:bg-dark-850 p-4 rounded-xl border border-slate-200 dark:border-dark-750 flex items-center space-x-4 text-xs text-slate-700 dark:text-slate-300 shadow-sm">
-            <div className="w-14 h-14 rounded-lg bg-ocean/10 dark:bg-volt/10 p-1 flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-dark-700">
+            <div className="w-16 h-16 rounded-xl bg-ocean/10 dark:bg-volt/10 p-1.5 flex items-center justify-center flex-shrink-0 border border-slate-200 dark:border-dark-700 shadow-inner">
               <img 
-                src="./images/tshirt_cropped.png" 
+                src="./images/tshirt_zoomed.png" 
                 alt="Member Tech Shirt" 
-                className="max-h-full max-w-full object-contain drop-shadow"
+                className="max-h-full max-w-full object-contain drop-shadow hover:scale-110 transition-transform cursor-pointer"
               />
             </div>
             <div>

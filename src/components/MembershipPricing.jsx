@@ -159,19 +159,19 @@ export default function MembershipPricing({ onSelectPlan }) {
         <div id="pricing-benefits-banner" className="bg-slate-50 dark:bg-dark-850 border border-slate-200 dark:border-dark-750 rounded-2xl p-8 sm:p-10 shadow-xl dark:shadow-2xl">
           
           {/* Member Tech Shirt Spotlight Card */}
-          <div className="mb-12 bg-gradient-to-r from-ocean/10 via-volt/10 to-ocean/5 dark:from-ocean/20 dark:via-volt/15 dark:to-dark-800 border border-ocean/30 dark:border-volt/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg">
-            <div className="w-full md:w-5/12 flex justify-center">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-ocean/20 dark:bg-volt/20 rounded-full blur-2xl transform group-hover:scale-110 transition-transform duration-300" />
+          <div className="mb-12 bg-gradient-to-r from-ocean/10 via-volt/10 to-ocean/5 dark:from-ocean/20 dark:via-volt/15 dark:to-dark-800 border border-ocean/30 dark:border-volt/30 rounded-3xl p-6 sm:p-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12 shadow-xl">
+            <div className="w-full lg:w-1/2 flex justify-center items-center">
+              <div className="relative group w-full flex justify-center">
+                <div className="absolute inset-0 bg-ocean/25 dark:bg-volt/20 rounded-full blur-3xl transform group-hover:scale-110 transition-transform duration-500" />
                 <img 
-                  src="./images/tshirt_cropped.png" 
-                  alt="Official Run Nova Scotia 2026/2027 Long Sleeve Tech Shirt" 
-                  className="relative z-10 max-h-72 sm:max-h-80 w-auto object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)] dark:drop-shadow-[0_15px_25px_rgba(254,240,0,0.25)] transition-transform duration-300 group-hover:scale-105"
+                  src="./images/tshirt_zoomed.png" 
+                  alt="Official Run Nova Scotia 2026/2027 Long Sleeve Tech Shirt Close-up" 
+                  className="relative z-10 max-h-[380px] sm:max-h-[460px] md:max-h-[500px] w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.4)] dark:drop-shadow-[0_20px_35px_rgba(254,240,0,0.3)] transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
 
-            <div className="w-full md:w-7/12 space-y-4 text-center md:text-left">
+            <div className="w-full lg:w-1/2 space-y-5 text-center lg:text-left">
               <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-volt text-black text-xs font-athletic font-bold uppercase tracking-wider">
                 <Shirt className="w-3.5 h-3.5" />
                 <span>Included With Annual Membership</span>
