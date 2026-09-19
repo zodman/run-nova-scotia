@@ -80,7 +80,7 @@ export default function MembershipPricing({ onSelectPlan }) {
           id="pricing-cards-carousel"
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex overflow-x-auto gap-6 items-stretch pb-6 mb-16 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex overflow-x-auto gap-6 items-stretch pt-6 px-3 pb-6 mb-16 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none] -mx-3"
           style={{ scrollbarWidth: 'none' }}
         >
           {membershipPlans.map((plan) => (
@@ -97,7 +97,7 @@ export default function MembershipPricing({ onSelectPlan }) {
               {plan.badge && (
                 <div 
                   id={`pricing-badge-${plan.id}`}
-                  className={`absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-athletic font-bold uppercase tracking-wider whitespace-nowrap ${
+                  className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-athletic font-bold uppercase tracking-wider whitespace-nowrap z-10 ${
                     plan.isPopular ? 'bg-volt text-black shadow-lg' : 'bg-slate-200 dark:bg-dark-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-dark-650'
                   }`}
                 >
