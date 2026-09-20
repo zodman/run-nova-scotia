@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Check, ShieldCheck, Shirt, Award, ArrowRight, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { membershipPlans, membershipBenefitsList } from '../data/membershipData';
 
@@ -14,6 +14,12 @@ export default function MembershipPricing({ onSelectPlan }) {
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
     }
   };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener('resize', checkScroll);
+    return () => window.removeEventListener('resize', checkScroll);
+  }, []);
 
   const handleScroll = (direction) => {
     if (scrollRef.current) {
@@ -77,14 +83,14 @@ export default function MembershipPricing({ onSelectPlan }) {
             id="pricing-cards-carousel"
             ref={scrollRef}
             onScroll={checkScroll}
-            className="flex overflow-x-auto gap-6 items-stretch pt-6 px-4 pb-6 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex overflow-x-auto gap-6 items-stretch pt-6 pb-6 px-1 snap-x snap-mandatory scrollbar-none focus:outline-none [-ms-overflow-style:none] [scrollbar-width:none]"
             style={{ scrollbarWidth: 'none' }}
           >
           {membershipPlans.map((plan) => (
             <div 
               key={plan.id}
               id={`pricing-card-${plan.id}`}
-              className={`flex-none w-[300px] sm:w-[340px] snap-start relative rounded-2xl flex flex-col justify-between p-7 transition-all duration-300 transform hover:-translate-y-1 ${
+              className={`flex-none w-[82vw] sm:w-[320px] md:w-[calc((100%-3rem)/2.3)] lg:w-[calc((100%-4.5rem)/3.3)] snap-start relative rounded-2xl flex flex-col justify-between p-6 sm:p-7 transition-all duration-300 transform hover:-translate-y-1 ${
                 plan.isPopular 
                   ? 'bg-white dark:bg-dark-850 border-2 border-ocean dark:border-volt shadow-xl dark:shadow-[0_0_30px_rgba(254,240,0,0.22)]' 
                   : 'bg-slate-50 dark:bg-dark-850/70 border border-slate-200 dark:border-dark-750 hover:border-ocean/50 dark:hover:border-volt/50 shadow-md'
