@@ -28,6 +28,7 @@ export default defineConfig({
     cssMinify: true,
     cssCodeSplit: true,
     sourcemap: false,
+    emptyOutDir: false,
     chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
