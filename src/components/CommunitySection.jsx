@@ -221,22 +221,40 @@ export default function CommunitySection() {
                     >
                       <div className="space-y-4">
                         {/* Card Header: Name + Region/City Badges */}
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="space-y-1 flex-1">
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="space-y-1.5 flex-1 min-w-0">
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-bold uppercase tracking-wider bg-volt text-black shadow-xs">
+                              <span className="px-2.5 py-0.5 rounded text-[10px] font-athletic font-bold uppercase tracking-wider bg-volt text-black shadow-xs">
                                 {club.city}
                               </span>
-                              <span className="px-2 py-0.5 rounded text-[10px] font-athletic font-semibold uppercase tracking-wider bg-slate-100 dark:bg-dark-750 text-slate-600 dark:text-slate-300">
+                              <span className="px-2.5 py-0.5 rounded text-[10px] font-athletic font-semibold uppercase tracking-wider bg-slate-100 dark:bg-dark-750 text-slate-600 dark:text-slate-300">
                                 {club.region}
                               </span>
                             </div>
-                            <h3 className="text-xl font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide pt-1">
+                            <h3 className="text-xl sm:text-2xl font-athletic font-bold text-slate-900 dark:text-white uppercase tracking-wide pt-1 leading-snug">
                               {club.name}
                             </h3>
                           </div>
-                          <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-dark-750 text-ocean dark:text-volt flex items-center justify-center shrink-0">
-                            <Users className="w-5 h-5" />
+                          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white dark:bg-dark-750 border-2 border-slate-200 dark:border-dark-700/90 p-2 flex items-center justify-center shrink-0 overflow-hidden shadow-sm group-hover:border-volt/60 transition-all">
+                            {club.logo ? (
+                              <img 
+                                src={club.logo} 
+                                alt={`${club.name} logo`} 
+                                className="w-full h-full object-contain rounded-xl transition-transform duration-300 hover:scale-105"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                  if (e.currentTarget.nextElementSibling) {
+                                    e.currentTarget.nextElementSibling.style.display = 'flex';
+                                  }
+                                }}
+                              />
+                            ) : null}
+                            <div 
+                              style={{ display: club.logo ? 'none' : 'flex' }}
+                              className="w-full h-full items-center justify-center text-ocean dark:text-volt"
+                            >
+                              <Users className="w-8 h-8" />
+                            </div>
                           </div>
                         </div>
 

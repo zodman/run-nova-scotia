@@ -10,7 +10,8 @@ export const runClubsData = [
     contact: "hfxroadhammers.com",
     website: "http://www.hfxroadhammers.com/",
     linkType: "website",
-    tags: ["Competitive", "Marathon", "Track"]
+    tags: ["Competitive", "Marathon", "Track"],
+    logo: "/images/clubs/halifax-road-hammers.png"
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ export const runClubsData = [
     contact: "northendrunners.com",
     website: "http://www.northendrunners.com/",
     linkType: "website",
-    tags: ["Urban", "Social", "Free"]
+    tags: ["Urban", "Social", "Free"],
+    logo: "/images/clubs/north-end-runners.jpg"
   },
   {
     id: 3,
@@ -36,7 +38,8 @@ export const runClubsData = [
     contact: "@easybreezy.runclub",
     website: "https://www.instagram.com/easybreezy.runclub/",
     linkType: "instagram",
-    tags: ["Social", "Morning", "Coffee"]
+    tags: ["Social", "Morning", "Coffee"],
+    logo: "/images/clubs/easy-breezy-run-club.jpg"
   },
   {
     id: 4,
@@ -49,7 +52,8 @@ export const runClubsData = [
     contact: "halifaxtrailrunnersclub.blogspot.com",
     website: "https://halifaxtrailrunnersclub.blogspot.com/",
     linkType: "website",
-    tags: ["Trail", "Ultra", "Nature"]
+    tags: ["Trail", "Ultra", "Nature"],
+    logo: "/images/clubs/halifax-trail-runners.jpg"
   },
   {
     id: 5,
@@ -62,7 +66,8 @@ export const runClubsData = [
     contact: "dartmouthrunners.com",
     website: "http://www.dartmouthrunners.com/",
     linkType: "website",
-    tags: ["Community", "Road", "All Levels"]
+    tags: ["Community", "Road", "All Levels"],
+    logo: "/images/clubs/dartmouth-runners-association.svg"
   },
   {
     id: 6,
@@ -75,7 +80,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/Coleharbourrunners",
     linkType: "facebook",
-    tags: ["Social", "Local", "Weekly"]
+    tags: ["Social", "Local", "Weekly"],
+    logo: "/images/clubs/cole-harbour-runners.svg"
   },
   {
     id: 7,
@@ -88,7 +94,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/p/Fast-Company-Running-Club-100057396312514/",
     linkType: "facebook",
-    tags: ["Track", "Lakeside", "Pacing"]
+    tags: ["Track", "Lakeside", "Pacing"],
+    logo: "/images/clubs/fast-company-running-club.svg"
   },
   {
     id: 8,
@@ -101,7 +108,8 @@ export const runClubsData = [
     contact: "bltrunners.com",
     website: "http://www.bltrunners.com/",
     linkType: "website",
-    tags: ["Rails-to-Trails", "Distance", "Scenic"]
+    tags: ["Rails-to-Trails", "Distance", "Scenic"],
+    logo: "/images/clubs/blt-runners.png"
   },
   {
     id: 9,
@@ -114,7 +122,8 @@ export const runClubsData = [
     contact: "Facebook Page",
     website: "https://www.facebook.com/profile.php?id=100063744333169",
     linkType: "facebook",
-    tags: ["South End", "Peninsula", "Social"]
+    tags: ["South End", "Peninsula", "Social"],
+    logo: "/images/clubs/halifax-running-club.svg"
   },
   {
     id: 10,
@@ -127,7 +136,8 @@ export const runClubsData = [
     contact: "heartandsolerunningclub.blogspot.ca",
     website: "http://heartandsolerunningclub.blogspot.ca/",
     linkType: "website",
-    tags: ["Recreational", "Walk & Run", "Friendly"]
+    tags: ["Recreational", "Walk & Run", "Friendly"],
+    logo: "/images/clubs/heart-and-sole-running-club.jpg"
   },
   {
     id: 11,
@@ -140,7 +150,8 @@ export const runClubsData = [
     contact: "Join WhatsApp",
     website: "https://chat.whatsapp.com/JCGXeHgmUEo7qRVP1HkNV1",
     linkType: "whatsapp",
-    tags: ["Alcohol-Free", "Wellness", "Community"]
+    tags: ["Alcohol-Free", "Wellness", "Community"],
+    logo: "/images/clubs/sober-friends-run-crew.jpg"
   },
   {
     id: 12,
@@ -153,7 +164,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/1025332235969547",
     linkType: "facebook",
-    tags: ["Road", "Carpool", "Group Runs"]
+    tags: ["Road", "Carpool", "Group Runs"],
+    logo: "/images/clubs/halifax-road-runners.svg"
   },
   {
     id: 13,
@@ -166,7 +178,8 @@ export const runClubsData = [
     contact: "Normand.deon@gmail.com",
     website: "mailto:Normand.deon@gmail.com",
     linkType: "email",
-    tags: ["Coached", "Speed", "Training"]
+    tags: ["Coached", "Speed", "Training"],
+    logo: "/images/clubs/halifax-velocity-runners.svg"
   },
   {
     id: 14,
@@ -179,7 +192,8 @@ export const runClubsData = [
     contact: "girlsgonegazelle.com",
     website: "http://www.girlsgonegazelle.com/",
     linkType: "website",
-    tags: ["Girls", "Youth", "Free Program"]
+    tags: ["Girls", "Youth", "Free Program"],
+    logo: "/images/clubs/girls-gone-gazelle.png"
   },
   {
     id: 15,
@@ -192,7 +206,8 @@ export const runClubsData = [
     contact: "Facebook Page",
     website: "https://www.facebook.com/profile.php?id=100063613954850",
     linkType: "facebook",
-    tags: ["Fiddlers Run", "Island Pride", "Road Series"]
+    tags: ["Fiddlers Run", "Island Pride", "Road Series"],
+    logo: "/images/clubs/cape-breton-road-runners.png"
   },
   {
     id: 16,
@@ -205,7 +220,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/northofsmokey/",
     linkType: "facebook",
-    tags: ["Cabot Trail", "Highlands", "Trail & Road"]
+    tags: ["Cabot Trail", "Highlands", "Trail & Road"],
+    logo: "/images/clubs/north-of-smokey-runners.svg"
   },
   {
     id: 17,
@@ -218,7 +234,8 @@ export const runClubsData = [
     contact: "902-574-6580",
     website: "tel:9025746580",
     linkType: "phone",
-    tags: ["Women's Running", "Coastal", "Empowerment"]
+    tags: ["Women's Running", "Coastal", "Empowerment"],
+    logo: "/images/clubs/isle-madame-shes-fast.svg"
   },
   {
     id: 18,
@@ -231,7 +248,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/Scotiables/",
     linkType: "facebook",
-    tags: ["Social", "Dykes", "Valley Views"]
+    tags: ["Social", "Dykes", "Valley Views"],
+    logo: "/images/clubs/the-scotiables.svg"
   },
   {
     id: 19,
@@ -244,7 +262,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/valleyharriers/",
     linkType: "facebook",
-    tags: ["Marathon", "Track", "Acadia"]
+    tags: ["Marathon", "Track", "Acadia"],
+    logo: "/images/clubs/valley-run-collective.jpg"
   },
   {
     id: 20,
@@ -257,7 +276,8 @@ export const runClubsData = [
     contact: "Facebook Page",
     website: "https://www.facebook.com/lunenburgrunclub",
     linkType: "facebook",
-    tags: ["Historic", "Coastal", "Social"]
+    tags: ["Historic", "Coastal", "Social"],
+    logo: "/images/clubs/lunenburg-run-club.svg"
   },
   {
     id: 21,
@@ -270,7 +290,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/110019969129400/",
     linkType: "facebook",
-    tags: ["South Shore", "All Paces", "Friendly"]
+    tags: ["South Shore", "All Paces", "Friendly"],
+    logo: "/images/clubs/the-running-mafia.svg"
   },
   {
     id: 22,
@@ -283,7 +304,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/TruroRunTribe/",
     linkType: "facebook",
-    tags: ["Victoria Park", "Trail & Road", "Tribe"]
+    tags: ["Victoria Park", "Trail & Road", "Tribe"],
+    logo: "/images/clubs/hubtown-runners.svg"
   },
   {
     id: 23,
@@ -296,7 +318,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/525882496278356/",
     linkType: "facebook",
-    tags: ["Highland", "Columbus Field", "Community"]
+    tags: ["Highland", "Columbus Field", "Community"],
+    logo: "/images/clubs/antigonish-county-running-club.svg"
   },
   {
     id: 24,
@@ -309,7 +332,8 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/164780350289263/?ref=share",
     linkType: "facebook",
-    tags: ["Cumberland", "Distance", "Striders"]
+    tags: ["Cumberland", "Distance", "Striders"],
+    logo: "/images/clubs/the-amherst-striders.svg"
   },
   {
     id: 25,
@@ -322,7 +346,8 @@ export const runClubsData = [
     contact: "pictoucountyathletics.ca",
     website: "https://www.pictoucountyathletics.ca/",
     linkType: "website",
-    tags: ["Track & Field", "Youth", "Masters"]
+    tags: ["Track & Field", "Youth", "Masters"],
+    logo: "/images/clubs/pictou-county-athletics.png"
   },
   {
     id: 26,
@@ -335,7 +360,8 @@ export const runClubsData = [
     contact: "kidsrunclub.ca",
     website: "http://www.kidsrunclub.ca/",
     linkType: "website",
-    tags: ["Youth", "Doctors NS", "Free"]
+    tags: ["Youth", "Doctors NS", "Free"],
+    logo: "/images/clubs/kids-run-club.jpg"
   },
   {
     id: 27,
@@ -348,7 +374,22 @@ export const runClubsData = [
     contact: "Facebook Group",
     website: "https://www.facebook.com/groups/2385594841687250/",
     linkType: "facebook",
-    tags: ["Walk-Run", "Beginners", "Inclusive"]
+    tags: ["Walk-Run", "Beginners", "Inclusive"],
+    logo: "/images/clubs/turtlerunners.svg"
+  },
+  {
+    id: 28,
+    name: "Fall River Niko Niko Slow Jogging Club",
+    city: "Fall River",
+    region: "Halifax Metro",
+    location: "Lockview High School, 148 Lockview Rd, Fall River",
+    meets: "Wednesdays at 7:00 PM & Saturdays at 9:00 AM",
+    focus: "Japanese slow jogging method emphasizing joyful smile-pace fitness, lower impact conditioning, and welcoming community movement.",
+    contact: "Facebook Page",
+    website: "https://www.facebook.com/profile.php?id=61593177193629",
+    linkType: "facebook",
+    tags: ["Slow Jogging", "Niko Niko", "All Levels"],
+    logo: "/images/clubs/fall-river-niko-niko.svg"
   }
 ];
 

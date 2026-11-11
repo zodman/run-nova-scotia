@@ -28,7 +28,7 @@ export default function Footer({ onJoinClick }) {
                 id="footer-logo"
                 src="./images/rns-logo.png" 
                 alt="Run Nova Scotia" 
-                className="h-14 w-auto object-contain"
+                className="h-16 sm:h-20 w-auto object-contain"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = "./images/rns-logo.png";
