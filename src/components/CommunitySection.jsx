@@ -86,6 +86,15 @@ export default function CommunitySection() {
     setCurrentPage(1);
   };
 
+  const getLogoUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http') || url.startsWith('data:')) return url;
+    const base = import.meta.env.BASE_URL || './';
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    const cleanPath = url.replace(/^\.?\//, '');
+    return `${cleanBase}${cleanPath}`;
+  };
+
   return (
     <section id="community-section" className="py-24 bg-slate-50 dark:bg-[#0b1627] border-y border-slate-200 dark:border-dark-750 relative transition-colors duration-300">
       <div id="clubs" className="absolute -top-12" />
@@ -238,7 +247,7 @@ export default function CommunitySection() {
                           <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white dark:bg-dark-750 border-2 border-slate-200 dark:border-dark-700/90 p-2 flex items-center justify-center shrink-0 overflow-hidden shadow-sm group-hover:border-volt/60 transition-all">
                             {club.logo ? (
                               <img 
-                                src={club.logo} 
+                                src={getLogoUrl(club.logo)} 
                                 alt={`${club.name} logo`} 
                                 className="w-full h-full object-contain rounded-xl transition-transform duration-300 hover:scale-105"
                                 onError={(e) => {
