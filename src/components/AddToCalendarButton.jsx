@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CalendarPlus, Calendar, Download, ExternalLink, ChevronDown } from 'lucide-react';
 import { createGoogleCalendarUrl, createOutlookCalendarUrl, downloadIcsFile } from '../utils/calendarUtils';
 
-export default function AddToCalendarButton({ event, compact = false, className = '' }) {
+export default function AddToCalendarButton({ 
+  event, 
+  compact = false, 
+  className = '',
+  direction = 'up' // Opens UPWARDS above the button by default so it never clips below cards or footers
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -32,7 +37,7 @@ export default function AddToCalendarButton({ event, compact = false, className 
           setIsOpen(!isOpen);
         }}
         title="Add to personal calendar"
-        className={`inline-flex items-center justify-center font-athletic uppercase tracking-wider transition-all duration-200 rounded-lg border focus:outline-none focus:ring-2 focus:ring-volt/50 ${
+        className={`inline-flex items-center justify-center font-athletic uppercase tracking-wider transition-all duration-200 rounded-lg border focus:outline-none focus:ring-2 focus:ring-volt/50 cursor-pointer ${
           compact
             ? 'px-2.5 py-1.5 text-xs bg-slate-100 hover:bg-slate-200 dark:bg-dark-card dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-white/10'
             : 'px-4 py-2.5 text-xs md:text-sm bg-white dark:bg-dark-card hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100 border-slate-200 dark:border-white/15 shadow-sm'
@@ -46,12 +51,19 @@ export default function AddToCalendarButton({ event, compact = false, className 
       {isOpen && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute right-0 bottom-full mb-2 sm:bottom-auto sm:top-full sm:mt-2 w-56 rounded-xl bg-white dark:bg-[#111622] border border-slate-200 dark:border-white/15 shadow-2xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150 backdrop-blur-md"
+          className={`absolute right-0 w-60 rounded-xl bg-white dark:bg-[#111622] border border-slate-200 dark:border-white/15 shadow-2xl py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150 backdrop-blur-md max-h-64 overflow-y-auto ${
+            direction === 'up'
+              ? 'bottom-full mb-2'
+              : 'top-full mt-2'
+          }`}
         >
-          <div className="px-3 py-1.5 border-b border-slate-100 dark:border-white/10">
-            <p className="text-[10px] font-athletic uppercase tracking-wider text-slate-400 dark:text-slate-400">
+          <div className="sticky top-0 bg-white/95 dark:bg-[#111622]/95 backdrop-blur-sm px-3 py-1.5 border-b border-slate-100 dark:border-white/10 z-10 flex items-center justify-between">
+            <p className="text-[10px] font-athletic uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
               Select Calendar App
             </p>
+            <span className="text-[9px] uppercase tracking-wider font-athletic text-ocean dark:text-volt font-bold">
+              Add Event
+            </span>
           </div>
 
           {/* Google Calendar */}

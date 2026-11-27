@@ -116,7 +116,21 @@ interface EventItem {
 
 ---
 
-### B. Run Clubs & Community Database (`src/data/communityData.js`)
+### B. Live Calendar Subscription Feed (`public/events.ics` & `src/utils/calendarUtils.js`)
+Allows runners to add all races to their personal calendars and **automatically receive live updates** (date changes, location details, registration links):
+- **RFC-5545 Live Feed**: `public/events.ics` contains all 67 events with standard calendar auto-refresh headers (`REFRESH-INTERVAL;VALUE=DURATION:P1D`, `X-PUBLISHED-TTL:P1D`, `X-WR-CALNAME:Run Nova Scotia Race Calendar`).
+- **Generation Script**: `scripts/generate-calendar.mjs` is integrated into npm lifecycle (`"prebuild": "node scripts/generate-calendar.mjs"` and `"build:calendar"`).
+- **Subscribe Modal (`src/components/SubscribeCalendarModal.jsx`)**:
+  - **Apple / iOS**: 1-click subscription via native `webcal://<domain>/events.ics`.
+  - **Google Calendar**: 1-click subscription via `https://calendar.google.com/calendar/r?cid=webcal://...`.
+  - **Microsoft Outlook / 365**: 1-click subscription via `https://outlook.live.com/calendar/0/addcalendar?url=...`.
+  - **Generic Feed URL**: Copyable `events.ics` URL for any calendar client (Thunderbird, Fantastical, etc.).
+  - **Offline Snapshot**: Download button for standalone `.ics` file snapshot.
+- **Header Action**: In `src/components/EventExplorer.jsx`, the "Subscribe to All Races (Live Feed)" button provides instant access to all 67 races.
+
+---
+
+### C. Run Clubs & Community Database (`src/data/communityData.js`)
 Lists **28 registered run clubs** across Nova Scotia, plus the **6 Management Board members** and **Honorary Life Members**.
 
 ```typescript

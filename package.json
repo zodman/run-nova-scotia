@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-calendar.mjs",
     "build": "vite build",
+    "build:calendar": "node scripts/generate-calendar.mjs",
     "preview": "vite preview",
     "sync:events": "node scripts/sync-events.mjs"
   },

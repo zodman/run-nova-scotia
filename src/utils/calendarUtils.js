@@ -110,3 +110,90 @@ export function downloadIcsFile(event) {
   document.body.removeChild(a);
   URL.revokeObjectURL(downloadUrl);
 }
+
+/**
+ * Generates an .ics string containing all provided events
+ */
+export function createAllEventsIcsContent(events = []) {
+  const dtStamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Run Nova Scotia//Full Race Calendar//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:Run Nova Scotia Race Calendar',
+    'X-WR-CALDESC:Official Nova Scotia Road Race & Partner Calendar. Live subscription feed.',
+    'X-WR-TIMEZONE:America/Halifax',
+    'REFRESH-INTERVAL;VALUE=DURATION:P1D',
+    'X-PUBLISHED-TTL:P1D'
+  ];
+
+  events.forEach(event => {
+    if (!event.isoDate) return;
+    const cleanDate = event.isoDate.replace(/-/g, '');
+    const uid = `${event.id || 'race'}-${cleanDate}@runnovascotia.ca`;
+    const summary = (event.name || 'Nova Scotia Race').replace(/,/g, '\\,');
+    const location = (event.location || 'Nova Scotia, Canada').replace(/,/g, '\\,');
+    const description = (event.description || '').replace(/\n/g, '\\n').replace(/,/g, '\\,');
+    const url = event.registrationUrl || event.websiteUrl || 'https://runnovascotia.ca';
+
+    lines.push('BEGIN:VEVENT');
+    lines.push(`UID:${uid}`);
+    lines.push(`DTSTAMP:${dtStamp}`);
+    lines.push(`DTSTART:${cleanDate}T120000Z`);
+    lines.push(`DTEND:${cleanDate}T150000Z`);
+    lines.push(`SUMMARY:🏃 ${summary}`);
+    lines.push(`DESCRIPTION:${description}\\n\\nRegistration & Details: ${url}`);
+    lines.push(`LOCATION:${location}`);
+    lines.push(`URL:${url}`);
+    lines.push('STATUS:CONFIRMED');
+    lines.push('END:VEVENT');
+  });
+
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n');
+}
+
+/**
+ * Downloads a complete .ics file with all events
+ */
+export function downloadAllEventsIcsFile(events = []) {
+  const icsData = createAllEventsIcsContent(events);
+  const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8' });
+  const downloadUrl = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = downloadUrl;
+  a.download = 'run-nova-scotia-calendar.ics';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(downloadUrl);
+}
+
+/**
+ * Resolves feed and subscription URLs for auto-updating calendar integration
+ */
+export function getCalendarSubscriptionUrls() {
+  let origin = 'https://zodman.github.io';
+  let basePath = '/run-nova-scotia/';
+
+  if (typeof window !== 'undefined') {
+    origin = window.location.origin;
+    basePath = window.location.pathname.replace(/\/$/, '') + '/';
+  }
+
+  const icsUrl = `${origin}${basePath}events.ics`;
+  const webcalUrl = icsUrl.replace(/^https?:/, 'webcal:');
+
+  return {
+    icsUrl,
+    webcalUrl,
+    // Google Calendar live subscription feed
+    googleSubscribeUrl: `https://calendar.google.com/calendar/r?cid=${encodeURIComponent(webcalUrl)}`,
+    // Outlook.com / Office 365 live subscription feed
+    outlookSubscribeUrl: `https://outlook.live.com/calendar/0/addcalendar?url=${encodeURIComponent(icsUrl)}&name=Run+Nova+Scotia+Calendar`,
+    // Apple Calendar (macOS, iOS) uses direct webcal:// protocol
+    appleSubscribeUrl: webcalUrl
+  };
+}

@@ -13,10 +13,11 @@ import {
   Flame,
   Layers,
   Car,
-  Link
+  Link,
+  CalendarPlus
 } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, getEventRelativeTimeCompact, addUtmParams } from '../data/eventsData';
-import AddToCalendarButton from './AddToCalendarButton';
+import SubscribeCalendarModal from './SubscribeCalendarModal';
 
 export default function EventExplorer({ 
   onSelectEvent, 
@@ -26,9 +27,9 @@ export default function EventExplorer({
 }) {
   const currentYear = String(new Date().getFullYear());
   const yearFilters = [
+    { value: 'ALL', label: 'All Seasons' },
     { value: '2026', label: '2026 Season' },
-    { value: '2027', label: '2027 Season' },
-    { value: 'ALL', label: 'All Seasons' }
+    { value: '2027', label: '2027 Season' }
   ];
 
   // Default season to actual year if available, otherwise '2026'
@@ -37,9 +38,10 @@ export default function EventExplorer({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDistance, setSelectedDistance] = useState('ALL');
   const [selectedRegion, setSelectedRegion] = useState('ALL');
-  const [statusFilter, setStatusFilter] = useState('PENDING'); // 'ALL', 'PENDING', 'PAST'
-  const [selectedYear, setSelectedYear] = useState(defaultYear); // Default to actual year
-  const [selectedSource, setSelectedSource] = useState('ALL'); // 'ALL', 'Run Nova Scotia', 'Atlantic Chip', 'Route 541'
+  const [statusFilter, setStatusFilter] = useState('ALL'); // Default to 'ALL' (pending first) so full calendar is shown
+  const [selectedYear, setSelectedYear] = useState('ALL'); // Default to 'ALL' so all 67 events are complete by default
+  const [selectedSource, setSelectedSource] = useState('ALL'); // 'ALL', 'Run Nova Scotia', 'Atlantic Chip', 'Route 541', 'Race Roster'
+  const [isSubscribeModalOpen, setIsSubscribeModalOpen] = useState(false);
 
   const sourceFilters = [
     { value: 'ALL', label: 'All Sources' },
@@ -149,22 +151,23 @@ export default function EventExplorer({
       countNormal: normCount,
       countExtra: extCount
     };
-  }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory]);
+  }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory, selectedSource]);
 
-  // Pagination for Events: 12 elements per page (rows of 3 on desktop)
-  const EVENTS_PER_PAGE = 12;
+  // Display mode / Page size: 'ALL' shows complete calendar without truncation, or 12 / 24 per page
+  const [pageSize, setPageSize] = useState('ALL');
   const [currentPage, setCurrentPage] = useState(1);
 
   // Automatically reset to Page 1 when any filter or search changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory]);
+  }, [searchTerm, selectedDistance, selectedRegion, statusFilter, selectedYear, selectedCategory, selectedSource, pageSize]);
 
-  const totalPages = Math.ceil(filteredEvents.length / EVENTS_PER_PAGE) || 1;
+  const effectivePageSize = pageSize === 'ALL' ? Math.max(filteredEvents.length, 1) : Number(pageSize);
+  const totalPages = Math.ceil(filteredEvents.length / effectivePageSize) || 1;
   const clampedPage = Math.min(Math.max(1, currentPage), totalPages);
-  const startIndex = (clampedPage - 1) * EVENTS_PER_PAGE;
-  const endIndex = Math.min(startIndex + EVENTS_PER_PAGE, filteredEvents.length);
-  const paginatedEvents = filteredEvents.slice(startIndex, startIndex + EVENTS_PER_PAGE);
+  const startIndex = (clampedPage - 1) * effectivePageSize;
+  const endIndex = Math.min(startIndex + effectivePageSize, filteredEvents.length);
+  const paginatedEvents = filteredEvents.slice(startIndex, endIndex);
 
   const handlePageChange = (newPage) => {
     const target = Math.min(Math.max(1, newPage), totalPages);
@@ -215,8 +218,20 @@ export default function EventExplorer({
             </p>
           </div>
 
-          {/* Status & Season Badges */}
+          {/* Status & Season Badges & Subscribe Action */}
           <div id="events-header-badges" className="flex flex-wrap items-center gap-2 text-xs uppercase font-athletic tracking-wider">
+            <button
+              id="btn-subscribe-calendar"
+              onClick={() => setIsSubscribeModalOpen(true)}
+              className="px-3.5 py-1.5 bg-volt hover:bg-[#e5d800] text-black border border-volt rounded-lg flex items-center space-x-1.5 font-bold shadow-sm transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              title="Subscribe to all 67 races with automatic live updates in Google, Apple, or Outlook"
+            >
+              <CalendarPlus className="w-3.5 h-3.5 text-black" />
+              <span>Subscribe to All Races (Live Feed)</span>
+            </button>
+            <span id="badge-total-count" className="px-3 py-1.5 bg-slate-100 dark:bg-dark-800 text-slate-900 dark:text-white border border-slate-200 dark:border-dark-700 rounded-lg flex items-center space-x-1.5 font-bold shadow-sm">
+              <span>{eventsData.length} Total Races</span>
+            </span>
             <span id="badge-upcoming-count" className="px-3 py-1.5 bg-volt/20 text-slate-950 dark:text-volt border border-volt/60 dark:border-volt/40 rounded-lg flex items-center space-x-1.5 font-bold shadow-sm">
               <Flame className="w-3.5 h-3.5 text-ocean dark:text-volt" />
               <span>{pendingCount} Upcoming</span>
@@ -463,7 +478,7 @@ export default function EventExplorer({
                   }`}
                 >
                   {/* Top Image & Status Ribbons */}
-                  <div id={`event-card-media-${race.id}`} className="relative h-48 overflow-hidden">
+                  <div id={`event-card-media-${race.id}`} className="relative h-48 rounded-t-2xl overflow-hidden">
                     <img 
                       id={`event-card-image-${race.id}`}
                       src={race.image} 
@@ -703,11 +718,6 @@ export default function EventExplorer({
                       )}
                     </div>
 
-                    {/* Add to Calendar Button */}
-                    <div className="pt-1">
-                      <AddToCalendarButton event={race} compact={true} className="w-full" />
-                    </div>
-
                   </div>
 
                 </div>
@@ -715,38 +725,66 @@ export default function EventExplorer({
             })}
           </div>
 
-          {/* Pagination Controls (12 elements in rows of 3) */}
-          {totalPages > 1 && (
-            <div id="events-pagination" className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-dark-750">
-              <div className="text-xs font-athletic font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 text-center sm:text-left">
-                Showing <span className="text-slate-900 dark:text-white font-bold">{startIndex + 1}–{endIndex}</span> of <span className="text-slate-900 dark:text-white font-bold">{filteredEvents.length}</span> events &bull; Page <span className="text-ocean dark:text-volt font-bold">{clampedPage}</span> of {totalPages}
+          {/* Pagination & Display Controls */}
+          <div id="events-pagination" className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-dark-750">
+            <div className="text-xs font-athletic font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 text-center sm:text-left flex items-center flex-wrap gap-2">
+              {pageSize === 'ALL' ? (
+                <span>Showing all <strong className="text-slate-900 dark:text-white font-bold">{filteredEvents.length}</strong> events across Nova Scotia</span>
+              ) : (
+                <span>
+                  Showing <strong className="text-slate-900 dark:text-white font-bold">{startIndex + 1}–{endIndex}</strong> of <strong className="text-slate-900 dark:text-white font-bold">{filteredEvents.length}</strong> events &bull; Page <strong className="text-ocean dark:text-volt font-bold">{clampedPage}</strong> of {totalPages}
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center space-x-3 flex-wrap gap-y-2">
+              {/* Page size toggle */}
+              <div className="flex items-center space-x-1.5 text-xs font-athletic uppercase tracking-wider">
+                <span className="text-slate-400 font-semibold mr-1">View:</span>
+                {[
+                  { label: `All (${filteredEvents.length})`, value: 'ALL' },
+                  { label: '24', value: '24' },
+                  { label: '12', value: '12' }
+                ].map(opt => (
+                  <button
+                    key={opt.value}
+                    id={`page-size-btn-${opt.value.toLowerCase()}`}
+                    onClick={() => setPageSize(opt.value)}
+                    className={`px-2.5 py-1 rounded-lg transition-all font-bold text-xs cursor-pointer ${
+                      pageSize === opt.value
+                        ? 'bg-volt text-black shadow-sm'
+                        : 'bg-white dark:bg-dark-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-dark-700'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
               </div>
 
-              <div className="flex items-center space-x-2">
-                {/* Prev Button */}
-                <button
-                  id="events-pagination-prev"
-                  onClick={() => handlePageChange(clampedPage - 1)}
-                  disabled={clampedPage === 1}
-                  className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
-                    clampedPage === 1
-                      ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
-                      : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
-                  }`}
-                  aria-label="Previous Events Page"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Prev
-                </button>
-
-                {/* Page Numbers */}
+              {/* Prev / Page Numbers / Next when paginated */}
+              {totalPages > 1 && (
                 <div className="flex items-center space-x-1.5">
+                  <button
+                    id="events-pagination-prev"
+                    onClick={() => handlePageChange(clampedPage - 1)}
+                    disabled={clampedPage === 1}
+                    className={`inline-flex items-center px-3 py-1 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                      clampedPage === 1
+                        ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                        : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                    }`}
+                    aria-label="Previous Events Page"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5 mr-0.5" />
+                    Prev
+                  </button>
+
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                     <button
                       key={pageNum}
                       id={`events-page-${pageNum}`}
                       onClick={() => handlePageChange(pageNum)}
-                      className={`w-9 h-9 rounded-xl text-xs font-athletic font-bold transition-all flex items-center justify-center cursor-pointer ${
+                      className={`w-8 h-8 rounded-xl text-xs font-athletic font-bold transition-all flex items-center justify-center cursor-pointer ${
                         pageNum === clampedPage
                           ? 'bg-volt text-black shadow-md font-extrabold scale-105'
                           : 'bg-white dark:bg-dark-850 hover:bg-slate-100 dark:hover:bg-dark-750 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-dark-750'
@@ -757,28 +795,33 @@ export default function EventExplorer({
                       {pageNum}
                     </button>
                   ))}
-                </div>
 
-                {/* Next Button */}
-                <button
-                  id="events-pagination-next"
-                  onClick={() => handlePageChange(clampedPage + 1)}
-                  disabled={clampedPage === totalPages}
-                  className={`inline-flex items-center px-3.5 py-2 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
-                    clampedPage === totalPages
-                      ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
-                      : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
-                  }`}
-                  aria-label="Next Events Page"
-                >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </button>
-              </div>
+                  <button
+                    id="events-pagination-next"
+                    onClick={() => handlePageChange(clampedPage + 1)}
+                    disabled={clampedPage === totalPages}
+                    className={`inline-flex items-center px-3 py-1 rounded-xl text-xs font-athletic font-bold uppercase tracking-wider transition-all ${
+                      clampedPage === totalPages
+                        ? 'opacity-40 cursor-not-allowed bg-slate-100 dark:bg-dark-800 text-slate-400'
+                        : 'bg-white dark:bg-dark-850 hover:bg-volt hover:text-black dark:hover:bg-volt dark:hover:text-black text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-dark-750 shadow-xs cursor-pointer'
+                    }`}
+                    aria-label="Next Events Page"
+                  >
+                    Next
+                    <ChevronRight className="w-3.5 h-3.5 ml-0.5" />
+                  </button>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
       )}
+
+      {/* Subscribe to All Events Live Calendar Feed Modal */}
+      <SubscribeCalendarModal 
+        isOpen={isSubscribeModalOpen} 
+        onClose={() => setIsSubscribeModalOpen(false)} 
+      />
 
       </div>
     </section>

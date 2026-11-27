@@ -15,6 +15,7 @@ export { default as ChevronDown } from 'lucide-react/dist/esm/icons/chevron-down
 export { default as ChevronLeft } from 'lucide-react/dist/esm/icons/chevron-left.mjs';
 export { default as ChevronRight } from 'lucide-react/dist/esm/icons/chevron-right.mjs';
 export { default as Clock } from 'lucide-react/dist/esm/icons/clock.mjs';
+export { default as Copy } from 'lucide-react/dist/esm/icons/copy.mjs';
 export { default as CreditCard } from 'lucide-react/dist/esm/icons/credit-card.mjs';
 export { default as Database } from 'lucide-react/dist/esm/icons/database.mjs';
 export { default as Download } from 'lucide-react/dist/esm/icons/download.mjs';

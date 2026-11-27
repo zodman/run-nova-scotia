@@ -1,0 +1,815 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Run Nova Scotia//Race Calendar 2026-2027//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Run Nova Scotia Race Calendar
+X-WR-CALDESC:Official Nova Scotia Road Race & Partner Calendar. Live subscription feed.
+X-WR-TIMEZONE:America/Halifax
+REFRESH-INTERVAL;VALUE=DURATION:P1D
+X-PUBLISHED-TTL:P1D
+BEGIN:VEVENT
+UID:rns-march-virtual-challenge-2026-20260301@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260301T120000Z
+DTEND:20260301T150000Z
+SUMMARY:🏃 Run Nova Scotia March Virtual Challenge
+DESCRIPTION:Virtually run Nova Scotia's scenic South Shore! 126km filled with stunning photos courtesy of Tourism Nova Scotia as you log your daily kilometers throughout March.\n\n📍 Distances: 126K Virtual Challenge\n\n🏆 Category: EXTRA\n\n👤 Host: Run Nova Scotia\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=101&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:South Shore (Virtual)\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=101&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:beehive-fives-2026-20260418@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260418T120000Z
+DTEND:20260418T150000Z
+SUMMARY:🏃 Bee Hive Fives
+DESCRIPTION:The official season opener! A fast\, scenic spring loop through orchards and dykelands in picturesque Port Williams\, concluding with fresh local hospitality.\n\n📍 Distances: 5K\, 5.25 Miles\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Valley Harriers\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=85&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Port Williams\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=85&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:olympics-corner-spring-run-off-2026-20260502@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260502T120000Z
+DTEND:20260502T150000Z
+SUMMARY:🏃 Olympics Corner Spring Run-Off
+DESCRIPTION:Scenic rural Annapolis Valley spring opener through Sheffield Mills farmland and orchard roads. Community fundraiser supporting local runners competing at the Blue Nose Marathon.\n\n📍 Distances: 5K\, 10K\n\n🏆 Category: NORMAL\n\n👤 Host: Sheffield Mills Community / Run NS\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=105&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Sheffield Mills\, Kings County\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=105&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:super-shubie-yrs-2026-20260509@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260509T120000Z
+DTEND:20260509T150000Z
+SUMMARY:🏃 Super Shubie — Youth Running Series
+DESCRIPTION:Wear your superhero gear! High-energy Youth Running Series classic winding through Dartmouth's historic Shubie Park trails and canal paths. Inspiring the next generation of Nova Scotia runners.\n\n📍 Distances: .5K\, 1.5K\, 3K Youth Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Youth Running Series / Run NS\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Shubie Park Ballfield\, Dartmouth\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bumrun-5k-2026-20260524@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260524T120000Z
+DTEND:20260524T150000Z
+SUMMARY:🏃 Bumrun 5K
+DESCRIPTION:Raising awareness for colon cancer screening. A spirited\, vibrant 5K course looping through the scenic Dartmouth waterfront and parks.\n\n📍 Distances: 5K\n\n🏆 Category: NORMAL\n\n👤 Host: Bumrun Canada / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/107958/bumrun-halifax-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Dartmouth\, NS
+URL:https://raceroster.com/events/2026/107958/bumrun-halifax-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:met-madness-yrs-2026-20260531@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260531T120000Z
+DTEND:20260531T150000Z
+SUMMARY:🏃 MET Madness — Youth Running Series
+DESCRIPTION:Wear PINK and run against bullying! Energetic youth race at Sackville's Metropolitan Field promoting kindness\, sportsmanship\, and healthy active living for kids of all ages.\n\n📍 Distances: .5K\, 1.5K\, 3K Youth Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Youth Running Series / Run NS\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Metropolitan Field\, Lower Sackville\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:give-a-breath-5k-2026-20260606@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260606T120000Z
+DTEND:20260606T150000Z
+SUMMARY:🏃 Give a Breath 5K
+DESCRIPTION:Give a Breath 5K is coming to Halifax at Shubie Park! Join Canada's leading lung cancer fundraiser for a fun\, family-friendly run or walk with music\, inspiring speakers\, refreshments\, and prize draws in support of lung cancer research.\n\n📍 Distances: 5K Run\, 5K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Give a Breath Foundation / Run NS\n\n🔗 Registration & Details: https://www.giveabreath.ca/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Shubie Park\, Dartmouth\, NS
+URL:https://www.giveabreath.ca/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lunenburg-world-heritage-2026-20260607@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260607T120000Z
+DTEND:20260607T150000Z
+SUMMARY:🏃 Lunenburg World Heritage 5K & Muffin Run
+DESCRIPTION:Run through the UNESCO World Heritage colorful streets of historic Lunenburg with harbor vistas\, followed by the legendary home-baked post-race muffin feast!\n\n📍 Distances: 5K\, Fun Run\n\n🏆 Category: NORMAL\n\n👤 Host: Lunenburg Running Club\n\n🔗 Registration & Details: https://raceroster.com/events/2026/116722/lunenburg-5km-road-race-and-muffin-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Lunenburg\, NS
+URL:https://raceroster.com/events/2026/116722/lunenburg-5km-road-race-and-muffin-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:michelin-tire-trot-2026-20260614@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260614T120000Z
+DTEND:20260614T150000Z
+SUMMARY:🏃 Michelin Tire Trot 5K
+DESCRIPTION:Fast South Shore favorite! An out-and-back PR-friendly course known for strong age-class rivalries and great community support.\n\n📍 Distances: 5K\n\n🏆 Category: NORMAL\n\n👤 Host: Michelin Social Club / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/117891/2026-michelin-tire-trot?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Bridgewater\, NS
+URL:https://raceroster.com/events/2026/117891/2026-michelin-tire-trot?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ulnooweg-solstice-2026-20260620@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260620T120000Z
+DTEND:20260620T150000Z
+SUMMARY:🏃 Ulnooweg Summer Solstice Run
+DESCRIPTION:Celebrate the longest day of the year honoring community health\, wellness\, and Mi'kmaq culture on scenic paved routes through Millbrook.\n\n📍 Distances: 5K\, 10K\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Ulnooweg Education Centre\n\n🔗 Registration & Details: https://raceroster.com/events/2026/115528/ulnooweg-summer-solstice-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Millbrook\, NS
+URL:https://raceroster.com/events/2026/115528/ulnooweg-summer-solstice-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gorsebrook-hill-run-yrs-2026-20260620@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260620T120000Z
+DTEND:20260620T150000Z
+SUMMARY:🏃 Aerobics First Gorsebrook Hill Run — Youth Series
+DESCRIPTION:Wear ORANGE in honour of National Indigenous Peoples Day! A thrilling hill-climb challenge for school-age youth runners around Gorsebrook Field in Halifax's South End.\n\n📍 Distances: .5K\, 1.5K\, 3K Youth Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Aerobics First / Youth Running Series\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Gorsebrook Field\, South End Halifax\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:tatamagouche-beer-run-2026-20260621@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260621T120000Z
+DTEND:20260621T150000Z
+SUMMARY:🏃 Tatamagouche Beer Run
+DESCRIPTION:North Shore favorite! A lively run through coastal farmland finishing at Tatamagouche Brewing Co. with craft beer samples\, live music\, and festive fanfare.\n\n📍 Distances: 5K\, 8K\n\n🏆 Category: EXTRA\n\n👤 Host: Tatamagouche Brewing Co.\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=111&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Tatamagouche\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=111&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:spike-fun-runs-2026-20260627@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260627T120000Z
+DTEND:20260627T150000Z
+SUMMARY:🏃 Spike Family Fun Runs
+DESCRIPTION:Inclusive\, family-centric racing through Kentville's Miner's Marsh and town center. Great stepping stone for runners of all ages.\n\n📍 Distances: 5K\, 10K\, 1K Youth\n\n🏆 Category: EXTRA\n\n👤 Host: Valley Athletics\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=102&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Kentville\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=102&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dick-beazley-arnold-robertson-2026-20260701@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260701T120000Z
+DTEND:20260701T150000Z
+SUMMARY:🏃 Dick Beazley Memorial 6-Mile & Arnold Robertson 2-Mile
+DESCRIPTION:A Canada Day tradition spanning decades! One of the oldest continuous road races in eastern Canada\, celebrating community legends with fierce\, thrilling finishes.\n\n📍 Distances: 2 Mile\, 6 Mile\n\n🏆 Category: NORMAL\n\n👤 Host: Hantsport Lions / Run NS\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=99&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Hantsport\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=99&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:annapolis-royal-5k-2026-20260712@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260712T120000Z
+DTEND:20260712T150000Z
+SUMMARY:🏃 Annapolis Royal 5K
+DESCRIPTION:Stroll or sprint through Canada's oldest settlement cradle along the Annapolis River and Fort Anne national historic grounds.\n\n📍 Distances: 5K\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Historic Annapolis Running\n\n🔗 Registration & Details: https://raceroster.com/events/2026/114451/annapolis-royal-5k?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Annapolis Royal\, NS
+URL:https://raceroster.com/events/2026/114451/annapolis-royal-5k?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:nova-scotia-marathon-2026-20260719@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260719T120000Z
+DTEND:20260719T150000Z
+SUMMARY:🏃 55th Nova Scotia Marathon & Half
+DESCRIPTION:The Lobster Capital of Canada's premier marathon! A certified Boston Qualifier route crossing causeways\, Cape Sable Island lighthouses\, and ocean breezes.\n\n📍 Distances: 6K\, 10K\, Half Marathon\, Full Marathon\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Municipality of Barrington\n\n🔗 Registration & Details: https://raceroster.com/events/2026/108605/55th-annual-nova-scotia-marathon?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Barrington\, NS
+URL:https://raceroster.com/events/2026/108605/55th-annual-nova-scotia-marathon?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:harbour-hustle-2026-20260802@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260802T120000Z
+DTEND:20260802T150000Z
+SUMMARY:🏃 Harbour Hustle 1-Mile
+DESCRIPTION:Pure speed on the Halifax Boardwalk! A high-cadence 1-mile sprint surrounded by thousands of cheerers along the harbourfront.\n\n📍 Distances: 1.6K (1 Mile)\n\n🏆 Category: EXTRA\n\n👤 Host: Halifax Road Hammers\n\n🔗 Registration & Details: https://raceroster.com/events/2026/113721/harbour-hustle-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Halifax Waterfront\, NS
+URL:https://raceroster.com/events/2026/113721/harbour-hustle-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dartmouth-natal-day-2026-20260803@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260803T120000Z
+DTEND:20260803T150000Z
+SUMMARY:🏃 119th Dartmouth Natal Day Road Races
+DESCRIPTION:One of the longest-running continuous sporting events in North America! Roaring crowds line the streets of downtown Dartmouth ahead of the Natal Day parade.\n\n📍 Distances: 2 Mile\, 6 Mile\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Dartmouth Natal Day Committee\n\n🔗 Registration & Details: https://raceroster.com/events/2026/119149/dartmouth-natal-day-road-races-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Dartmouth\, NS
+URL:https://raceroster.com/events/2026/119149/dartmouth-natal-day-road-races-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:middleton-heart-run-2026-20260809@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260809T120000Z
+DTEND:20260809T150000Z
+SUMMARY:🏃 Middleton Heart Run
+DESCRIPTION:Heart of the Valley racing with tranquil shaded country roads\, supporting local cardiovascular health initiatives.\n\n📍 Distances: 5K\, 10K\, Half Marathon\n\n🏆 Category: NORMAL\n\n👤 Host: Soldiers Memorial Hospital Fdn\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=106&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Middleton\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=106&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:louisbourg-race-through-time-2026-20260815@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260815T120000Z
+DTEND:20260815T150000Z
+SUMMARY:🏃 30th Annual Louisbourg Race Through Time
+DESCRIPTION:Run directly through 18th-century French fortress ramparts and wild Atlantic coastal crags. Cannon blasts signal the start!\n\n📍 Distances: 8 Mile\n\n🏆 Category: NORMAL\n\n👤 Host: Cape Breton Road Runners\n\n🔗 Registration & Details: https://www.webscorer.com/register?raceid=427833&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Fortress of Louisbourg\, Cape Breton
+URL:https://www.webscorer.com/register?raceid=427833&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:back-road-bash-5k-2026-20260816@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260816T120000Z
+DTEND:20260816T150000Z
+SUMMARY:🏃 Back Road Bash 5K
+DESCRIPTION:Start and finish at Thorburn Consolidated School. A mostly flat\, out-and-back countryside course through Pictou County back roads. Kids 12 and under run free with shoe giveaway prizes!\n\n📍 Distances: 5K Run\, 5K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Thorburn Community / Run NS\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=104&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Thorburn\, Pictou County\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=104&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:fort-to-fort-experience-2026-20260822@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260822T120000Z
+DTEND:20260822T150000Z
+SUMMARY:🏃 Fort to Fort Experience
+DESCRIPTION:History isn't just something you read about—it's something you experience! Walk\, run\, or cycle between two of Canada's most significant historic sites\, taking in breathtaking coastal views\, quiet country roads\, and centuries of heritage along the Annapolis Basin.\n\n📍 Distances: 5K\, 10K\, Walk / Cycle\n\n🏆 Category: EXTRA\n\n👤 Host: Parks Canada / Annapolis Heritage / Run NS\n\n🔗 Registration & Details: https://www.eventbrite.ca/e/the-fort-to-fort-experience-tickets-1988492371211?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Annapolis Royal to Fort Anne\, NS
+URL:https://www.eventbrite.ca/e/the-fort-to-fort-experience-tickets-1988492371211?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cobequid-trail-run-2026-20260830@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260830T120000Z
+DTEND:20260830T150000Z
+SUMMARY:🏃 Cobequid Trail Run
+DESCRIPTION:Canopy-covered hard-packed trails hugging the Salmon River and tidal bore estuary. Smooth\, fast\, and tranquil.\n\n📍 Distances: 5K\, 10K\, Half Marathon\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Colchester Recreation\n\n🔗 Registration & Details: https://raceroster.com/events/2026/118506/cobequid-trail-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Truro\, NS
+URL:https://raceroster.com/events/2026/118506/cobequid-trail-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:berwick-gala-days-2026-20260906@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260906T120000Z
+DTEND:20260906T150000Z
+SUMMARY:🏃 Berwick Gala Days 5-Mile Road Race
+DESCRIPTION:A Labour Day weekend standard! Fast Annapolis Valley farm roads with a grand community festival finish.\n\n📍 Distances: 5 Mile\n\n🏆 Category: NORMAL\n\n👤 Host: Berwick Gala Committee\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=91&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Berwick\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=91&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:nasty-nuttby-killer-5k-2026-20260912@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260912T120000Z
+DTEND:20260912T150000Z
+SUMMARY:🏃 Nasty Nuttby Killer 5K
+DESCRIPTION:The most brutal hill climb in Nova Scotia! 5 kilometers straight up Nuttby Mountain to the wind turbines with panoramic 360-degree Cobequid views.\n\n📍 Distances: 5K Up-Mountain\n\n🏆 Category: EXTRA\n\n👤 Host: Cobequid Hill Runners\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=109&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Nuttby Mountain\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=109&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:broad-cove-10k-2026-20260912@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260912T120000Z
+DTEND:20260912T150000Z
+SUMMARY:🏃 Broad Cove 10km Fun Run / Walk
+DESCRIPTION:Beloved South Shore coastal road race starting and finishing at Broad Cove Community Hall. Stunning oceanfront scenery\, fresh sea air\, friendly volunteer cheer stations\, and post-race homemade chowder.\n\n📍 Distances: 10K Run\, 10K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Broad Cove Community Association / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/122482/broad-cove-fun-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Broad Cove Community Hall\, Lunenburg County\, NS
+URL:https://raceroster.com/events/2026/122482/broad-cove-fun-run-2026?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:picture-me-in-a-tree-trail-2026-20260912@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260912T120000Z
+DTEND:20260912T150000Z
+SUMMARY:🏃 Picture Me In A Tree Trail Races (5K\, 10K & 6-Hour)
+DESCRIPTION:100% of proceeds directly support Centreville Park enhancement and trail maintenance! Singletrack wooded loops\, roots\, bridges\, and camaraderie for 5K\, 10K\, and 6-hour endurance runners.\n\n📍 Distances: 5K Trail\, 10K Trail\, 6-Hour Ultra\n\n🏆 Category: EXTRA\n\n👤 Host: Centreville Park Trail Committee / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/115661/picture-me-in-a-tree-5-km-10-km-and-6-hour-trail-run-or-walk?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Centreville Park\, Kings County\, NS
+URL:https://raceroster.com/events/2026/115661/picture-me-in-a-tree-5-km-10-km-and-6-hour-trail-run-or-walk?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:penguin-run-2026-20260913@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260913T120000Z
+DTEND:20260913T150000Z
+SUMMARY:🏃 Penguin Run 5K
+DESCRIPTION:Fun\, friendly race supporting regional youth athletics along the Shubenacadie River corridor.\n\n📍 Distances: 5K\n\n🏆 Category: NORMAL\n\n👤 Host: Corridor Community Runners\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=93&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Enfield\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=93&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:glow-on-the-o-yrs-2026-20260918@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260918T120000Z
+DTEND:20260918T150000Z
+SUMMARY:🏃 Royal LePage Atlantic Glow On The O — Youth Series
+DESCRIPTION:Come glow with us! A magical evening twilight run around the Emera Oval under illuminated city lights. Glow sticks\, music\, and electrifying youth energy on the Halifax Common.\n\n📍 Distances: .5K\, 1.5K\, 3K Glow Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Youth Running Series / Royal LePage Atlantic\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Emera Oval\, Halifax Common\, Halifax\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:dartmouth-terry-fox-run-2026-20260920@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260920T120000Z
+DTEND:20260920T150000Z
+SUMMARY:🏃 Dartmouth Terry Fox Run
+DESCRIPTION:Join the annual Dartmouth Terry Fox Run around scenic Sullivan's Pond in support of cancer research. Walk\, run\, wheel\, or cycle in honour of Canadian hero Terry Fox's Marathon of Hope. Open to all ages and abilities with no entry fee and no minimum pledge required.\n\n📍 Distances: 5K\, 10K\, Walk / Run / Roll\n\n🏆 Category: EXTRA\n\n👤 Host: The Terry Fox Foundation\n\n🔗 Registration & Details: https://run.terryfox.ca/130033?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Sullivan's Pond\, Dartmouth\, NS
+URL:https://run.terryfox.ca/130033?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:kicking-pancreas-5k-2026-20260926@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260926T120000Z
+DTEND:20260926T150000Z
+SUMMARY:🏃 Kicking PancreAS 5K
+DESCRIPTION:High-energy charity race around Lake Banook. Fast course raising vital funds for pancreatic cancer research with music\, prizes\, and community enthusiasm.\n\n📍 Distances: 5K\, 1K Fun Run\n\n🏆 Category: NORMAL\n\n👤 Host: Craig's Cause Pancreatic Cancer Society / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/113948/kicking-pancreas-5k-nova-scotia?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Dartmouth\, NS
+URL:https://raceroster.com/events/2026/113948/kicking-pancreas-5k-nova-scotia?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:paradise-apple-fun-run-2026-20260927@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20260927T120000Z
+DTEND:20260927T150000Z
+SUMMARY:🏃 Paradise Apple Fun Run
+DESCRIPTION:Join us for the Paradise Apple Fun Run — a 5km experience as sweet as it sounds! Breathe in the crisp valley autumn air\, feel the crunch of the orchard path beneath your feet\, and soak up the beauty of Paradise along the Harvest Moon Trail.\n\n📍 Distances: 5K Run\, 5K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Paradise Community / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/118932/paradise-apple-fun-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Paradise\, Annapolis County\, NS
+URL:https://raceroster.com/events/2026/118932/paradise-apple-fun-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:trail-mayhem-yrs-2026-20261003@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261003T120000Z
+DTEND:20261003T150000Z
+SUMMARY:🏃 Trail Mayhem — Youth Running Series
+DESCRIPTION:It's the best time of year to visit the valley! Autumn foliage\, scenic ski slope trails\, and exhilarating cross-country running for youth athletes at Martock's OnTree Adventure Park.\n\n📍 Distances: .5K\, 1.5K\, 3K Trail Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Youth Running Series / Ski Martock\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Ontree Adventure Park\, Ski Martock\, Windsor\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:valley-harvest-marathon-2026-20261011@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261011T120000Z
+DTEND:20261011T150000Z
+SUMMARY:🏃 Valley Harvest Marathon\, Half & 10K
+DESCRIPTION:Thanksgiving weekend Atlantic tradition! Scenic course rolling through vibrant autumn foliage\, vineyard vistas\, dykes\, and apple orchards of the Annapolis Valley. Certified Boston Qualifier.\n\n📍 Distances: 5K\, 10K\, Half Marathon\, Full Marathon\, Ultra 50K\n\n🏆 Category: NORMAL\n\n👤 Host: Valley Harvest Committee / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/108812/valley-harvest-marathon?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Wolfville\, NS
+URL:https://raceroster.com/events/2026/108812/valley-harvest-marathon?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:cape-breton-fiddlers-2026-20261018@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261018T120000Z
+DTEND:20261018T150000Z
+SUMMARY:🏃 Cape Breton Fiddlers Marathon
+DESCRIPTION:The crown jewel of autumn Atlantic racing! Certified Boston Qualifier course tracing the Sydney Harbour shoreline\, serenaded by live Cape Breton fiddlers along the route.\n\n📍 Distances: 5K\, 10K\, Half Marathon\, Full Marathon\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Cape Breton Road Runners\n\n🔗 Registration & Details: https://fiddlersmarathon.com/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Sydney\, Cape Breton\, NS
+URL:https://fiddlersmarathon.com/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:run51-womens-health-2026-20261018@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261018T120000Z
+DTEND:20261018T150000Z
+SUMMARY:🏃 Run51 — Moving for Women's Health
+DESCRIPTION:Run51 is a 5.1 km run/walk dedicated to raising awareness and funds for older women's health research. Proceeds from this event support the Women's Age Lab at Women's College Hospital\, Canada's first research lab devoted to aging women's health.\n\n📍 Distances: 5.1K Run\, 5.1K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Women's Age Lab / Run NS\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=82&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Cornwallis Park\, Annapolis Basin\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=82&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:wijewi-run-2026-20261024@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261024T120000Z
+DTEND:20261024T150000Z
+SUMMARY:🏃 The 2026 Wije'wi Run
+DESCRIPTION:Kwe'! - (Hello) Wije'wi means - "come with me" in Mi'kmaw. The priority is fun\, culture\, connection\, physical activity\, and community engagement while promoting healthy active living and wellness. Come on out and run together into Fall!\n\n📍 Distances: 5K Run\, 5K Walk\n\n🏆 Category: NORMAL\n\n👤 Host: Glooscap First Nation / Run NS\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=114&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Glooscap Landing\, Hantsport\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=114&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:scary-beazley-yrs-2026-20261031@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261031T120000Z
+DTEND:20261031T150000Z
+SUMMARY:🏃 Scary Beazley — Youth Running Series
+DESCRIPTION:Wear your Halloween costume if you dare! Ghostly fun\, Halloween candy treats\, and fast running for youth racers around Beazley Fields to celebrate Halloween morning.\n\n📍 Distances: .5K\, 1.5K\, 3K Costume Runs\n\n🏆 Category: EXTRA\n\n👤 Host: Youth Running Series / Dartmouth Athletics\n\n🔗 Registration & Details: https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Beazley Fields\, Dartmouth\, NS
+URL:https://www.youthrunningseries.ca/2026-events?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:rns-year-end-awards-2026-20261107@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261107T120000Z
+DTEND:20261107T150000Z
+SUMMARY:🏃 Run Nova Scotia Year-End Awards Celebration
+DESCRIPTION:Annual awards gala celebrating all series age-class champions\, masters records\, volunteer recognition\, and fellowship. Buffet dinner\, trophies\, and prize giveaways.\n\n📍 Distances: Awards Gala & Banquet\n\n🏆 Category: EXTRA\n\n👤 Host: Run Nova Scotia Board\n\n🔗 Registration & Details: https://runnovascotia.ca/age-class-awards-banquet/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Dartmouth Yacht Club\, NS
+URL:https://runnovascotia.ca/age-class-awards-banquet/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:rns-guesstimate-run-2026-20261108@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261108T120000Z
+DTEND:20261108T150000Z
+SUMMARY:🏃 Run Nova Scotia Fall Guesstimate Run
+DESCRIPTION:The runner's ultimate intuition test! Run without watches\, phones\, or GPS. Predict your finish time to the exact second — closest prediction wins the prize!\n\n📍 Distances: 5K\, 10K\n\n🏆 Category: EXTRA\n\n👤 Host: Run Nova Scotia Executive\n\n🔗 Registration & Details: https://runnovascotia.ca/events/list/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Point Pleasant Park\, Halifax\, NS
+URL:https://runnovascotia.ca/events/list/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:rns-agm-2026-20261109@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261109T120000Z
+DTEND:20261109T150000Z
+SUMMARY:🏃 Run Nova Scotia Annual General Meeting
+DESCRIPTION:The official Annual General Meeting (AGM) of Run Nova Scotia. Electing the Management Board\, reviewing financial reports\, approving series changes\, and shaping the future of road running across Nova Scotia. Open to all active members.\n\n📍 Distances: Annual Member Meeting\n\n🏆 Category: EXTRA\n\n👤 Host: Run Nova Scotia Board of Directors\n\n🔗 Registration & Details: https://runnovascotia.ca/event/2026-rns-agm/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Virtual Meeting (Online)\, NS
+URL:https://runnovascotia.ca/event/2026-rns-agm/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:mahone-bay-reindeer-fun-run-2026-20261205@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261205T120000Z
+DTEND:20261205T150000Z
+SUMMARY:🏃 8th Annual Mahone Bay Reindeer Fun Run
+DESCRIPTION:Light up Mahone Bay at the 8th Annual Mahone Bay Reindeer Fun Run! A festive 3K run/walk along Main Street in historic Mahone Bay in support of the Bayview School Student Equity Fund and Mahone Bay District Fire Department. Costume prizes\, antlers\, red noses\, hot chocolate\, and cookies await you!\n\n📍 Distances: 3K Fun Run / Walk\n\n🏆 Category: EXTRA\n\n👤 Host: Season of Father Christmas / Mahone Bay Fire Dept\n\n🔗 Registration & Details: https://raceroster.com/events/2026/165416/mahone-bay-reindeer-fun-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Main Street\, Mahone Bay\, NS
+URL:https://raceroster.com/events/2026/165416/mahone-bay-reindeer-fun-run?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:santas-resolution-fun-run-2026-20261212@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261212T120000Z
+DTEND:20261212T150000Z
+SUMMARY:🏃 3rd Annual Santa's Resolution Fun Run / Walk
+DESCRIPTION:A runner/walker social event with no focus on racing! Jump start your new year's resolution of staying fit\, keeping connected with friends\, and encouraging each other to stay active over the winter months while having holiday fun on the run!\n\n📍 Distances: 5K Fun Run\, 5K Walk\n\n🏆 Category: EXTRA\n\n👤 Host: Centreville Community / Run NS\n\n🔗 Registration & Details: https://raceroster.com/events/2026/165115/3rd-annual-santas-resolution-fun-runwalk?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Centreville Baptist Church\, Centreville\, NS
+URL:https://raceroster.com/events/2026/165115/3rd-annual-santas-resolution-fun-runwalk?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:rns-monthly-board-meeting-2026-20261214@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261214T120000Z
+DTEND:20261214T150000Z
+SUMMARY:🏃 Run Nova Scotia Monthly Board Meeting
+DESCRIPTION:Run Nova Scotia December 2026 Monthly Board Meeting held via Zoom. Board meetings typically last one hour and are open to all active Run Nova Scotia members to attend\, observe\, or present.\n\n📍 Distances: Member Meeting\n\n🏆 Category: EXTRA\n\n👤 Host: Run Nova Scotia Board of Directors\n\n🔗 Registration & Details: https://runnovascotia.ca/event/2612monthlyboardmeeting/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Virtual Meeting (Online)\, NS
+URL:https://runnovascotia.ca/event/2612monthlyboardmeeting/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:polar-bear-dip-run-2027-20270101@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270101T120000Z
+DTEND:20270101T150000Z
+SUMMARY:🏃 2027 Annual Polar Bear 5K & New Year Dip
+DESCRIPTION:Ring in the 2027 New Year! A crisp\, brisk 5K run along the Halifax Boardwalk followed by the optional historic dip in Halifax Harbour with hot cider and soup.\n\n📍 Distances: 5K\, 1 Mile Fun Run\n\n🏆 Category: EXTRA\n\n👤 Host: Halifax Road Hammers / Run NS\n\n🔗 Registration & Details: https://runnovascotia.ca/events/list/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Halifax Waterfront\, NS
+URL:https://runnovascotia.ca/events/list/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:freeze-your-buns-5k-2027-20270214@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270214T120000Z
+DTEND:20270214T150000Z
+SUMMARY:🏃 2027 Freeze Your Buns 5K Winter Classic
+DESCRIPTION:Beat the winter chill! A heart-pumping Valentine's weekend run through Victoria Park and quiet Truro backstreets followed by hot chili and warm camaraderie.\n\n📍 Distances: 5K\n\n🏆 Category: EXTRA\n\n👤 Host: Colchester Recreation / Run NS\n\n🔗 Registration & Details: https://colchester.ca/recreation?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Truro\, NS
+URL:https://colchester.ca/recreation?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:st-patricks-day-dash-2027-20270314@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270314T120000Z
+DTEND:20270314T150000Z
+SUMMARY:🏃 2027 St. Patrick's Day 5K & 10K
+DESCRIPTION:Wear your green and shake off the winter rust! Festive early-spring road racing along Lake Banook and Sullivan's Pond with Irish jigs at the finish line.\n\n📍 Distances: 5K\, 10K\n\n🏆 Category: NORMAL\n\n👤 Host: Dartmouth Run Club / Run NS\n\n🔗 Registration & Details: https://runnovascotia.ca/road-race-series/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Dartmouth\, NS
+URL:https://runnovascotia.ca/road-race-series/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:night-owl-5k-2027-20270320@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270320T120000Z
+DTEND:20270320T150000Z
+SUMMARY:🏃 Night Owl 5KM
+DESCRIPTION:“Let's have a hoot!” Calling all night owls\, this race is for you. In its 7th year\, this family-friendly 5K running and walking event takes place at night in picturesque Point Pleasant Park with chip timing and headlamps illuminating the trails.\n\n📍 Distances: 5K\n\n🏆 Category: EXTRA\n\n👤 Host: Night Owl Race / Aerobics First\n\n🔗 Registration & Details: https://raceroster.com/events/2027/118153/night-owl-5km?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Point Pleasant Park\, Halifax\, NS
+URL:https://raceroster.com/events/2027/118153/night-owl-5km?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:beehive-fives-2027-20270417@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270417T120000Z
+DTEND:20270417T150000Z
+SUMMARY:🏃 2027 Bee Hive Fives Season Opener
+DESCRIPTION:The official 2027 season opener! A fast\, scenic spring loop through orchards and dykelands in picturesque Port Williams\, concluding with fresh local hospitality.\n\n📍 Distances: 5K\, 5.25 Miles\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Valley Harriers\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=85&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Port Williams\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=85&utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:bluenose-marathon-2027-20270516@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270516T120000Z
+DTEND:20270516T150000Z
+SUMMARY:🏃 2027 Blue Nose Marathon Weekend
+DESCRIPTION:The 'Give'r' weekend that electrifies Nova Scotia! Crossing the Macdonald Bridge between Halifax and Dartmouth with thousands of spectators and roaring finish lines.\n\n📍 Distances: 5K\, 10K\, Half Marathon\, Full Marathon\n\n🏆 Category: PERFORMANCE\n\n👤 Host: Blue Nose Marathon / Run NS\n\n🔗 Registration & Details: https://bluenosemarathon.com/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+LOCATION:Halifax & Dartmouth\, NS
+URL:https://bluenosemarathon.com/?utm_source=runnovascotia&utm_medium=referral&utm_campaign=road_race_series
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:christmas-island-challenge-2026-20261201@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261201T120000Z
+DTEND:20261201T150000Z
+SUMMARY:🏃 Christmas Island Challenge
+DESCRIPTION:Throughout December\, log your kilometers and virtually travel across Cape Breton's legendary Christmas Island! Festive holiday digital badges and winter cheer.\n\n📍 Distances: 50K Virtual\, 100K Virtual\n\n🏆 Category: EXTRA\n\n🏁 Source: Route 541\n\n👤 Host: Route541\n\n🔗 Registration & Details: https://www.route541.com/Events/Summary?EVENT_ID=125
+LOCATION:Christmas Island (Virtual)\, Cape Breton\, NS
+URL:https://www.route541.com/Events/Summary?EVENT_ID=125
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:salomon-toboggan-run-2027-20270116@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270116T120000Z
+DTEND:20270116T150000Z
+SUMMARY:🏃 Salomon Toboggan Run 2027
+DESCRIPTION:Winter trail running adventure through the rugged snow trails of Head of St. Margarets Bay. Snowshoes\, spikes\, and warm camaraderie.\n\n📍 Distances: 5K Trail\, 10K Trail\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Salomon Running / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/165046/salomon-toboggan-run
+LOCATION:Head of St Margarets Bay\, NS
+URL:https://raceroster.com/events/2027/165046/salomon-toboggan-run
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:hypothermic-half-marathon-2027-20270214@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270214T120000Z
+DTEND:20270214T150000Z
+SUMMARY:🏃 Hypothermic Half Marathon 2027 — Halifax
+DESCRIPTION:Winter road running tradition! Beautiful\, crisp winter loop along the Halifax Northwest Arm and Point Pleasant trails with the iconic cozy brunch finish.\n\n📍 Distances: 5K\, 10K\, Half Marathon\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Running Room / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/130390/hypothermic-half-marathon-2027-halifax
+LOCATION:Halifax\, NS
+URL:https://raceroster.com/events/2027/130390/hypothermic-half-marathon-2027-halifax
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:freeze-your-gizzard-2027-20270220@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270220T120000Z
+DTEND:20270220T150000Z
+SUMMARY:🏃 Freeze Your Gizzard 2027
+DESCRIPTION:Legendary Maritime winter running challenge! Test your mettle in the crisp Atlantic winter air with fellow hardy runners from across Nova Scotia and the Maritimes.\n\n📍 Distances: 5K\, Half Marathon\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Atlantic Chip Timing\n\n🔗 Registration & Details: https://raceroster.com/events/2027/166618/freeze-your-gizzard-2027
+LOCATION:Montague\, PEI / Maritimes
+URL:https://raceroster.com/events/2027/166618/freeze-your-gizzard-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:salomon-wascally-wabbit-2027-20270508@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270508T120000Z
+DTEND:20270508T150000Z
+SUMMARY:🏃 Salomon Wascally Wabbit 2027
+DESCRIPTION:High-spirited spring trail running adventure navigating technical single-track\, pine needles\, and scenic vistas through the Wentworth Valley.\n\n📍 Distances: 5K Trail\, 10K Trail\, 15K Trail\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Salomon Running / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/165112/salomon-wascally-wabbit-2027
+LOCATION:Folly Lake\, Wentworth Valley\, NS
+URL:https://raceroster.com/events/2027/165112/salomon-wascally-wabbit-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:kejis-backyard-ultra-2027-20270605@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270605T120000Z
+DTEND:20270605T150000Z
+SUMMARY:🏃 Keji's Backyard Ultra 2027
+DESCRIPTION:Run 4.167 miles (6.706 km) every hour on the hour until only one runner remains! Set in the pristine wilderness of Kejimkujik National Park.\n\n📍 Distances: 6.706K Loops (Backyard Ultra)\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Atlantic Chip Sport Timing\n\n🔗 Registration & Details: https://raceroster.com/events/2027/130671/kejis-backyard-ultra-2027
+LOCATION:Kejimkujik National Park\, Annapolis County\, NS
+URL:https://raceroster.com/events/2027/130671/kejis-backyard-ultra-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:capes-100-2027-20270807@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270807T120000Z
+DTEND:20270807T150000Z
+SUMMARY:🏃 Capes 100 Ultra & Trail Races 2027
+DESCRIPTION:Spectacular coastal ultra marathon along the dramatic cliffs\, headlands\, and towering ocean vistas of Mabou Highlands in Cape Breton.\n\n📍 Distances: 100M\, 100K\, 50K\, Half Marathon\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Capes 100 / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/140391/capes-100
+LOCATION:Mabou\, Cape Breton\, NS
+URL:https://raceroster.com/events/2027/140391/capes-100
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:not-since-moses-2027-20270807@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270807T120000Z
+DTEND:20270807T150000Z
+SUMMARY:🏃 Not Since Moses 2027
+DESCRIPTION:Run on the ocean floor of the Bay of Fundy at extreme low tide! Dash across mudflats\, ancient cliffs\, and exposed sea beds before the world's highest tides return.\n\n📍 Distances: 5K Ocean Floor\, 10K Ocean Floor\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Not Since Moses / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/139907/not-since-moses
+LOCATION:Five Islands\, Bay of Fundy\, NS
+URL:https://raceroster.com/events/2027/139907/not-since-moses
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:gran-fondo-baie-sainte-marie-2027-20270912@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270912T120000Z
+DTEND:20270912T150000Z
+SUMMARY:🏃 Gran Fondo Baie Sainte-Marie 2027
+DESCRIPTION:Celebrate vibrant Acadian culture\, stunning ocean views along Saint Mary's Bay\, and world-renowned lobster rolls and musical cheer.\n\n📍 Distances: 5K\, 10K\, Cycling & Running Festivals\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Municipality of Clare / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/166949/gran-fondo-baie-sainte-marie-2027
+LOCATION:Saulnierville\, Clare\, NS
+URL:https://raceroster.com/events/2027/166949/gran-fondo-baie-sainte-marie-2027
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:skyler-blackie-challenge-2027-20271003@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20271003T120000Z
+DTEND:20271003T150000Z
+SUMMARY:🏃 Skyler Blackie Fit To Be A Hero Challenge 2027
+DESCRIPTION:Honouring firefighter Skyler Blackie. Community fitness challenge raising mental health and first responder awareness with scenic routes through Truro.\n\n📍 Distances: 5K Memorial Run\, Obstacle Course\n\n🏆 Category: EXTRA\n\n🏁 Source: Atlantic Chip\n\n👤 Host: Skyler Blackie Memorial / Atlantic Chip\n\n🔗 Registration & Details: https://raceroster.com/events/2027/166883/skyler-blackie-fit-to-be-a-hero-challenge
+LOCATION:Truro\, NS
+URL:https://raceroster.com/events/2027/166883/skyler-blackie-fit-to-be-a-hero-challenge
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:runwalk-united-way-2026-20261126@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261126T120000Z
+DTEND:20261126T150000Z
+SUMMARY:🏃 RUN/WALK for Government United Way 2026
+DESCRIPTION:Annual public service RUN/WALK uniting provincial employees\, runners\, and walkers across Nova Scotia to support United Way community initiatives.\n\n📍 Distances: 5K Walk / Run\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Government of Nova Scotia United Way Campaign / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2026/165990/runwalk-for-government-united-way-2026
+LOCATION:Nova Scotia (Province-wide)\, NS
+URL:https://raceroster.com/events/2026/165990/runwalk-for-government-united-way-2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:snow-folk-shuffle-2026-20261205@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261205T120000Z
+DTEND:20261205T150000Z
+SUMMARY:🏃 Snow Folk Shuffle 2026
+DESCRIPTION:Get a running start to the Holidays! Takin’ it to Quinpool Road in Halifax for a festive community 5K fun run celebrating local businesses and winter spirit.\n\n📍 Distances: 5K\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Quinpool Road Mainstreet District / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2026/164664/snow-folk-shuffle-2026
+LOCATION:Halifax (6166 Quinpool Rd)\, NS
+URL:https://raceroster.com/events/2026/164664/snow-folk-shuffle-2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:santa-shuffle-halifax-2026-20261205@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261205T120000Z
+DTEND:20261205T150000Z
+SUMMARY:🏃 2026 Santa Shuffle Halifax: Fun Run & Elf Walk
+DESCRIPTION:The annual Salvation Army Santa Shuffle 5K Fun Run and 1K Elf Walk brings communities together to raise meaningful support for vulnerable families during the holidays.\n\n📍 Distances: 5K Fun Run\, 1K Elf Walk\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: The Salvation Army / Running Room\n\n🔗 Registration & Details: https://raceroster.com/events/2026/130582/2026-santa-shuffle-halifax-fun-run-and-elf-walk
+LOCATION:Lower Sackville (51 Metropolitan Ave)\, NS
+URL:https://raceroster.com/events/2026/130582/2026-santa-shuffle-halifax-fun-run-and-elf-walk
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:ugly-christmas-sweater-run-2026-20261206@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20261206T120000Z
+DTEND:20261206T150000Z
+SUMMARY:🏃 Ugly Christmas Sweater Run 2026
+DESCRIPTION:A festive holiday tradition! Put on your best (or ugliest) Christmas sweater for a scenic 5K\, 10K\, or 1K Kids Run along the Tidal Bore road in Lower Truro.\n\n📍 Distances: 10K\, 5K\, 1K Kids\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Colchester Runners / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2026/165017/ugly-christmas-sweater-run-2026
+LOCATION:Lower Truro (103 Tidal Bore Rd)\, NS
+URL:https://raceroster.com/events/2026/165017/ugly-christmas-sweater-run-2026
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:pick-and-shovel-showdown-2027-20270123@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270123T120000Z
+DTEND:20270123T150000Z
+SUMMARY:🏃 2027 Pick & Shovel Showdown
+DESCRIPTION:The 5th edition of The Pick & Shovel Showdown at Cheema Aquatic Club on Lake Thomas. An 8-hour winter endurance challenge across rugged frozen trails and lakeside tracks.\n\n📍 Distances: 8-Hour Endurance Run\, Winter Snowshoe Challenge\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Cheema Racing / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2027/166591/2027-pick-and-shovel-showdown
+LOCATION:Waverley (Cheema Aquatic Club)\, NS
+URL:https://raceroster.com/events/2027/166591/2027-pick-and-shovel-showdown
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:red-barn-relay-2027-20270703@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270703T120000Z
+DTEND:20270703T150000Z
+SUMMARY:🏃 Red Barn Relay 2027
+DESCRIPTION:Come and join us in Mabou for the thrilling 160km Red Barn Relay! Teams of 2\, 3\, or 4 tackle majestic coastal highlands and Celtic shores of Western Cape Breton.\n\n📍 Distances: 160K Ultra Relay (Teams of 2\, 3\, or 4)\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Mabou Trail Society / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2027/165405/red-barn-relay
+LOCATION:Mabou\, Cape Breton\, NS
+URL:https://raceroster.com/events/2027/165405/red-barn-relay
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:frankies-vertical-backyard-ultra-2027-20270925@runnovascotia.ca
+DTSTAMP:20261127T020047Z
+DTSTART:20270925T120000Z
+DTEND:20270925T150000Z
+SUMMARY:🏃 Frankie's Vertical Backyard Ultra 2027
+DESCRIPTION:Canada's first 'vertical' backyard ultra! An Everest-style test of grit and quad power climbing the steep hills of Cape Mabou every hour on the hour until one runner remains.\n\n📍 Distances: Vertical Backyard Ultra (Everest Challenge)\n\n🏆 Category: EXTRA\n\n🏁 Source: Race Roster\n\n👤 Host: Frankie's Trail Events / Race Roster\n\n🔗 Registration & Details: https://raceroster.com/events/2027/165113/frankies-vertical-backyard-ultra
+LOCATION:Mabou\, Cape Breton\, NS
+URL:https://raceroster.com/events/2027/165113/frankies-vertical-backyard-ultra
+STATUS:CONFIRMED
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -11,6 +11,7 @@ export default defineConfig({
     ],
   },
   optimizeDeps: {
+    exclude: ['lucide-react'],
     include: [
       'react', 
       'react-dom', 
@@ -39,6 +40,10 @@ export default defineConfig({
         },
       },
     },
+  },
+  preview: {
+    port: 3000,
+    host: true
   },
   server: {
     port: 3000,
