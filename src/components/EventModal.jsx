@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, MapPin, Calendar, ExternalLink, ShieldCheck, Award, Flag, ArrowRight, CheckCircle, Trophy, Clock, Globe, Car } from 'lucide-react';
 import { isEventPending, getEventDaysDelta, getEventRelativeTime, addUtmParams } from '../data/eventsData';
+import AddToCalendarButton from './AddToCalendarButton';
 
 export default function EventModal({ event, onClose, onJoinClick }) {
   if (!event) return null;
@@ -148,6 +149,9 @@ export default function EventModal({ event, onClose, onJoinClick }) {
           </div>
 
           {/* Member Discount or Results Notice */}
+          {/* Add to Calendar Button */}
+          <AddToCalendarButton event={event} />
+
           {pending ? (
             <div id="event-modal-discount-notice" className="bg-volt/15 dark:bg-volt/10 border border-volt/50 dark:border-volt/30 rounded-xl p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -253,6 +257,9 @@ export default function EventModal({ event, onClose, onJoinClick }) {
             <ExternalLink className="w-3 h-3 opacity-60" />
           </a>
           
+          {/* Add to Calendar Button */}
+          <AddToCalendarButton event={event} />
+
           {pending ? (
             <a
               id="event-modal-register-btn"

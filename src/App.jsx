@@ -138,6 +138,7 @@ export default function App() {
       {/* Footer */}
       <Footer 
         onJoinClick={() => handleOpenJoinModal()}
+        onOpenImportModal={() => setIsImportModalOpen(true)}
       />
 
       {/* Interactive Modals (Code-Split / Loaded on Demand) */}

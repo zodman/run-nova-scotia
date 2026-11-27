@@ -16,6 +16,7 @@ import {
   Link
 } from 'lucide-react';
 import { eventsData, isEventPending, getEventDaysDelta, getEventRelativeTime, getEventRelativeTimeCompact, addUtmParams } from '../data/eventsData';
+import AddToCalendarButton from './AddToCalendarButton';
 
 export default function EventExplorer({ 
   onSelectEvent, 
@@ -38,6 +39,15 @@ export default function EventExplorer({
   const [selectedRegion, setSelectedRegion] = useState('ALL');
   const [statusFilter, setStatusFilter] = useState('PENDING'); // 'ALL', 'PENDING', 'PAST'
   const [selectedYear, setSelectedYear] = useState(defaultYear); // Default to actual year
+  const [selectedSource, setSelectedSource] = useState('ALL'); // 'ALL', 'Run Nova Scotia', 'Atlantic Chip', 'Route 541'
+
+  const sourceFilters = [
+    { value: 'ALL', label: 'All Sources' },
+    { value: 'Run Nova Scotia', label: 'Run NS Calendar' },
+    { value: 'Atlantic Chip', label: 'Atlantic Chip' },
+    { value: 'Route 541', label: 'Route 541' },
+    { value: 'Race Roster', label: 'Race Roster' }
+  ];
   
   // Controlled or uncontrolled category state ('ALL', 'PERFORMANCE', 'NORMAL', 'EXTRA')
   const [internalCategory, setInternalCategory] = useState('ALL');
@@ -98,10 +108,13 @@ export default function EventExplorer({
       const matchCategory = selectedCategory === 'ALL' || event.category === selectedCategory;
 
       // Search text match
+      const searchLower = searchTerm.toLowerCase();
       const matchSearch = 
-        event.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.organizer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.name.toLowerCase().includes(searchLower) ||
+        event.location.toLowerCase().includes(searchLower) ||
+        event.organizer.toLowerCase().includes(searchLower) ||
+        (event.type && event.type.toLowerCase().includes(searchLower)) ||
+        (event.description && event.description.toLowerCase().includes(searchLower)) ||
         String(event.year).includes(searchTerm);
 
       // Distance match
@@ -111,7 +124,10 @@ export default function EventExplorer({
       // Region match
       const matchRegion = selectedRegion === 'ALL' || event.region === selectedRegion;
 
-      return matchYear && matchCategory && matchSearch && matchDistance && matchRegion;
+      // Source match (Run NS, Atlantic Chip, Route 541)
+      const matchSource = selectedSource === 'ALL' || (event.source || 'Run Nova Scotia') === selectedSource;
+
+      return matchYear && matchCategory && matchSearch && matchDistance && matchRegion && matchSource;
     });
 
     // Season-scoped counts for status and category buttons
@@ -281,6 +297,27 @@ export default function EventExplorer({
               >
                 Past ({pastCount})
               </button>
+            </div>
+
+            {/* Source Filter */}
+            <div id="events-source-selector" className="flex items-center space-x-1.5 flex-wrap gap-y-1">
+              <span className="text-xs uppercase tracking-wider font-athletic text-slate-500 dark:text-slate-400 font-semibold mr-1">
+                Source:
+              </span>
+              {sourceFilters.map((s) => (
+                <button
+                  key={s.value}
+                  id={`source-filter-btn-${s.value.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={() => setSelectedSource(s.value)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-athletic uppercase tracking-wider font-semibold transition-all cursor-pointer ${
+                    selectedSource === s.value
+                      ? 'bg-volt text-black shadow-md font-bold'
+                      : 'bg-white dark:bg-dark-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-300 dark:border-dark-700 shadow-sm'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
             </div>
 
           </div>
@@ -524,6 +561,16 @@ export default function EventExplorer({
                               <span>Dr. Jeff Ratushny</span>
                             </span>
                           )}
+                          {race.source === 'Atlantic Chip' && (
+                            <span className="px-1.5 py-0.5 bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/30 rounded text-[9px] font-athletic font-bold uppercase tracking-wider">
+                              Atlantic Chip
+                            </span>
+                          )}
+                          {race.source === 'Route 541' && (
+                            <span className="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 rounded text-[9px] font-athletic font-bold uppercase tracking-wider">
+                              Route 541
+                            </span>
+                          )}
                         </div>
                         <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
                           Year: {race.year}
@@ -654,6 +701,11 @@ export default function EventExplorer({
                           <Trophy className="w-3 h-3 text-ocean dark:text-volt" />
                         </a>
                       )}
+                    </div>
+
+                    {/* Add to Calendar Button */}
+                    <div className="pt-1">
+                      <AddToCalendarButton event={race} compact={true} className="w-full" />
                     </div>
 
                   </div>

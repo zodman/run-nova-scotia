@@ -70,7 +70,14 @@ run-nova-scotia/
 ## 4. Key Domain Models & Data Schemas
 
 ### A. Events Database (`src/data/eventsData.js`)
-Synchronized directly with the official [runnovascotia.ca/events/list/](https://runnovascotia.ca/events/list/) calendar. Contains **48 sanctioned events** spanning 2026 and 2027.
+Synchronized directly with:
+1. Official [runnovascotia.ca/events/list/](https://runnovascotia.ca/events/list/) calendar (Tribe Events API)
+2. [runnovascotia.ca/road-race-series/](https://runnovascotia.ca/road-race-series/) sanctioned road race series
+3. [Atlantic Chip Timing API](https://timer.raceroster.com/widgets/api/g7QHLyu5Ejpahe7MWgnqXcz?offset=0) (embedded on `atlanticchip.ca/events`)
+4. [Route 541 Upcoming Events](https://www.route541.com/Events/UpcomingEvents)
+5. [Race Roster Nova Scotia Upcoming Search](https://search.raceroster.com/search?q=nova%20scotia&t=upcoming) (Race Roster Search API)
+
+Contains **67 events** spanning 2026 and 2027.
 
 ```typescript
 interface EventItem {
@@ -83,17 +90,18 @@ interface EventItem {
   region: string;               // "Halifax Metro" | "South Shore" | "Annapolis Valley" | "Northern NS" | "Cape Breton"
   distances: string[];          // e.g., ["5K", "10K", "Half Marathon"]
   category: "PERFORMANCE" | "NORMAL" | "EXTRA"; // Series classification
-  type: string;                 // "Road Race Series" | "Performance Series" | "Youth Series" | "Festive Fun Run"
+  source?: "Run Nova Scotia" | "Atlantic Chip" | "Route 541" | "Race Roster"; // Feed source
+  type: string;                 // "Road Race Series" | "Performance Series" | "Youth Series" | "Winter Trail Run" | etc.
   organizer: string;            // Club or community organizer
   description: string;          // Full event summary
   courseType: string;           // Course characteristics (e.g. "Paved Road Loops & Waterfront")
   price: string;                // Registration cost range + RNS discount notice
   registrationUrl: string;      // Direct registration URL with RNS UTM parameters
   websiteUrl: string;           // Official event listing URL on runnovascotia.ca
-  badge: string;                // Highlight badge (e.g. "Season Finale", "Major BQ")
+  badge: string;                // Highlight badge (e.g. "Season Finale", "Major BQ", "Race Roster")
   elevation: string;            // Terrain profile
   resultsUrl: string;           // Atlantic Chip or official timing results link
-  image: string;                // Unsplash high-res thumbnail
+  image: string;                // High-res event photo or logo
   driveTimeFromHalifax: string; // Approximate driving time from Halifax
   mapsUrl: string;              // Google Maps deep link
 }
@@ -185,6 +193,9 @@ npm run build
 
 # 4. Preview production build locally
 npm run preview
+
+# 5. Audit & sync events with official runnovascotia.ca calendar
+npm run sync:events
 ```
 
 ### Git Deployment Workflow
@@ -193,7 +204,8 @@ Pushing to the `main` branch automatically triggers the `.github/workflows/deplo
 ---
 
 ## 7. Current Project State & Recent Achievements
-- **48 Official Events:** Fully synchronized with [runnovascotia.ca](https://runnovascotia.ca/events/list/). Direct registration URLs mapped for Route541, RaceRoster, Eventbrite, Webscorer, and Youth Running Series.
+- **67 Official & Multi-Source Events:** Fully synchronized with [runnovascotia.ca](https://runnovascotia.ca/events/list/), [road-race-series](https://runnovascotia.ca/road-race-series/), [Atlantic Chip API](https://timer.raceroster.com/widgets/api/g7QHLyu5Ejpahe7MWgnqXcz?offset=0), [Route 541](https://www.route541.com/Events/UpcomingEvents), and [Race Roster](https://search.raceroster.com/search?q=nova%20scotia&t=upcoming).
+- **Add to Calendar Export:** Full support for Google Calendar, Apple Calendar (.ics), and Outlook across all event cards and details modals.
 - **28 Local Run Club Logos:** 100% saved in `public/images/clubs/` (0 remote CDN dependencies, no expiring tokens).
 - **Enlarged Logo Display:** Club cards feature `w-20 h-20 sm:w-24 sm:h-24` logos with rounded container and fallback. Main brand header uses `h-14 sm:h-16 md:h-18`.
 - **Membership Carousel:** Responsive pricing cards with `lg:w-[calc((100%-4.5rem)/3.3)]` displaying 3 full cards plus a ~30% peek of the 4th card.

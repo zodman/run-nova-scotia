@@ -6,6 +6,7 @@ export { default as ArrowUpRight } from 'lucide-react/dist/esm/icons/arrow-up-ri
 export { default as Award } from 'lucide-react/dist/esm/icons/award.mjs';
 export { default as Banknote } from 'lucide-react/dist/esm/icons/banknote.mjs';
 export { default as Calendar } from 'lucide-react/dist/esm/icons/calendar.mjs';
+export { default as CalendarPlus } from 'lucide-react/dist/esm/icons/calendar-plus.mjs';
 export { default as Car } from 'lucide-react/dist/esm/icons/car.mjs';
 export { default as Check } from 'lucide-react/dist/esm/icons/check.mjs';
 export { default as CheckCircle } from 'lucide-react/dist/esm/icons/check-circle.mjs';
@@ -15,6 +16,8 @@ export { default as ChevronLeft } from 'lucide-react/dist/esm/icons/chevron-left
 export { default as ChevronRight } from 'lucide-react/dist/esm/icons/chevron-right.mjs';
 export { default as Clock } from 'lucide-react/dist/esm/icons/clock.mjs';
 export { default as CreditCard } from 'lucide-react/dist/esm/icons/credit-card.mjs';
+export { default as Database } from 'lucide-react/dist/esm/icons/database.mjs';
+export { default as Download } from 'lucide-react/dist/esm/icons/download.mjs';
 export { default as ExternalLink } from 'lucide-react/dist/esm/icons/external-link.mjs';
 export { default as Filter } from 'lucide-react/dist/esm/icons/filter.mjs';
 export { default as Flag } from 'lucide-react/dist/esm/icons/flag.mjs';
@@ -29,6 +32,7 @@ export { default as Menu } from 'lucide-react/dist/esm/icons/menu.mjs';
 export { default as MenuIcon } from 'lucide-react/dist/esm/icons/menu.mjs';
 export { default as Moon } from 'lucide-react/dist/esm/icons/moon.mjs';
 export { default as Phone } from 'lucide-react/dist/esm/icons/phone.mjs';
+export { default as RefreshCw } from 'lucide-react/dist/esm/icons/refresh-cw.mjs';
 export { default as Search } from 'lucide-react/dist/esm/icons/search.mjs';
 export { default as Send } from 'lucide-react/dist/esm/icons/send.mjs';
 export { default as ShieldAlert } from 'lucide-react/dist/esm/icons/shield-alert.mjs';
