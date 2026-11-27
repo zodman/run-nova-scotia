@@ -170,7 +170,7 @@ export default function SubscribeCalendarModal({ isOpen, onClose }) {
             </div>
             <button
               onClick={() => downloadAllEventsIcsFile(eventsData)}
-              className="px-3.5 py-2 bg-white dark:bg-dark-card hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-white/15 rounded-lg text-xs font-athletic uppercase tracking-wider font-semibold transition-colors flex items-center space-x-1.5 cursor-pointer"
+              className="px-3.5 py-2 bg-white hover:bg-slate-100 dark:bg-dark-800 dark:hover:bg-dark-700 text-slate-800 dark:text-slate-200 hover:text-ocean dark:hover:text-volt border border-slate-300 dark:border-dark-650 rounded text-xs font-athletic uppercase tracking-wider font-semibold transition-colors flex items-center space-x-1.5 cursor-pointer shadow-sm"
             >
               <Download className="w-3.5 h-3.5 text-ocean dark:text-volt" />
               <span>Download .ics File</span>

@@ -64,6 +64,7 @@ export default {
           650: '#27446e',
           600: '#345586',
           500: '#4870aa',
+          card: '#0d1d36',
         }
       },
       fontFamily: {
