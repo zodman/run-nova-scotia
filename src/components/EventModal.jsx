@@ -148,24 +148,6 @@ export default function EventModal({ event, onClose, onJoinClick }) {
             </div>
           </div>
 
-          {/* Add to Personal Calendar Card */}
-          <div id="event-modal-calendar-card" className="bg-slate-50 dark:bg-dark-850 p-4 rounded-xl border border-slate-200 dark:border-dark-750 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-lg bg-ocean/10 dark:bg-volt/15 border border-ocean/20 dark:border-volt/30 flex items-center justify-center text-ocean dark:text-volt flex-shrink-0">
-                <Calendar className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="font-athletic text-sm uppercase font-bold text-slate-900 dark:text-white block">
-                  Add Race to Calendar
-                </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">
-                  Sync schedule with Google Calendar, Apple iCal (.ics), or Outlook.
-                </span>
-              </div>
-            </div>
-            <AddToCalendarButton event={event} direction="down" />
-          </div>
-
           {pending ? (
             <div id="event-modal-discount-notice" className="bg-volt/15 dark:bg-volt/10 border border-volt/50 dark:border-volt/30 rounded-xl p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">

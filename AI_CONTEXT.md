@@ -77,7 +77,7 @@ Synchronized directly with:
 4. [Route 541 Upcoming Events](https://www.route541.com/Events/UpcomingEvents)
 5. [Race Roster Nova Scotia Upcoming Search](https://search.raceroster.com/search?q=nova%20scotia&t=upcoming) (Race Roster Search API)
 
-Contains **67 events** spanning 2026 and 2027.
+Contains **69 events** spanning 2026 and 2027 (28 upcoming, 41 completed; 49 in 2026, 20 in 2027).
 
 ```typescript
 interface EventItem {
@@ -118,7 +118,7 @@ interface EventItem {
 
 ### B. Live Calendar Subscription Feed (`public/events.ics` & `src/utils/calendarUtils.js`)
 Allows runners to add all races to their personal calendars and **automatically receive live updates** (date changes, location details, registration links):
-- **RFC-5545 Live Feed**: `public/events.ics` contains all 67 events with standard calendar auto-refresh headers (`REFRESH-INTERVAL;VALUE=DURATION:P1D`, `X-PUBLISHED-TTL:P1D`, `X-WR-CALNAME:Run Nova Scotia Race Calendar`).
+- **RFC-5545 Live Feed**: `public/events.ics` contains all 69 events with standard calendar auto-refresh headers (`REFRESH-INTERVAL;VALUE=DURATION:P1D`, `X-PUBLISHED-TTL:P1D`, `X-WR-CALNAME:Run Nova Scotia Race Calendar`).
 - **Generation Script**: `scripts/generate-calendar.mjs` is integrated into npm lifecycle (`"prebuild": "node scripts/generate-calendar.mjs"` and `"build:calendar"`).
 - **Subscribe Modal (`src/components/SubscribeCalendarModal.jsx`)**:
   - **Apple / iOS**: 1-click subscription via native `webcal://<domain>/events.ics`.
